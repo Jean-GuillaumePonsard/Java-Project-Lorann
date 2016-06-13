@@ -9,6 +9,7 @@
 	<name>Master POM</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<javadocExecutable>${java.home}/../jdk1.8.0_92/bin/javadoc</javadocExecutable>		
 	</properties>
 	<modules>
 		<module>view</module>
