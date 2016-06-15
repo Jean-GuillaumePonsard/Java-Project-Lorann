@@ -1,5 +1,7 @@
 package controller;
 
+
+
 import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
@@ -15,7 +17,7 @@ public class Controller implements IController {
 	private IView		view;
 
 	/** The model. */
-	private IModel	model;
+	private IModel		model;
 
 	/**
 	 * Instantiates a new controller.
@@ -83,5 +85,4 @@ public class Controller implements IController {
 				break;
 		}
 	}
-
 }
