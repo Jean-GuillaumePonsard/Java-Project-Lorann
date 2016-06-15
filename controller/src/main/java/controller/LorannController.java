@@ -51,13 +51,27 @@ public class LorannController implements IController {
 	private void setModel(final IModel model) {
 		this.model = model;
 	}
-	public void actionPerformed(ActionEvent e){
-		
-	}
+	/*
+	 * (non-javadoc)
+	 * 
+	 * @see contract.Iview#keyPressed
+	 */
 	public void keyPressed(KeyEvent e){
 		
 	}
-
+	/*
+	 * (non-javadoc)
+	 * 
+	 */
+	private boolean getBlocked(final int x, final int y){
+		return false;
+	}
+	
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see contract.IController#orderPerform(contract.ControllerOrder)
+	 */
 	public void orderPerform(ControllerOrder controllerOrder) {
 		// TODO Auto-generated method stub
 		
