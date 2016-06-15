@@ -18,7 +18,7 @@ import contract.IView;
  *
  * @author Franz Alliod
  */
-public class LaurannView implements IView, Runnable {
+public class LorannView implements IView, Runnable {
 
 	/** The frame. */
 	private final ViewFrame viewFrame;
@@ -29,7 +29,7 @@ public class LaurannView implements IView, Runnable {
 	 * @param model
 	 *          the model
 	 */
-	public LaurannView(final IModel model) {
+	public LorannView(final IModel model) {
 		this.viewFrame = new ViewFrame(model);
 		SwingUtilities.invokeLater(this);
 		}
