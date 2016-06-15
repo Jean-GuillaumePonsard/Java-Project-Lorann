@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Observable;
 import java.util.Observer;
@@ -11,7 +12,7 @@ import javax.swing.JPanel;
  *
  * @author Jean-Aymeric Diet
  */
-class LaurannViewPanel extends JPanel implements Observer {
+class LorannViewPanel extends JPanel implements Observer {
 
 	/** The view frame. */
 	private ViewFrame					viewFrame;
@@ -24,7 +25,7 @@ class LaurannViewPanel extends JPanel implements Observer {
 	 * @param viewFrame
 	 *          the view frame
 	 */
-	public ViewPanel(final ViewFrame viewFrame) {
+	public LorannViewPanel(final ViewFrame viewFrame) {
 		this.setViewFrame(viewFrame);
 		viewFrame.getModel().getObservable().addObserver(this);
 	}
@@ -54,6 +55,8 @@ class LaurannViewPanel extends JPanel implements Observer {
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
 	public void update(final Observable arg0, final Object arg1) {
+		this.removeAll();
+		this.initViewPanel()
 		this.repaint();
 	}
 
@@ -64,6 +67,8 @@ class LaurannViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
+		graphics.setColor(Color.BLACK);
+		graphics.fillRect(0, 0, this.getWidth(), this.getHeight());
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
 		graphics.drawString(this.getViewFrame().getModel().getMessage(), 10, 20);
 	}

@@ -8,6 +8,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 
@@ -34,7 +35,7 @@ class LaurannViewFrame extends JFrame implements KeyListener {
 	 * @throws HeadlessException
 	 *           the headless exception
 	 */
-	public ViewFrame(final IModel model) throws HeadlessException {
+	public LorannViewFrame(final IModel model) throws HeadlessException {
 		this.buildViewFrame(model);
 	}
 
@@ -46,7 +47,7 @@ class LaurannViewFrame extends JFrame implements KeyListener {
 	 * @param gc
 	 *          the gc
 	 */
-	public ViewFrame(final IModel model, final GraphicsConfiguration gc) {
+	public LorannViewFrame(final IModel model, final GraphicsConfiguration gc) {
 		super(gc);
 		this.buildViewFrame(model);
 	}
@@ -61,7 +62,7 @@ class LaurannViewFrame extends JFrame implements KeyListener {
 	 * @throws HeadlessException
 	 *           the headless exception
 	 */
-	public ViewFrame(final IModel model, final String title) throws HeadlessException {
+	public LorannViewFrame(final IModel model, final String title) throws HeadlessException {
 		super(title);
 		this.buildViewFrame(model);
 	}
@@ -76,7 +77,7 @@ class LaurannViewFrame extends JFrame implements KeyListener {
 	 * @param gc
 	 *          the gc
 	 */
-	public ViewFrame(final IModel model, final String title, final GraphicsConfiguration gc) {
+	public LorannViewFrame(final IModel model, final String title, final GraphicsConfiguration gc) {
 		super(title, gc);
 		this.buildViewFrame(model);
 	}
@@ -140,12 +141,45 @@ class LaurannViewFrame extends JFrame implements KeyListener {
 
 
 	/**
-	 * When key is pressed, do something.
+	 * Key code for controller.
 	 *
-	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
+	 * @param keyCode
+	 *          the key code
+	 * @return the controller order
 	 */
-	public void keyPressed(final KeyEvent e) {
-		this.getController().orderPerform(View.keyCodeToControllerOrder(e.getKeyCode()));
-	}
+	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode, final int keyCode2) 
+	{
+		switch (keyCode) 
+		{
+			case KeyEvent.VK_UP:
+				switch(keyCode2)
+				{
+					//case KeyEvent.VK_LEFT: return ControllerOrder.UPPERLEFT;
+					//case KeyEvent.VK_RIGHT: return ControllerOrder.UPPERRIGHT;
+					default: return ControllerOrder.UP;
+				}
+			case KeyEvent.VK_DOWN:
+				switch(keyCode2)
+				{
+					//case KeyEvent.VK_LEFT: return ControllerOrder.DOWNLEFT;
+					//case KeyEvent.VK_RIGHT: return ControllerOrder.DOWNRIGHT;
+					default: return ControllerOrder.DOWN;
+				}
+			case KeyEvent.VK_LEFT:
+				switch(keyCode2)
+				{
+					//case KeyEvent.VK_UP: return ControllerOrder.UPPERLEFT;
+					//case KeyEvent.VK_DOWN: return ControllerOrder.DOWNLEFT;
+					default: return ControllerOrder.LEFT;
+				}
+			case KeyEvent.VK_RIGHT:
+				switch(keyCode2)
+				{
+					//case KeyEvent.VK_UP: return ControllerOrder.UPPERRIGHT;
+					//case KeyEvent.VK_DOWN: return ControllerOrder.DOWNRIGHT;
+					default: return ControllerOrder.RIGHT;
+				}
+			default:
+				return ControllerOrder.NOP;
 		}
 
