@@ -6,7 +6,9 @@ public class Spell extends MotionElement {
 	
 	public Spell(int x, int y, String url)
 	{
-		//super(url, permability.PENETRABLE)
+		super(url, Permeability.PENETRABLE);
+		/*setX(x);
+		  setY(y);*/
 	}
 	
 	public SpellStatement getSpellStatement()

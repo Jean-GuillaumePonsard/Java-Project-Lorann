@@ -6,7 +6,10 @@ public class Lorann extends MotionElement {
 	
 	public Lorann(int x, int y, String url)
 	{
-		
+		super(url, Permeability.PENETRABLE);
+		/*setX(x);
+		  setY(y);
+		  lorannStatement = LorannStatement.UP*/
 	}
 
 	public LorannStatement getLorannStatement() {
