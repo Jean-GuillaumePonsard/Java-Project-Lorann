@@ -50,20 +50,46 @@ public class LorannController implements IController {
 	private void setModel(final IModel model) {
 		this.model = model;
 	}
+	
 	/*
-	 * (non-javadoc)
+	 * appeler la méthode pour bouger Lorann en fonction de la touche utilisé
 	 * 
 	 * @see contract.Iview#keyPressed
 	 */
 	public void keyPressed(KeyEvent e){
 		
 	}
+	
 	/*
 	 * (non-javadoc)
 	 * 
 	 */
 	private boolean getBlocked(final int x, final int y){
 		return false;
+	}
+	
+	/*
+	 * evite au monstre de rester bloquer contre un mur et le fait suivre Lorann
+	 * 
+	 */
+	public void monsterAi(){
+		
+	}
+	
+	/*
+	 * Lance le sort de Lorann
+	 * 
+	 */
+		public void launchSpell(){
+		
+	}
+	
+	/*
+	 * Fait mourir Lorann si un monstre se trouve aux même coordonées que Lorann
+	 * 
+	 */
+	public void Die(){
+		
 	}
 	
 	/*
