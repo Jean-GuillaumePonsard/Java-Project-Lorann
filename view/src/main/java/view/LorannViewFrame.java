@@ -34,7 +34,7 @@ class LaurannViewFrame extends JFrame implements KeyListener {
 	 * @throws HeadlessException
 	 *           the headless exception
 	 */
-	public ViewFrame(final IModel model) throws HeadlessException {
+	public LorannViewFrame(final IModel model) throws HeadlessException {
 		this.buildViewFrame(model);
 	}
 
@@ -46,7 +46,7 @@ class LaurannViewFrame extends JFrame implements KeyListener {
 	 * @param gc
 	 *          the gc
 	 */
-	public ViewFrame(final IModel model, final GraphicsConfiguration gc) {
+	public LorannViewFrame(final IModel model, final GraphicsConfiguration gc) {
 		super(gc);
 		this.buildViewFrame(model);
 	}
@@ -61,7 +61,7 @@ class LaurannViewFrame extends JFrame implements KeyListener {
 	 * @throws HeadlessException
 	 *           the headless exception
 	 */
-	public ViewFrame(final IModel model, final String title) throws HeadlessException {
+	public LorannViewFrame(final IModel model, final String title) throws HeadlessException {
 		super(title);
 		this.buildViewFrame(model);
 	}
@@ -76,7 +76,7 @@ class LaurannViewFrame extends JFrame implements KeyListener {
 	 * @param gc
 	 *          the gc
 	 */
-	public ViewFrame(final IModel model, final String title, final GraphicsConfiguration gc) {
+	public LorannViewFrame(final IModel model, final String title, final GraphicsConfiguration gc) {
 		super(title, gc);
 		this.buildViewFrame(model);
 	}

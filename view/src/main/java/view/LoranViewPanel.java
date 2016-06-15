@@ -1,4 +1,4 @@
-package view;
+ackage view;
 
 import java.awt.Graphics;
 import java.util.Observable;
@@ -11,7 +11,7 @@ import javax.swing.JPanel;
  *
  * @author Jean-Aymeric Diet
  */
-class LaurannViewPanel extends JPanel implements Observer {
+class LorannViewPanel extends JPanel implements Observer {
 
 	/** The view frame. */
 	private ViewFrame					viewFrame;
@@ -24,7 +24,7 @@ class LaurannViewPanel extends JPanel implements Observer {
 	 * @param viewFrame
 	 *          the view frame
 	 */
-	public ViewPanel(final ViewFrame viewFrame) {
+	public LorannViewPanel(final ViewFrame viewFrame) {
 		this.setViewFrame(viewFrame);
 		viewFrame.getModel().getObservable().addObserver(this);
 	}

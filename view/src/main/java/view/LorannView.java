@@ -62,7 +62,7 @@ public class LaurannView implements IView, Runnable {
 	 this.viewFrame.setVisible(false);
 	 } 
 /**
- * Add all sprites 1 per 1 to build each level
+ * Draws map
  */
 		
 	 	public void drawMap()
