@@ -135,11 +135,6 @@ class LaurannViewFrame extends JFrame implements KeyListener {
 		this.setSize(400 + this.getInsets().left + this.getInsets().right, 60 + this.getInsets().top + this.getInsets().bottom);
 		this.setLocationRelativeTo(null);
 	}
-
-	
-	
-
-
 	/**
 	 * Key code for controller.
 	 *
@@ -147,8 +142,30 @@ class LaurannViewFrame extends JFrame implements KeyListener {
 	 *          the key code
 	 * @return the controller order
 	 */
+	
+	public void keyPressed(KeyEvent e) {
+        if ((e.getKeyCode() == KeyEvent.VK_UP) && ((e.getModifiers() & KeyEvent.VK_LEFT) != 0)) {
+        	return ControllerOrder.UPLEFT; } 
+        
+    public void keyPressed2(KeyEvent e) {
+            if ((e.getKeyCode() == KeyEvent.VK_UP) && ((e.getModifiers() & KeyEvent.VK_RIGHT) != 0)) {
+            	return ControllerOrder.UPRIGHT; } }
+            
+    public void keyPressed3(KeyEvent e) {
+                if ((e.getKeyCode() == KeyEvent.VK_DOWN) && ((e.getModifiers() & KeyEvent.VK_LEFT) != 0)) {
+                	return ControllerOrder.DOWNLEFT; } }
+                
+    public void keyPressed4(KeyEvent e) {
+                    if ((e.getKeyCode() == KeyEvent.VK_DOWN) && ((e.getModifiers() & KeyEvent.VK_RIGHT) != 0)) {
+                    	return ControllerOrder.DOWNRIGHT; } }	
+	
+	
+	
+	
 	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode, final int keyCode2) 
 	{
+		
+	
 		switch (keyCode) 
 		{
 			case KeyEvent.VK_UP:
@@ -182,4 +199,5 @@ class LaurannViewFrame extends JFrame implements KeyListener {
 			default:
 				return ControllerOrder.NOP;
 		}
-
+			}		
+				}	
