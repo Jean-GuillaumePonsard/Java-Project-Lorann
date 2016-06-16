@@ -1,16 +1,22 @@
 package model;
 
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
 public class Element {
 
-	private Sprite sprite;
 	private Permeability permeability;
 	private int x;
 	private int y;
+	private Image image;
 	
 	
 	public Element(String url, Permeability permeability)
 	{
-		setSprite(new Sprite(url));
+		setImage(url);
 		this.permeability = permeability;
 	}
 	
@@ -23,12 +29,24 @@ public class Element {
 		this.permeability = permeability;
 	}
 	
-	public Sprite getSprite() {
-		return sprite;
+	public Image getImage() {
+		return this.image;
+	}
+
+	public void setImage(Image image) {
+		this.image = image;
 	}
 	
-	public void setSprite(Sprite sprite) {
-		this.sprite = sprite;
+	public void setImage(String url)
+	{
+		//Another method to set the Sprite of an object
+		try{
+			
+			this.image = ImageIO.read(new File("C:/Users/Jean-Guillaume P/Documents/Exia/Projet Java/Java/Java-Project-Lorann/model/src/main/resources/"+url));
+			
+		}catch(IOException e){
+			e.printStackTrace();
+		}
 	}
 
 
