@@ -39,13 +39,22 @@ public interface IModel {
  // TO DO
 	
 	
-	Dimension getD();
+	
 	
 	int getDimensionMapX();
 	
 	int getDimensionMapY();
-
-	int getScore();
+	
+/** Dimension encapsulates the width and height of a component in a single object
+ * 
+ * 
+ * @return the Dimension
+ */
+	
+	Dimension getD();
+	
 
 	Icon getImageElement(int y, int x);
+	
+	int getScore();
 }
