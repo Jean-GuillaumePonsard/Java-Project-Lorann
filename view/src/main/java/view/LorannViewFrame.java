@@ -19,15 +19,19 @@ import contract.IModel;
  *
  * @author Franz Alliod
  */
-class LaurannViewFrame extends JFrame implements KeyListener {
+class LorannViewFrame extends JFrame implements KeyListener {
 
 	/** The model. */
+	
 	private IModel						model;
-	private Timer timer = new Timer(1000,this);
+	// private Timer timer = new Timer(1000,this); à faire ?
 
 	/** The controller. */
+	
 	private IController				controller;
+	
 	/** The Constant serialVersionUID. */
+	
 	private static final long	serialVersionUID	= -697358409737458175L;
 
 	/**
@@ -131,6 +135,7 @@ class LaurannViewFrame extends JFrame implements KeyListener {
 	 */
 	private void buildViewFrame(final IModel model) {
 		this.setModel(model);
+		this.setTitle("Lorran 2");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.addKeyListener(this);
@@ -145,24 +150,6 @@ class LaurannViewFrame extends JFrame implements KeyListener {
 	 *          the key code
 	 * @return the controller order
 	 */
-	
-	public void keyPressed(KeyEvent e) {
-        if ((e.getKeyCode() == KeyEvent.VK_UP) && ((e.getModifiers() & KeyEvent.VK_LEFT) != 0)) {
-        	return ControllerOrder.UPLEFT; } 
-        
-    public void keyPressed2(KeyEvent e) {
-            if ((e.getKeyCode() == KeyEvent.VK_UP) && ((e.getModifiers() & KeyEvent.VK_RIGHT) != 0)) {
-            	return ControllerOrder.UPRIGHT; } }
-            
-    public void keyPressed3(KeyEvent e) {
-                if ((e.getKeyCode() == KeyEvent.VK_DOWN) && ((e.getModifiers() & KeyEvent.VK_LEFT) != 0)) {
-                	return ControllerOrder.DOWNLEFT; } }
-                
-    public void keyPressed4(KeyEvent e) {
-                    if ((e.getKeyCode() == KeyEvent.VK_DOWN) && ((e.getModifiers() & KeyEvent.VK_RIGHT) != 0)) {
-                    	return ControllerOrder.DOWNRIGHT; } }	
-	
-	
 	
 	
 	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode, final int keyCode2) 
@@ -199,8 +186,31 @@ class LaurannViewFrame extends JFrame implements KeyListener {
 					//case KeyEvent.VK_DOWN: return ControllerOrder.DOWNRIGHT;
 					default: return ControllerOrder.RIGHT;
 				}
+				
+			case KeyEvent.VK_SPACE:
+				switch(keyCode2)
+				{
+					//case KeyEvent.VK_UP: return ControllerOrder.UPPERRIGHT;
+					//case KeyEvent.VK_DOWN: return ControllerOrder.DOWNRIGHT;
+					default: return ControllerOrder.LAUNCHSPELL;
+				}
 			default:
 				return ControllerOrder.NOP;
 		}
-			}		
-				}	
+			}
+
+	public void keyPressed(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+				}

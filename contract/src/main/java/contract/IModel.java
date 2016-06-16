@@ -1,6 +1,9 @@
 package contract;
 
+import java.awt.Dimension;
 import java.util.Observable;
+
+import javax.swing.Icon;
 
 /**
  * The Interface IModel.
@@ -30,4 +33,19 @@ public interface IModel {
 	 * @return the observable
 	 */
 	Observable getObservable();
+	
+	
+	
+ // TO DO
+	
+	
+	Dimension getD();
+	
+	int getDimensionMapX();
+	
+	int getDimensionMapY();
+
+	int getScore();
+
+	Icon getImageElement(int y, int x);
 }

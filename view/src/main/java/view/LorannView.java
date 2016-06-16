@@ -1,7 +1,5 @@
 package view;
 
-import java.awt.event.KeyEvent;
-import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -60,17 +58,15 @@ public class LorannView implements IView, Runnable {
 	 public void closeFrame() {
 	
 	 this.viewFrame.setVisible(false);
-	 } 
-	 
-	 
-	 
-	 
-	 
-/**
- * Draws map
- */
+	 }
+
+	public void run() {
+		// TODO Auto-generated method stub
 		
-	 	public void drawMap()
-{
-}
-}
+	}
+
+	public void printMessage(String message) {
+		// TODO Auto-generated method stub
+		
+	} 
+		}
