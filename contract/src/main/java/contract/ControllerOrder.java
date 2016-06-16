@@ -13,12 +13,10 @@ public enum ControllerOrder {
 	Deutsch, /** The Indonesia. */
 	Indonesia,
 	
-	// TO DO
-	
-	LAUNCHSPELL,
 	UP,
 	DOWN,
+	LEFT,
 	RIGHT,
-	LEFT
+	LAUNCHSPELL,
 	
 }

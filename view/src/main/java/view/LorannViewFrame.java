@@ -194,10 +194,8 @@ class LorannViewFrame extends JFrame implements KeyListener {
 					//case KeyEvent.VK_DOWN: return ControllerOrder.DOWNRIGHT;
 					default: return ControllerOrder.LAUNCHSPELL;
 				}
-			default:
-				return ControllerOrder.NOP;
+			}	
 		}
-			}
 
 	public void keyPressed(KeyEvent arg0) {
 		// TODO Auto-generated method stub

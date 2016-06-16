@@ -102,7 +102,7 @@ public class LorannController implements IController {
 			case RIGHT:
 				this.view.printMessage("Right");
 				break;
-			case SPACE:
+			case LAUNCHSPELL:
 				this.view.printMessage("Space");
 				break;
 			default:
