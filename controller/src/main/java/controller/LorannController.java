@@ -1,6 +1,6 @@
 package controller;
 
-import java.awt.event.KeyEvent;
+
 
 import contract.ControllerOrder;
 import contract.IController;
@@ -52,15 +52,6 @@ public class LorannController implements IController {
 	}
 	
 	/*
-	 * appeler la méthode pour bouger Lorann en fonction de la touche utilisé
-	 * 
-	 * @see contract.Iview#keyPressed
-	 */
-	public void keyPressed(KeyEvent e){
-		
-	}
-	
-	/*
 	 * (non-javadoc)
 	 * 
 	 */
@@ -80,7 +71,7 @@ public class LorannController implements IController {
 	 * Lance le sort de Lorann
 	 * 
 	 */
-		public void launchSpell(){
+	public void launchSpell(){
 		
 	}
 	
@@ -98,7 +89,33 @@ public class LorannController implements IController {
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	public void orderPerform(ControllerOrder controllerOrder) {
-		// TODO Auto-generated method stub
-		
+		switch (controllerOrder){
+			case UP:
+				this.view.printMessage("UP");
+				break;
+			case DOWN:
+				this.view.printMessage("Down");
+				break;
+			case LEFT:
+				this.view.printMessage("Left");
+				break;
+			case RIGHT:
+				this.view.printMessage("Right");
+				break;
+			case SPACE:
+				this.view.printMessage("Space");
+				break;
+			default:
+				break;		
+		}
 	}
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see contract.IController#control()
+	 */
+	public void control() {
+		this.view.printMessage("Appuyer sur les touches 'Z', 'UP', 'S', 'DOWN', 'Q', 'LEFT', 'RIGHT' ou 'D', pour afficher la direction choisit.");
+	}
+
 }

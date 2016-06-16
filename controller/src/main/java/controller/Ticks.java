@@ -13,7 +13,7 @@ public class Ticks implements Runnable  {
 	 * (non-javadoc)
 	 * 
 	 */
-	public Ticks(LorannController loranncontrolller){
+	public Ticks(LorannController loranncontroller){
 		this.loranncontroller = loranncontroller;
 	}
 
