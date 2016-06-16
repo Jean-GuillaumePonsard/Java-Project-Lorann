@@ -56,7 +56,7 @@ class LorannViewPanel extends JPanel implements Observer {
 	 */
 	public void update(final Observable arg0, final Object arg1) {
 		this.removeAll();
-		this.initViewPanel()
+		this.initViewPanel();
 		this.repaint();
 	}
 

@@ -1343,7 +1343,7 @@ DELIMITER |
 CREATE PROCEDURE ElementByMap (IN LevelMap INT)
 BEGIN
 
-SELECT Element.url, ElementByMap.idElement, ElementByMap.x, ElementByMap.y
+SELECT ElementByMap.idElement, ElementByMap.x, ElementByMap.y, Element.url
 
 FROM ElementByMap JOIN Element ON ElementByMap.idElement = Element.idElement JOIN LorannMap ON ElementByMap.idMap = LorannMap.idMap  
 

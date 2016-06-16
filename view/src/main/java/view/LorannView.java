@@ -61,6 +61,11 @@ public class LorannView implements IView, Runnable {
 	
 	 this.viewFrame.setVisible(false);
 	 } 
+	 
+	 
+	 
+	 
+	 
 /**
  * Draws map
  */

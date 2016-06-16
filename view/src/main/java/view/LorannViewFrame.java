@@ -4,6 +4,8 @@ import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Timer;
+import java.util.TimerTask.
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -21,6 +23,7 @@ class LaurannViewFrame extends JFrame implements KeyListener {
 
 	/** The model. */
 	private IModel						model;
+	private Timer timer = new Timer(1000,this);
 
 	/** The controller. */
 	private IController				controller;
@@ -131,8 +134,8 @@ class LaurannViewFrame extends JFrame implements KeyListener {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.addKeyListener(this);
-		this.setContentPane(new ViewPanel(this));
-		this.setSize(400 + this.getInsets().left + this.getInsets().right, 60 + this.getInsets().top + this.getInsets().bottom);
+		this.setContentPane(new LorannViewPanel(this));
+		this.setSize(640, 384);
 		this.setLocationRelativeTo(null);
 	}
 	/**
