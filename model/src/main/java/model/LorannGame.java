@@ -3,7 +3,7 @@ package model;
 public class LorannGame {
 
 	private LorannMap lorannMap;
-	private Element Element[][];
+	
 	
 	
 	public LorannGame()
@@ -21,14 +21,5 @@ public class LorannGame {
 		this.lorannMap = lorannMap;
 	}
 
-
-	public Element[][] getElement() {
-		return Element;
-	}
-
-
-	public void setElement(Element element[][]) {
-		Element = element;
-	}
 	
 }
