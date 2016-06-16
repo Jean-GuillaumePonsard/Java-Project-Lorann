@@ -2,7 +2,9 @@ package model;
 
 public class LorannMap {
 
-	private Element Element[][];
+	private Element element[][];
+	private Lorann lorann;
+	
 	
 	
 	private int widht;
@@ -18,23 +20,43 @@ public class LorannMap {
 	}
 	
 	
-	public Element[][] getElement() {
-		return Element;
+	public Element[][] getElements() {
+		return element;
+	}
+	
+	public void addElement(Element element, final int x, final int y)
+	{
+		this.element[x][y] = element;
 	}
 
 
-	public void setElement(Element element[][]) {
-		Element = element;
+	public void setElement(Element element, int x, int y) {
+		this.element[x][y] = element;
+	}
+	
+	public Element getElement(int x, int y)
+	{
+		if(x < 0 || y <0)
+		{
+			return null;
+		}
+		
+		return element;
 	}
 
 
 	public int getWidht() {
-		return widht;
+		return this.widht;
 	}
 
 
 	public int getHeight() {
-		return height;
+		return this.height;
+	}
+	
+	public Lorann getLorann()
+	{
+		return this.lorann;
 	}
 
 	
