@@ -4,13 +4,25 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+ * The Class TestElement.
+ *
+ * @author Adrien Thevenet alias chaospreader
+ */
 public class TestElement {
 
+	/**
+	 * test method for {@link model.Element#Element(String, Permeability)}
+	 * whit a random image url taken on the Internet
+	 * 
+	 */
 	@Test
 	public void testElement() {
-		
+		assertNotNull(new model.Element("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", Permeability.PENETRABLE));
 	}
-
+/**
+ * test method for {@link model.Element#getPermeability()}
+ */
 	@Test
 	public void testGetPermeability() {
        double rand = Math.random();
@@ -24,6 +36,9 @@ public class TestElement {
         }
 	}
 
+	/**
+	 * test method for {@link model.Element#setPermeability(Permeability)}
+	 */
 	@Test
 	public void testSetPermeability() {
 		double rand = Math.random();
@@ -38,17 +53,32 @@ public class TestElement {
         	assertEquals(Permeability.PENETRABLE, element.getPermeability());
         }
 	}
-
+	/*
+	 * test method for {@link model.Element#getImage()}
+	 * 
+	 * to review
+	 */
 	@Test
-	public void testGetSprite() {
-		fail("Not yet implemented");
+	public void testGetImage() {
+		model.Element element = new model.Element("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", Permeability.BLOCKING);
+		assertEquals("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", element.getImage());
+		}
+	
+	/*
+	 * test method for {@link model.Element#setImage(String)}
+	 * 
+	 * to review
+	 */
+	@Test
+	public void testSetImage() {
+		model.Element element = new model.Element("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", Permeability.BLOCKING);
+		element.setImage("http://www.laboiteverte.fr/wp-content/uploads/2014/11/element-jeu-video-06.jpg");
+		assertEquals("http://www.laboiteverte.fr/wp-content/uploads/2014/11/element-jeu-video-06.jpg", element.getImage());
 	}
 
-	@Test
-	public void testSetSprite() {
-		fail("Not yet implemented");
-	}
-
+	/**
+	 * test method for {@link model.Element#getX()}
+	 */
 	@Test
 	public void testGetX() {
         model.Element element = new model.Element("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", Permeability.BLOCKING);
@@ -57,6 +87,9 @@ public class TestElement {
         assertEquals(x, element.getX());
 	}
 
+	/**
+	 * test method for {@link model.Element#setX(int)}
+	 */
 	@Test
 	public void testSetX() {
         model.Element element = new model.Element("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", Permeability.BLOCKING);
@@ -65,6 +98,9 @@ public class TestElement {
         assertEquals(x, element.getX());
 	}
 
+	/**
+	 * test method for {@link model.Element#getY()}
+	 */
 	@Test
 	public void testGetY() {
 		  model.Element element = new model.Element("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", Permeability.BLOCKING);
@@ -73,6 +109,9 @@ public class TestElement {
 	        assertEquals(y, element.getY());
 	}
 
+	/**
+	 * test method for {@link model.Element#setY(int)}
+	 */
 	@Test
 	public void testSetY() {
 		model.Element element = new model.Element("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", Permeability.BLOCKING);
