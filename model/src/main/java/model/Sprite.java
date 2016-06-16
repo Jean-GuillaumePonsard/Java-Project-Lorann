@@ -8,7 +8,7 @@ public class Sprite {
 	
 	public Sprite(String url)
 	{
-		
+		//TEST
 	}
 
 	public Image getImage() {
