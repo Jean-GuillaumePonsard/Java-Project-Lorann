@@ -9,7 +9,10 @@ package model;
 public class MotionElement extends Element {
 
 	/** 
-	 *	Instantiates a new mobileElement 
+	 *	Instantiates a new mobileElement.
+	 *
+	 * @param url
+	 * @param permeability
 	 */
 	
 	public MotionElement(String url, Permeability permeability)

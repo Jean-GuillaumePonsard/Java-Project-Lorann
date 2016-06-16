@@ -9,7 +9,11 @@ package model;
 public class Loot extends MotionlessElement {
 
 	/** 
-	 *	Instantiates a new Loot 
+	 *	Instantiates a new Loot
+	 * 
+	 * @param x
+	 * @param y
+	 * @param url
 	 */
 	
 	public Loot(int x, int y, String url)

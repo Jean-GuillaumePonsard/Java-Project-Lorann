@@ -9,7 +9,11 @@ package model;
 public class Monster extends MotionElement {
 
 	/** 
-	 *	Instantiates a new monster 
+	 *	Instantiates a new monster.
+	 * 
+	 * @param x
+	 * @param y
+	 * @param url
 	 */
 	
 	public Monster(int x, int y, String url)

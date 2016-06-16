@@ -10,6 +10,9 @@ public class MotionlessElement extends Element {
 
 	/** 
 	 *	Instantiates a new MotionlessElement 
+	 *
+	 * @param url
+	 * @param permeability
 	 */
 	
 	public MotionlessElement(String url, Permeability permeability)

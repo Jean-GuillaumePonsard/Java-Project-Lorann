@@ -8,6 +8,6 @@ package model;
 
 public enum GateStatement {
 
-	LOCK,	/** The Door is locked */
-	OPEN	/** The Door is opened */
+	LOCK,	/** The Door is locked. */
+	OPEN	/** The Door is opened. */
 }

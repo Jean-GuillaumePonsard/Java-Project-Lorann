@@ -9,7 +9,11 @@ package model;
 public class Wall extends MotionlessElement {
 
 	/** 
-	 *	Instantiates a new wall 
+	 *	Instantiates a new wall.
+	 * 
+	 * @param x
+	 * @param y
+	 * @param url
 	 */
 	
 	public Wall(int x, int y, String url)

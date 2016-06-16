@@ -29,6 +29,9 @@ public class Element {
 	
 	/** 
 	 *	Instantiates a new Element 
+	 *
+	 *	@param url
+	 *	@param permeability
 	 */
 	
 	public Element(String url, Permeability permeability)

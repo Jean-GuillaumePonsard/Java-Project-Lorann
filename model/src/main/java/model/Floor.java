@@ -9,7 +9,11 @@ package model;
 public class Floor extends MotionlessElement {
 
 	/** 
-	 *	Instantiates a new Floor 
+	 *	Instantiates a new Floor.
+	 * 
+	 * @param x
+	 * @param y
+	 * @param url
 	 */
 	
 	public Floor(int x, int y, String url)

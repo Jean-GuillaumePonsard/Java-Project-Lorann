@@ -12,7 +12,11 @@ public class Spell extends MotionElement {
 	private SpellStatement spellStatement;
 	
 	/** 
-	 *	Instantiates a new spell 
+	 *	Instantiates a new spell.
+	 * 
+	 * @param x
+	 * @param y
+	 * @param url
 	 */
 	
 	public Spell(int x, int y, String url)

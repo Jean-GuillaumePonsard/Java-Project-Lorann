@@ -36,7 +36,13 @@ public class LorannGame {
 	public LorannMap getLorannMap() {
 		return lorannMap;
 	}
-
+	
+	/**
+	 * Sets the lorannMap.
+	 *
+	 * @param lorannMap
+	 *          the new lorannMap
+	 */
 
 	public void setLorannMap(LorannMap lorannMap) {
 		this.lorannMap = lorannMap;
@@ -45,6 +51,8 @@ public class LorannGame {
 	
 	/**
 	 * Initialization of lorannMap
+	 * 
+	 * Need to be improve for map choice
 	 * 
 	 */
 	public void initLorannMap()

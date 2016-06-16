@@ -13,6 +13,10 @@ public class Door extends MotionlessElement {
 	
 	/**
 	 * Instantiates a new door.
+	 *  
+	 * @param x
+	 * @param y
+	 * @param url
 	 */
 	public Door(int x, int y, String url)
 	{

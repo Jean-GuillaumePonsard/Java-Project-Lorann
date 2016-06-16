@@ -10,6 +10,10 @@ public class Coins extends Loot {
 
 	/**
 	 * Instantiates a new coins.
+	 * 
+	 * @param x
+	 * @param y
+	 * @param url
 	 */
 	public Coins(int x, int y, String url) {
 		super(x, y, url);
