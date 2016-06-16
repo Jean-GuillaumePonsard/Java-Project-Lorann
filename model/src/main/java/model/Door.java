@@ -9,8 +9,9 @@ public class Door extends MotionlessElement {
 	public Door(int x, int y, String url)
 	{
 		super(url, Permeability.PENETRABLE);
-		/*setX(x);
-		setY(y);*/
+		setX(x);
+		setY(y);
+		setGateStatement(GateStatement.LOCK);
 	}
 	
 	public void setGateStatement(GateStatement gateStatement)

@@ -10,7 +10,8 @@ public class Element {
 	
 	public Element(String url, Permeability permeability)
 	{
-		
+		setSprite(new Sprite(url));
+		this.permeability = permeability;
 	}
 	
 	
