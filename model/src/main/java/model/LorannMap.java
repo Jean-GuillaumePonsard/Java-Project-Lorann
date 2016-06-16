@@ -1,5 +1,11 @@
 package model;
 
+/**
+ * The Class LorannMap.
+ *
+ * @author Jean-Guillaume Ponsard
+ */
+
 public class LorannMap {
 
 	private Element elements[][];

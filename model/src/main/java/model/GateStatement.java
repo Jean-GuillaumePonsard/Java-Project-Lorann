@@ -1,7 +1,13 @@
 package model;
 
+/**
+ * The Enum GateStatement.
+ *
+ * @author Jean-Guillaume Ponsard
+ */
+
 public enum GateStatement {
 
-	LOCK,
-	OPEN
+	LOCK,	/** The Door is locked */
+	OPEN	/** The Door is opened */
 }

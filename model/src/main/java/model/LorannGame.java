@@ -3,20 +3,36 @@ package model;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * The Class LorannGame.
+ *
+ * @author Jean-Guillaume Ponsard
+ */
+
+
 public class LorannGame {
 
+	/** The Lorann Game Map**/
 	private LorannMap lorannMap;
+	
+	/** The DataBase Connection that allow to get a Resultset **/
 	private DBLorannGame dbloranngame;
 	
 	
-	
+	/**
+	 * Instantiates a new LorannGame.
+	 */
 	public LorannGame()
 	{
 		dbloranngame = new DBLorannGame();
 		initLorannMap();
 	}
 
-
+	/**
+	 * Get LorannMap.
+	 * 
+	 * @return the Map
+	 */
 	public LorannMap getLorannMap() {
 		return lorannMap;
 	}
@@ -26,6 +42,11 @@ public class LorannGame {
 		this.lorannMap = lorannMap;
 	}
 	
+	
+	/**
+	 * Initialization of lorannMap
+	 * 
+	 */
 	public void initLorannMap()
 	{
 		lorannMap = new LorannMap(20, 12);
