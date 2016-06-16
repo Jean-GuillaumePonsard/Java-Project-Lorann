@@ -3,7 +3,7 @@ package contract;
 /**
  * The Interface IView.
  *
- * @author Jean-Aymeric Diet
+ * @author Franz Alliod
  */
 public interface IView {
 
@@ -15,6 +15,10 @@ public interface IView {
 	 */
 	void printMessage(final String message);
 
+	/** sets controller
+	 * 
+	 * @param controller
+	 */
 public void setController (IController controller);
 
 }

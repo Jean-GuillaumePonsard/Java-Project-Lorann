@@ -8,7 +8,7 @@ import javax.swing.Icon;
 /**
  * The Interface IModel.
  *
- * @author Jean-Aymeric Diet
+ * @author Franz Alliod
  */
 public interface IModel {
 
