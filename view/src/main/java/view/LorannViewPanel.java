@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -22,9 +21,7 @@ class LorannViewPanel extends JPanel implements Observer {
 	
 	private ViewFrame					viewFrame;
 	private JLabel [][] JLabelMap;
-	private JLabel score;
 	private GridBagConstraints gbc; 
-	private Font ScoreFont;
 	
 	/** The Constant serialVersionUID. */
 	
@@ -42,10 +39,6 @@ class LorannViewPanel extends JPanel implements Observer {
 		this.setPreferredSize(this.getViewFrame().getModel().getD());
 		viewFrame.getModel().getObservable().addObserver(this);
 		JLabelMap = new JLabel [this.getViewFrame().getModel().getDimensionMapY()][this.getViewFrame().getModel().getDimensionMapY()];
-		this.score = new JLabel("SCORE : "+Integer.toString(this.getViewFrame().getModel().getScore()));
-		this.ScoreFont = new Font("Arial", Font.BOLD, 15);
-		this.getScore().setForeground(Color.ORANGE);
-		this.getScore().setFont(this.getScoreFont());
 		this.gbc = new GridBagConstraints();
 		this.setLayout(new GridBagLayout());	
 		
@@ -74,9 +67,7 @@ class LorannViewPanel extends JPanel implements Observer {
 		}		
 		this.getGbc().gridx = 0;
 		this.getGbc().gridy++;
-		this.getGbc().gridwidth = 5;
-		this.getScore().setText("SCORE : "+Integer.toString(this.getViewFrame().getModel().getScore()));
-		this.add(this.score, gbc);		
+		this.getGbc().gridwidth = 5;	
 		this.getViewFrame().pack();
 		this.setVisible(true);
 		this.repaint();
@@ -131,13 +122,7 @@ class LorannViewPanel extends JPanel implements Observer {
 		JLabelMap = jLabelMap;
 	}
 
-	public JLabel getScore() {
-		return score;
-	}
-
-	public void setScore(JLabel score) {
-		this.score = score;
-	}
+	
 	
 /** GridBagConstraints set the location of elements
  * 
@@ -152,18 +137,12 @@ class LorannViewPanel extends JPanel implements Observer {
 		this.gbc = gbc;
 	}
 
-	public Font getScoreFont() {
-		return ScoreFont;
-	}
-/** Font defines the string of text.
- * 
- * @param scoreFont
- * 			the font of the score
- */
-	public void setScoreFont(Font scoreFont) {
-		ScoreFont = scoreFont;
-	}
 	
-	
-}
+/* TO DO	
+if(this.gameOver == 0)
+{
+	this.gameOver = 1;	
+	dispose()
+	this.viewFrame.ScoreDisplay();
+		}
 

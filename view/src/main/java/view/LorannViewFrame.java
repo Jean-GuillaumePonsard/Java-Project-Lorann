@@ -4,11 +4,14 @@ import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Timer;
-import java.util.TimerTask.
+import java.awt.BorderLayout;
+import java.awt.Color;
 
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import contract.ControllerOrder;
 import contract.IController;
@@ -140,15 +143,32 @@ class LorannViewFrame extends JFrame implements KeyListener {
 		this.setResizable(false);
 		this.addKeyListener(this);
 		this.setContentPane(new LorannViewPanel(this));
-		this.setSize(640, 384);
+		this.setSize(768, 576);
 		this.setLocationRelativeTo(null);
 	}
+	
+	private JPanel container = new JPanel();
+
 	/**
-	 * Key code for controller.
+	 * Displays the score
 	 *
-	 * @param keyCode
+	 * 
+	 */
+	
+	public void ScoreDisplay() {
+		this.setTitle("Score Lorann2");
+		this.setSize(768, 576);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    this.setLocationRelativeTo(null);
+	    container.setBackground(Color.white);
+	    container.setLayout(new BorderLayout());
+	}	
+		
+	/**
+	 * Method to perform Order when a key is pressed
+	 *
+	 * @param keyCode, keyCode2
 	 *          the key code
-	 * @return the controller order
 	 */
 	
 	
@@ -194,21 +214,30 @@ class LorannViewFrame extends JFrame implements KeyListener {
 					//case KeyEvent.VK_DOWN: return ControllerOrder.DOWNRIGHT;
 					default: return ControllerOrder.LAUNCHSPELL;
 				}
-			}	
-		}
-
-	public void keyPressed(KeyEvent arg0) {
+			}
+		return null;	
+		
+	}
+/** Method for KeyActions
+ * 
+ * 
+ * @param Keyevent
+ */
+	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void keyReleased(KeyEvent arg0) {
+	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void keyTyped(KeyEvent arg0) {
+	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
-				}
+			}
+
+
+    

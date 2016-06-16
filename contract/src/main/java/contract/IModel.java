@@ -56,5 +56,6 @@ public interface IModel {
 
 	Icon getImageElement(int y, int x);
 	
+	void InsertScore(String name, int score);
 	int getScore();
 }
