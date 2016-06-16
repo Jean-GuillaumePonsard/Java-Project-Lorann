@@ -32,7 +32,7 @@ public class Element {
 
 
 	public int getX() {
-		return x;
+		return this.x;
 	}
 
 
@@ -42,7 +42,7 @@ public class Element {
 
 
 	public int getY() {
-		return y;
+		return this.y;
 	}
 
 
