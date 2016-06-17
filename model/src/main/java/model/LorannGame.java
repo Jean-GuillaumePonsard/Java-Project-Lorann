@@ -2,6 +2,7 @@ package model;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Observable;
 
 import contract.ILorannGame;
 import contract.ILorannMap;
@@ -13,7 +14,7 @@ import contract.ILorannMap;
  */
 
 
-public class LorannGame implements ILorannGame {
+public class LorannGame extends Observable implements ILorannGame {
 
 	/** The Lorann Game Map**/
 	private ILorannMap lorannMap;
@@ -119,6 +120,21 @@ public class LorannGame implements ILorannGame {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void changeLorannGame()
+	{
+		setChanged();
+		notifyObservers();
+	}
+	
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see contract.IModel#getObservable()
+	 */
+	public Observable getObservable() {
+		return this;
 	}
 
 	

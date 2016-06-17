@@ -1,5 +1,7 @@
 package contract;
 
+import java.util.Observable;
+
 public interface ILorannGame {
 
 	/**
@@ -17,6 +19,14 @@ public interface ILorannGame {
 	 */
 
 	void setLorannMap(ILorannMap lorannMap);
+	
+	/**
+	 * Allow to notifyObservers
+	 * 
+	 */
+	
+	void changeLorannGame();
 
 
+	Observable getObservable();
 }

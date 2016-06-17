@@ -1,5 +1,7 @@
 package controller;
 
+import contract.ILorannController;
+
 //TODO: Auto-generated Javadoc
 /**
 * The Class Controller.
@@ -7,13 +9,13 @@ package controller;
 public class Ticks implements Runnable  {
 
 	/** the LorannController. */
-	private LorannController loranncontroller;
+	private ILorannController loranncontroller;
 	
 	/*
 	 * (non-javadoc)
 	 * 
 	 */
-	public Ticks(LorannController loranncontroller){
+	public Ticks(ILorannController loranncontroller){
 		this.loranncontroller = loranncontroller;
 	}
 

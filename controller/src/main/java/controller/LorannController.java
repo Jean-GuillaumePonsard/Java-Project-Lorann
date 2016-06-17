@@ -8,9 +8,11 @@ import contract.ControllerOrder;
 import contract.IController;
 import contract.ILorannGame;
 import contract.ILorannMap;
+import contract.ILorannView;
 import contract.IMonster;
 import contract.IElement;
 import contract.ILorann;
+import contract.ILorannController;
 import contract.IView;
 import contract.LorannStatement;
 import contract.Permeability;
@@ -20,10 +22,10 @@ import contract.Permeability;
 * The Class LorannController.
 * 
 */
-public class LorannController implements IController {
+public class LorannController implements ILorannController {
 
 	/** The view. */
-	private IView		view;
+	private ILorannView		view;
 
 	/** The model. */
 	private ILorannGame		lorannGame;
@@ -36,7 +38,7 @@ public class LorannController implements IController {
 	 * @param model
 	 *          the model
 	 */
-	public LorannController(final IView view, final ILorannGame lorannGame) {
+	public LorannController(final ILorannView view, final ILorannGame lorannGame) {
 		this.setView(view);
 		this.setModel(lorannGame);
 	}
@@ -47,7 +49,7 @@ public class LorannController implements IController {
 	 * @param view
 	 *          the new view
 	 */
-	private void setView(final IView view) {
+	private void setView(final ILorannView view) {
 		this.view = view;
 	}
 
@@ -75,7 +77,7 @@ public class LorannController implements IController {
 				
 		element.setX(element.getX()+x);
 		element.setY(element.getY()+y);
-			
+		callChange();
 	}
 	
 	/**
@@ -136,10 +138,8 @@ public class LorannController implements IController {
 		
 	}
 	
-	/**
-	 * Move Lorann due to a key pressed
-	 *
-	 * @see contract.IController#orderPerform(contract.ControllerOrder)
+	/* (non-Javadoc)
+	 * @see controller.ILorannController#orderPerform(contract.ControllerOrder)
 	 */
 	public void orderPerform(ControllerOrder controllerOrder) {
 		IElement lorann = lorannGame.getLorannMap().getLorann();
@@ -148,7 +148,8 @@ public class LorannController implements IController {
 		
 			case UP:
 				((ILorann) lorann).setLorannStatement(LorannStatement.UP);
-				this.view.printMessage("Up");
+				lorann.setImage("sprite/lorann_u.png");
+				//this.view.printMessage("Up");
 				if(getBlocked(lorann.getX(), lorann.getY()-1))
 				{
 					System.out.println("Move possible ^");
@@ -158,7 +159,8 @@ public class LorannController implements IController {
 				
 			case DOWN:
 				((ILorann) lorann).setLorannStatement(LorannStatement.DOWN);
-				this.view.printMessage("Down");
+				//this.view.printMessage("Down");
+				lorann.setImage("sprite/lorann_b.png");
 				if(getBlocked(lorann.getX(), lorann.getY()+1))
 				{
 					System.out.println("Move possible  v");
@@ -168,7 +170,8 @@ public class LorannController implements IController {
 				
 			case LEFT:
 				((ILorann) lorann).setLorannStatement(LorannStatement.LEFT);
-				this.view.printMessage("left");
+				//this.view.printMessage("left");
+				lorann.setImage("sprite/lorann_l.png");
 				if(getBlocked(lorann.getX()-1, lorann.getY()))
 				{
 					System.out.println("Move possible <-");
@@ -178,7 +181,8 @@ public class LorannController implements IController {
 				
 			case RIGHT:
 				((ILorann) lorann).setLorannStatement(LorannStatement.RIGHT);
-				this.view.printMessage("Right");
+				//this.view.printMessage("Right");
+				lorann.setImage("sprite/lorann_r.png");
 				if(getBlocked(lorann.getX()+1, lorann.getY()))
 				{
 					System.out.println("Move possible ->");
@@ -187,7 +191,7 @@ public class LorannController implements IController {
 				break;
 				
 			case LAUNCHSPELL:
-				this.view.printMessage("Space");
+				//this.view.printMessage("Space");
 				break;
 			default:
 				break;		
@@ -199,7 +203,12 @@ public class LorannController implements IController {
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		this.view.printMessage("Appuyer sur les touches 'Z', 'UP', 'S', 'DOWN', 'Q', 'LEFT', 'RIGHT' ou 'D', pour afficher la direction choisit.");
+		//this.view.printMessage("Appuyer sur les touches 'Z', 'UP', 'S', 'DOWN', 'Q', 'LEFT', 'RIGHT' ou 'D', pour afficher la direction choisit.");
+	}
+	
+	public void callChange()
+	{
+		lorannGame.changeLorannGame();
 	}
 
 }

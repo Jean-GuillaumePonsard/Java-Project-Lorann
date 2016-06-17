@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 
 
 import contract.IController;
+import contract.ILorannController;
 import contract.ILorannGame;
 
 /**
@@ -28,7 +29,7 @@ class LorannViewFrame extends JFrame implements KeyListener {
 
 	/** The controller. */
 	
-	private IController				controller;
+	private ILorannController				controller;
 	
 	/** The Constant serialVersionUID. */
 	
@@ -94,7 +95,7 @@ class LorannViewFrame extends JFrame implements KeyListener {
 	 *
 	 * @return the controller
 	 */
-	private IController getController() {
+	private ILorannController getController() {
 		return this.controller;
 	}
 
@@ -104,7 +105,7 @@ class LorannViewFrame extends JFrame implements KeyListener {
 	 * @param controller
 	 *          the new controller
 	 */
-	protected void setController(final IController controller) {
+	protected void setController(final ILorannController controller) {
 		this.controller = controller;
 	}
 
@@ -170,7 +171,7 @@ class LorannViewFrame extends JFrame implements KeyListener {
  */
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+		this.getController().orderPerform(LorannView.keyCodeToControllerOrder(e.getKeyCode()));
 	}
 
 	public void keyReleased(KeyEvent e) {
