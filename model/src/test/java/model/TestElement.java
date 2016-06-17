@@ -4,6 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import contract.IElement;
+import contract.Permeability;
+
 /**
  * The Class TestElement.
  *

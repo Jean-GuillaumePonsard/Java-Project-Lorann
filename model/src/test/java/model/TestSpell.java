@@ -4,6 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import contract.ISpell;
+import contract.SpellStatement;
+
 /**
  * The Class TestSpell.
  *

@@ -4,6 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import contract.GateStatement;
+import contract.IDoor;
+
 /**
  * The Class TestDoor.
  *
