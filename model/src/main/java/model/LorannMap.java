@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 /**
  * The Class LorannMap.
  *
@@ -15,6 +17,11 @@ public class LorannMap {
 	/** Lorann, the hero of the game. */
 	private Lorann lorann;
 	
+	/** Array List of monster */
+	private ArrayList<Monster> monsters = new ArrayList<Monster>();
+	
+	/** Lorann's spell */
+	private Spell lorannSpell;
 	
 	/** widht of the map. */
 	private int widht;
@@ -33,7 +40,6 @@ public class LorannMap {
 		this.widht = widht;
 		this.height = height;
 		this.elements = new Element[this.getWidht()][this.getHeight()];	
-		
 	}
 	
 	/**
@@ -123,6 +129,78 @@ public class LorannMap {
 	{
 		return this.lorann;
 	}
+	
+	/**
+	 * Sets Lorann
+	 * 
+	 * @param lorann
+	 */
+	
+	public void setLorann(Lorann lorann)
+	{
+		this.lorann = lorann;
+	}
+	
+	/**
+	 * Gets all monsters
+	 * 
+	 * @return monsters
+	 */
 
+	public ArrayList<Monster> getMonsters() {
+		return monsters;
+	}
+
+	/**
+	 * Sets all monsters
+	 * 
+	 * @param monsters
+	 */
+	
+	public void setMonsters(ArrayList<Monster> monsters) {
+		this.monsters = monsters;
+	}
+	
+	/**
+	 * Add a monster in ArrayList
+	 * 
+	 * @param monster
+	 */
+
+	public void addMonster(Monster monster)
+	{
+		monsters.add(monster);
+	}
+	
+	/**
+	 * Remove a monster by its index in the ArrayList
+	 * 
+	 * @param index
+	 */
+	
+	public void removeMonsterByIndex(int index)
+	{
+		monsters.remove(index);
+	}
+
+	/**
+	 * Gets Lorann's Spell.
+	 * 
+	 * @return lorannSpell
+	 */
+	
+	public Spell getLorannSpell() {
+		return lorannSpell;
+	}
+
+	/**
+	 * Sets Lorann's Spell
+	 * 
+	 * @param lorannSpell
+	 */
+	
+	public void setLorannSpell(Spell lorannSpell) {
+		this.lorannSpell = lorannSpell;
+	}
 	
 }

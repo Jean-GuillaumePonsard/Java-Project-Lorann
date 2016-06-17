@@ -98,14 +98,17 @@ public class LorannGame {
 						
 					case 8: case 9: case 10: case 11:
 						//Create Floor and after create Monster
-						lorannMap.addElement(new Monster(x, y, url), x, y);
-						System.out.println("Monster : X = "+x+"y = "+y+"url = "+url);
+						lorannMap.addElement(new Floor(x, y, "sprite/floor.png"), x, y);
+						lorannMap.addMonster(new Monster(x, y, url));
+						System.out.println("Creating Element Floor then instantiate Monster : X = "+x+"y = "+y+"url = "+url);
 						break;
 						
 					case 12:
-						//Create Floor and then create Lorann
-						lorannMap.addElement(new Lorann(x, y, url), x, y);
-						System.out.println("Lorann : X = "+x+"y = "+y+"url = "+url);
+						//Create Floor and then create Lorann and his Spell
+						lorannMap.addElement(new Floor(x, x, "sprite/floor.png"), x, y);
+						lorannMap.setLorann(new Lorann(x, y, url));
+						lorannMap.setLorannSpell(new Spell(x, y, "sprite/fireball_1.png"));
+						System.out.println("Creating Element Floor then instantiate Lorann : X = "+x+"y = "+y+"url = "+url+" and create his spell");
 						break;
 						
 				}
