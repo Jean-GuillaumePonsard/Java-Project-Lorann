@@ -8,7 +8,6 @@ import javax.swing.SwingUtilities;
 import contract.ControllerOrder;
 import contract.IController;
 import contract.ILorannGame;
-import contract.IModel;
 import contract.IView;
 
 /**
@@ -100,28 +99,16 @@ public class LorannView implements IView, Runnable {
 	 * @dispose
 	 * destroy JFrame object
 	 */
-	 public void closeFrame() {
-	
-	 this.LorannviewFrame.setVisible(false);
-	 }
-	 /**
-		 * Launch the frame
-		 * set the frame visible
-		 * @param true
-		 */
-	public void runFrame() {
-	this.LorannviewFrame.setVisible(true);
-		
-	}
+
 
 	public void printMessage(String message) {
 		// TODO Auto-generated method stub
 		
 	}
-
-
 	public void run() {
 		// TODO Auto-generated method stub
 		
-	} 
+	}
 		}
+
+	

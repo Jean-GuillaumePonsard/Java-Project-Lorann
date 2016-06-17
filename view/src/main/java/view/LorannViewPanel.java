@@ -77,24 +77,6 @@ class LorannViewPanel extends JPanel implements Observer {
 		this.repaint();
 	}
 
-	
-	/** The JLabelMap
-	 * 
-	 * @return JLabelMap
-	 */
-	
-	public JLabel[][] getJLabelMap() {
-		return JLabelMap;
-	}
-	/**
-	 * Sets the JLabelMap.
-	 *
-	 * @param JLabel, jLabelMap
-	 *          the JLabelMap
-	 */
-	public void setJLabelMap(JLabel[][] jLabelMap) {
-		JLabelMap = jLabelMap;
-	}
 
 	/**
 	 * Method that print components in Frame
