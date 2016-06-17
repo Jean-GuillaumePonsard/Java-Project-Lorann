@@ -64,7 +64,7 @@ public class LorannController implements IController {
 	 * 
 	 */
 	public void monsterAi(){
-		
+		//for (Monster m : model.)
 	}
 	
 	/*
