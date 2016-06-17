@@ -19,7 +19,7 @@ class LorannViewPanel extends JPanel implements Observer {
 
 	/** The view frame. */
 	
-	private ViewFrame					viewFrame;
+	private LorannViewFrame					LorannviewFrame;
 	private JLabel [][] JLabelMap;
 	private GridBagConstraints gbc; 
 	
@@ -33,12 +33,12 @@ class LorannViewPanel extends JPanel implements Observer {
 	 * @param viewFrame
 	 *          the view frame
 	 */
-	public LorannViewPanel(final ViewFrame viewFrame) {
-		this.setViewFrame(viewFrame);
-		this.setSize(this.getViewFrame().getModel().getD());
-		this.setPreferredSize(this.getViewFrame().getModel().getD());
-		viewFrame.getModel().getObservable().addObserver(this);
-		JLabelMap = new JLabel [this.getViewFrame().getModel().getDimensionMapY()][this.getViewFrame().getModel().getDimensionMapY()];
+	public LorannViewPanel(final LorannViewFrame LorannviewFrame) {
+		this.setLorannViewFrame(LorannviewFrame);
+		this.setSize(this.getLorannViewFrame().getModel().getD());
+		this.setPreferredSize(this.getLorannViewFrame().getModel().getD());
+		LorannviewFrame.getModel().getObservable().addObserver(this);
+		JLabelMap = new JLabel [this.getLorannViewFrame().getModel().getDimensionMapY()][this.getLorannViewFrame().getModel().getDimensionMapY()];
 		this.gbc = new GridBagConstraints();
 		this.setLayout(new GridBagLayout());	
 		
@@ -51,12 +51,12 @@ class LorannViewPanel extends JPanel implements Observer {
 	public void initLorannViewPanel()
 	{
 		int x=0, y=0;
-		for(y=0; y<this.getViewFrame().getModel().getDimensionMapY(); y++)
+		for(y=0; y<this.getLorannViewFrame().getModel().getDimensionMapY(); y++)
 		{
-			for(x=0; x<this.getViewFrame().getModel().getDimensionMapY(); x++)
+			for(x=0; x<this.getLorannViewFrame().getModel().getDimensionMapY(); x++)
 			{
 				JLabel sprite = new JLabel();
-				sprite.setIcon(this.getViewFrame().getModel().getImageElement(y, x));
+				sprite.setIcon(this.getLorannViewFrame().getModel().getImageElement(y, x));
 				this.JLabelMap[y][x]=sprite;
 				this.getGbc().gridx = x;
 				this.getGbc().gridy = y;
@@ -68,7 +68,7 @@ class LorannViewPanel extends JPanel implements Observer {
 		this.getGbc().gridx = 0;
 		this.getGbc().gridy++;
 		this.getGbc().gridwidth = 5;	
-		this.getViewFrame().pack();
+		this.getLorannViewFrame().pack();
 		this.setVisible(true);
 		this.repaint();
 	}
@@ -77,8 +77,8 @@ class LorannViewPanel extends JPanel implements Observer {
 	 *
 	 * @return the view frame
 	 */
-	private ViewFrame getViewFrame() {
-		return this.viewFrame;
+	private LorannViewFrame getLorannViewFrame() {
+		return this.LorannviewFrame;
 	}
 
 	/**
@@ -87,8 +87,8 @@ class LorannViewPanel extends JPanel implements Observer {
 	 * @param viewFrame
 	 *          the new view frame
 	 */
-	private void setViewFrame(final ViewFrame viewFrame) {
-		this.viewFrame = viewFrame;
+	private void setLorannViewFrame(final LorannViewFrame LorannviewFrame) {
+		this.LorannviewFrame = LorannviewFrame;
 	}
 
 	/*
@@ -135,7 +135,7 @@ class LorannViewPanel extends JPanel implements Observer {
 
 	public void setGbc(GridBagConstraints gbc) {
 		this.gbc = gbc;
-	}
+	} }
 
 	
 /* TO DO	
@@ -145,4 +145,4 @@ if(this.gameOver == 0)
 	dispose()
 	this.viewFrame.ScoreDisplay();
 		}
-
+*/
