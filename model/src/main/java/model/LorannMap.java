@@ -21,13 +21,13 @@ public class LorannMap implements ILorannMap {
 	private IElement elements[][];
 	
 	/** Lorann, the hero of the game. */
-	private ILorann lorann;
+	private IElement lorann;
 	
 	/** Array List of monster */
 	private ArrayList<IMonster> monsters = new ArrayList<IMonster>();
 	
 	/** Lorann's spell */
-	private ISpell lorannSpell;
+	private IElement lorannSpell;
 	
 	/** widht of the map. */
 	private int widht;
@@ -106,7 +106,7 @@ public class LorannMap implements ILorannMap {
 	 * @see model.ILorannMap#getLorann()
 	 */
 	
-	public ILorann getLorann()
+	public IElement getLorann()
 	{
 		return this.lorann;
 	}
@@ -115,7 +115,7 @@ public class LorannMap implements ILorannMap {
 	 * @see model.ILorannMap#setLorann(model.ILorann)
 	 */
 	
-	public void setLorann(ILorann lorann)
+	public void setLorann(IElement lorann)
 	{
 		this.lorann = lorann;
 	}
@@ -158,7 +158,7 @@ public class LorannMap implements ILorannMap {
 	 * @see model.ILorannMap#getLorannSpell()
 	 */
 	
-	public ISpell getLorannSpell() {
+	public IElement getLorannSpell() {
 		return lorannSpell;
 	}
 
@@ -166,8 +166,9 @@ public class LorannMap implements ILorannMap {
 	 * @see model.ILorannMap#setLorannSpell(model.Spell)
 	 */
 	
-	public void setLorannSpell(ISpell lorannSpell) {
+	public void setLorannSpell(IElement lorannSpell) {
 		this.lorannSpell = lorannSpell;
 	}
+
 	
 }

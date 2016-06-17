@@ -68,7 +68,7 @@ public interface ILorannMap {
 	 * @return lorann
 	 */
 
-	ILorann getLorann();
+	IElement getLorann();
 
 	/**
 	 * Sets Lorann
@@ -76,7 +76,7 @@ public interface ILorannMap {
 	 * @param lorann
 	 */
 
-	void setLorann(ILorann lorann);
+	void setLorann(IElement lorann);
 
 	/**
 	 * Gets all monsters
@@ -116,7 +116,7 @@ public interface ILorannMap {
 	 * @return lorannSpell
 	 */
 
-	ISpell getLorannSpell();
+	IElement getLorannSpell();
 
 	/**
 	 * Sets Lorann's Spell
@@ -124,6 +124,6 @@ public interface ILorannMap {
 	 * @param lorannSpell
 	 */
 
-	void setLorannSpell(ISpell lorannSpell);
+	void setLorannSpell(IElement lorannSpell);
 
 }
