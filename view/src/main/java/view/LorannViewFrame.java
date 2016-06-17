@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 import contract.ControllerOrder;
 import contract.IController;
-import contract.IModel;
+import contract.ILorannGame;
 
 /**
  * The Class ViewFrame.
@@ -23,7 +23,7 @@ class LorannViewFrame extends JFrame implements KeyListener {
 
 	/** The model. */
 	
-	private IModel						model;
+	private ILorannGame						lorranGame;
 	// private Timer timer = new Timer(1000,this); à faire ?
 
 	/** The controller. */
@@ -42,8 +42,8 @@ class LorannViewFrame extends JFrame implements KeyListener {
 	 * @throws HeadlessException
 	 *           the headless exception
 	 */
-	public LorannViewFrame(final IModel model) throws HeadlessException {
-		this.buildViewFrame(model);
+	public LorannViewFrame(final ILorannGame lorannGame) throws HeadlessException {
+		this.buildViewFrame(ILorannGame	);
 	}
 
 	/**
@@ -54,9 +54,9 @@ class LorannViewFrame extends JFrame implements KeyListener {
 	 * @param gc
 	 *          the gc
 	 */
-	public LorannViewFrame(final IModel model, final GraphicsConfiguration gc) {
+	public LorannViewFrame(final ILorannGame lorannGame, final GraphicsConfiguration gc) {
 		super(gc);
-		this.buildViewFrame(model);
+		this.buildViewFrame(lorannGame);
 	}
 
 	/**
@@ -69,9 +69,9 @@ class LorannViewFrame extends JFrame implements KeyListener {
 	 * @throws HeadlessException
 	 *           the headless exception
 	 */
-	public LorannViewFrame(final IModel model, final String title) throws HeadlessException {
+	public LorannViewFrame(final ILorannGame lorannGame, final String title) throws HeadlessException {
 		super(title);
-		this.buildViewFrame(model);
+		this.buildViewFrame(lorannGame);
 	}
 
 	/**
@@ -84,9 +84,9 @@ class LorannViewFrame extends JFrame implements KeyListener {
 	 * @param gc
 	 *          the gc
 	 */
-	public LorannViewFrame(final IModel model, final String title, final GraphicsConfiguration gc) {
+	public LorannViewFrame(final ILorannGame lorannGame, final String title, final GraphicsConfiguration gc) {
 		super(title, gc);
-		this.buildViewFrame(model);
+		this.buildViewFrame(lorannGame);
 	}
 
 	/**
@@ -113,8 +113,8 @@ class LorannViewFrame extends JFrame implements KeyListener {
 	 *
 	 * @return the model
 	 */
-	protected IModel getModel() {
-		return this.model;
+	protected ILorannGame getModel() {
+		return this.lorannGame;
 	}
 
 	/**
@@ -123,8 +123,8 @@ class LorannViewFrame extends JFrame implements KeyListener {
 	 * @param model
 	 *          the new model
 	 */
-	private void setModel(final IModel model) {
-		this.model = model;
+	private void setModel(final ILorannGame lorannGame) {
+		this.lorannGame = lorannGame;
 	}
 
 	/**
@@ -133,8 +133,8 @@ class LorannViewFrame extends JFrame implements KeyListener {
 	 * @param model
 	 *          the model
 	 */
-	private void buildViewFrame(final IModel model) {
-		this.setModel(model);
+	private void buildViewFrame(final ILorannGame lorannGame) {
+		this.setModel(lorannGame);
 		this.setTitle("Lorran 2");
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setResizable(false);

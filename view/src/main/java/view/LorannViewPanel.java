@@ -38,7 +38,7 @@ class LorannViewPanel extends JPanel implements Observer {
 		this.setSize(this.getLorannViewFrame().getModel().getD());
 		this.setPreferredSize(this.getLorannViewFrame().getModel().getD());
 		LorannviewFrame.getModel().getObservable().addObserver(this);
-		JLabelMap = new JLabel [this.getLorannViewFrame().getModel().getDimensionMapY()][this.getLorannViewFrame().getModel().getDimensionMapY()];
+		JLabelMap = new JLabel [this.getLorannViewFrame().getModel().getWidth()][this.getLorannViewFrame().getModel().getDimensionMapY()];
 		this.gbc = new GridBagConstraints();
 		this.setLayout(new GridBagLayout());	
 		

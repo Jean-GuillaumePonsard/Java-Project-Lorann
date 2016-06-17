@@ -7,6 +7,7 @@ import javax.swing.SwingUtilities;
 
 import contract.ControllerOrder;
 import contract.IController;
+import contract.ILorannGame;
 import contract.IModel;
 import contract.IView;
 
@@ -26,8 +27,8 @@ public class LorannView implements IView, Runnable {
 	 * @param model
 	 *          the model
 	 */
-	public LorannView(final IModel model) {
-		this.LorannviewFrame = new LorannViewFrame(model);
+	public LorannView(final ILorannGame lorannGame) {
+		this.LorannviewFrame = new LorannViewFrame(lorannGame);
 		SwingUtilities.invokeLater(this);
 		}
 	/**
