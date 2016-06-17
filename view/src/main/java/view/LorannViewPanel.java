@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 
 import contract.IElement;
 import contract.IMonster;
+import contract.ISpell;
+import contract.SpellStatement;
 
 /**
  * The Class ViewPanel.
@@ -111,6 +113,14 @@ class LorannViewPanel extends JPanel implements Observer {
 		
 		IElement lorann = LorannviewFrame.getLorannGame().getLorannMap().getLorann();
 		graphics.drawImage(lorann.getImage(), lorann.getX()*32, lorann.getY()*32, null);
+		
+		IElement spell = LorannviewFrame.getLorannGame().getLorannMap().getLorannSpell();
+		if(((ISpell)spell).getSpellStatement() != SpellStatement.INPOCKET)
+		{
+			graphics.drawImage(spell.getImage(), spell.getX()*32, spell.getY()*32, null);
+		}
+		
+		
 	}
 	
 		}
