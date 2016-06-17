@@ -53,28 +53,28 @@ public class TestElement {
         	assertEquals(Permeability.PENETRABLE, element.getPermeability());
         }
 	}
-	/*
-	 * test method for {@link model.Element#getImage()}
-	 * 
-	 * to review
-	 */
-	@Test
-	public void testGetImage() {
-		model.Element element = new model.Element("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", Permeability.BLOCKING);
-		assertEquals("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", element.getImage());
-		}
-	
-	/*
-	 * test method for {@link model.Element#setImage(String)}
-	 * 
-	 * to review
-	 */
-	@Test
-	public void testSetImage() {
-		model.Element element = new model.Element("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", Permeability.BLOCKING);
-		element.setImage("http://www.laboiteverte.fr/wp-content/uploads/2014/11/element-jeu-video-06.jpg");
-		assertEquals("http://www.laboiteverte.fr/wp-content/uploads/2014/11/element-jeu-video-06.jpg", element.getImage());
-	}
+//	/*
+//	 * test method for {@link model.Element#getImage()}
+//	 * 
+//	 * to review
+//	 */
+//	@Test
+//	public void testGetImage() {
+//		model.Element element = new model.Element("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", Permeability.BLOCKING);
+//		assertEquals("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", element.getImage());
+//		}
+//	
+//	/*
+//	 * test method for {@link model.Element#setImage(String)}
+//	 * 
+//	 * to review
+//	 */
+//	@Test
+//	public void testSetImage() {
+//		model.Element element = new model.Element("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", Permeability.BLOCKING);
+//		element.setImage("http://www.laboiteverte.fr/wp-content/uploads/2014/11/element-jeu-video-06.jpg");
+//		assertEquals("http://www.laboiteverte.fr/wp-content/uploads/2014/11/element-jeu-video-06.jpg", element.getImage());
+//	}
 
 	/**
 	 * test method for {@link model.Element#getX()}
