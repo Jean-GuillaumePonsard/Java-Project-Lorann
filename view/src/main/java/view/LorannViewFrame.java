@@ -24,7 +24,7 @@ class LorannViewFrame extends JFrame implements KeyListener {
 	/** The model. */
 	
 	private ILorannGame						lorranGame;
-	// private Timer timer = new Timer(1000,this); à faire ?
+	// private Timer timer = new Timer(1000,this); to do ?
 
 	/** The controller. */
 	
@@ -43,7 +43,7 @@ class LorannViewFrame extends JFrame implements KeyListener {
 	 *           the headless exception
 	 */
 	public LorannViewFrame(final ILorannGame lorannGame) throws HeadlessException {
-		this.buildViewFrame(ILorannGame	);
+		this.buildViewFrame(lorranGame);
 	}
 
 	/**
@@ -114,7 +114,7 @@ class LorannViewFrame extends JFrame implements KeyListener {
 	 * @return the model
 	 */
 	protected ILorannGame getModel() {
-		return this.lorannGame;
+		return this.lorranGame;
 	}
 
 	/**
@@ -124,7 +124,7 @@ class LorannViewFrame extends JFrame implements KeyListener {
 	 *          the new model
 	 */
 	private void setModel(final ILorannGame lorannGame) {
-		this.lorannGame = lorannGame;
+		this.lorranGame = lorannGame;
 	}
 
 	/**
