@@ -94,7 +94,7 @@ public class Element {
 		//Another method to set the Sprite of an object
 		try{
 			
-			this.image = ImageIO.read(new File(url));
+			this.image = ImageIO.read(new File("C:/Users/Jean-Guillaume P/Documents/Exia/Projet Java/Java/Java-Project-Lorann/model/src/main/resources/"+url));
 			
 		}catch(IOException e){
 			e.printStackTrace();
