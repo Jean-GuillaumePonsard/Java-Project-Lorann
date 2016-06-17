@@ -109,11 +109,11 @@ class LorannViewFrame extends JFrame implements KeyListener {
 	}
 
 	/**
-	 * Gets the model.
+	 * Gets the LorannGame.
 	 *
-	 * @return the model
+	 * @return the lorranGame
 	 */
-	protected ILorannGame getModel() {
+	protected ILorannGame getLorannGame() {
 		return this.lorranGame;
 	}
 
