@@ -4,8 +4,12 @@ package controller;
 
 import contract.ControllerOrder;
 import contract.IController;
-import contract.IModel;
+import contract.ILorannGame;
+import contract.IElement;
+import contract.ILorann;
 import contract.IView;
+import contract.LorannStatement;
+import contract.Permeability;
 
 //TODO: Auto-generated Javadoc
 /**
@@ -17,7 +21,7 @@ public class LorannController implements IController {
 	private IView		view;
 
 	/** The model. */
-	private IModel		model;
+	private ILorannGame		lorannGame;
 
 	/**
 	 * Instantiates a new controller.
@@ -27,9 +31,9 @@ public class LorannController implements IController {
 	 * @param model
 	 *          the model
 	 */
-	public LorannController(final IView view, final IModel model) {
+	public LorannController(final IView view, final ILorannGame lorannGame) {
 		this.setView(view);
-		this.setModel(model);
+		this.setModel(lorannGame);
 	}
 	/**
 	 * Sets the view.
@@ -47,16 +51,36 @@ public class LorannController implements IController {
 	 * @param model
 	 *          the new model
 	 */
-	private void setModel(final IModel model) {
-		this.model = model;
+	private void setModel(final ILorannGame lorannGame) {
+		this.lorannGame = lorannGame;
 	}
-	
+	/**
+	 * Move Lorann
+	 * 
+	 * @param x
+	 * @param y
+	 */
+	public void moveElement(IElement element, int x, int y){
+				
+		element.setX(element.getX()+x);
+		element.setY(element.getY()+y);
+		
+		
+	}
 	/*
 	 * (non-javadoc)
 	 * 
 	 */
 	private boolean getBlocked(final int x, final int y){
-		return false;
+		return getElement(x, y).getPermeability() == Permeability.PENETRABLE;
+	}
+	/*
+	 * (non-javadoc)
+	 *
+	 */
+	private IElement getElement(final int x, final int y)
+	{
+		return lorannGame.getLorannMap().getElement(x, y);
 	}
 	
 	/*
@@ -89,19 +113,50 @@ public class LorannController implements IController {
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	public void orderPerform(ControllerOrder controllerOrder) {
+		IElement lorann = lorannGame.getLorannMap().getLorann();
+		
 		switch (controllerOrder){
+		
 			case UP:
-				this.view.printMessage("UP");
+				((ILorann) lorann).setLorannStatement(LorannStatement.UP);
+				this.view.printMessage("Up");
+				if(getBlocked(lorann.getX(), lorann.getY()-1))
+				{
+					System.out.println("Move possible ^");
+					moveElement(lorann, 0, -1);
+				}	
 				break;
+				
 			case DOWN:
+				((ILorann) lorann).setLorannStatement(LorannStatement.DOWN);
 				this.view.printMessage("Down");
+				if(getBlocked(lorann.getX(), lorann.getY()+1))
+				{
+					System.out.println("Move possible  v");
+					moveElement(lorann, 0, +1);
+				}	
 				break;
+				
 			case LEFT:
-				this.view.printMessage("Left");
+				((ILorann) lorann).setLorannStatement(LorannStatement.LEFT);
+				this.view.printMessage("left");
+				if(getBlocked(lorann.getX()-1, lorann.getY()))
+				{
+					System.out.println("Move possible <-");
+					moveElement(lorann, -1, 0);
+				}	
 				break;
+				
 			case RIGHT:
+				((ILorann) lorann).setLorannStatement(LorannStatement.RIGHT);
 				this.view.printMessage("Right");
+				if(getBlocked(lorann.getX()+1, lorann.getY()))
+				{
+					System.out.println("Move possible ->");
+					moveElement(lorann, +1, 0);
+				}				
 				break;
+				
 			case LAUNCHSPELL:
 				this.view.printMessage("Space");
 				break;
