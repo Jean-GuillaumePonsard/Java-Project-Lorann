@@ -17,7 +17,7 @@ import contract.Permeability;
 
 //TODO: Auto-generated Javadoc
 /**
-* The Class Controller.
+* The Class LorannController.
 * 
 */
 public class LorannController implements IController {
