@@ -40,22 +40,22 @@ public interface IModel {
 	
 	
 	
-	
+	/*
 	int getDimensionMapX();
 	
-	int getDimensionMapY();
-	
+	int getDimensionMapY();*/
+/*	
 /** Dimension encapsulates the width and height of a component in a single object
  * 
  * 
  * @return the Dimension
  */
 	
-	Dimension getD();
+	/*Dimension getD();
 	
 
 	Icon getImageElement(int y, int x);
 	
 	void InsertScore(String name, int score);
-	int getScore();
+	int getScore();*/
 }
