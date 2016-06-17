@@ -29,8 +29,8 @@ public class LorannMap implements ILorannMap {
 	/** Lorann's spell */
 	private IElement lorannSpell;
 	
-	/** widht of the map. */
-	private int widht;
+	/** width of the map. */
+	private int width;
 	
 	/** height of the map. */
 	private int height;
@@ -38,14 +38,14 @@ public class LorannMap implements ILorannMap {
 	/**
 	 * Instantiates a new LorannMap
 	 * 
-	 * @param widht
+	 * @param width
 	 * @param height
 	 */
-	public LorannMap(int widht, int height)
+	public LorannMap(int width, int height)
 	{
-		this.widht = widht;
+		this.width = width;
 		this.height = height;
-		this.elements = new IElement[this.getWidht()][this.getHeight()];	
+		this.elements = new IElement[this.getWidth()][this.getHeight()];	
 	}
 	
 	/* (non-Javadoc)
@@ -78,7 +78,7 @@ public class LorannMap implements ILorannMap {
 	
 	public IElement getElement(int x, int y)
 	{
-		if(x < 0 || y <0 || x > this.getWidht() || y > this.getHeight())
+		if(x < 0 || y <0 || x > this.getWidth() || y > this.getHeight())
 		{
 			return null;
 		}
@@ -90,8 +90,8 @@ public class LorannMap implements ILorannMap {
 	 * @see model.ILorannMap#getWidht()
 	 */
 
-	public int getWidht() {
-		return this.widht;
+	public int getWidth() {
+		return this.width;
 	}
 
 	/* (non-Javadoc)

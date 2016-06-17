@@ -52,7 +52,7 @@ public interface ILorannMap {
 	 * @return width
 	 */
 
-	int getWidht();
+	int getWidth();
 
 	/**
 	 * Gets height
