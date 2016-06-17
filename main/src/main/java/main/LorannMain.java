@@ -1,8 +1,8 @@
 package main;
 
-import controller.Controller;
-import model.Model;
-import view.View;
+import controller.LorannController;
+import model.LorannGame;
+import view.LorannView;
 
 public abstract class LorannMain {
 
@@ -14,10 +14,10 @@ public abstract class LorannMain {
 	 */
 	
 public static void main(final String[] args) {
-	final Model model = new Model();
-	final View view = new View(model);
-	final Controller controller = new Controller(view, model);
-	view.setController(controller);
-	controller.control();
+	final LorannGame lorannGame = new LorannGame();
+	final LorannView lorannView = new LorannView(lorannGame);
+	final LorannController lorannController = new LorannController(lorannView, lorannGame);
+	lorannView.setController(lorannController);
+	lorannController.control();
 }
 }
