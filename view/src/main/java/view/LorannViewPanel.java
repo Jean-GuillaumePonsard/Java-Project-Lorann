@@ -23,7 +23,6 @@ class LorannViewPanel extends JPanel implements Observer {
 	/** The view frame. */
 	
 	private LorannViewFrame					LorannviewFrame;
-	private JLabel [][] JLabelMap;
 	
 	/** The Constant serialVersionUID. */
 	
