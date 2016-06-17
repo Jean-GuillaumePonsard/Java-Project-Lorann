@@ -71,6 +71,7 @@ class LorannViewFrame extends JFrame implements KeyListener {
 	 */
 	public LorannViewFrame(final ILorannGame lorannGame, final String title) throws HeadlessException {
 		super(title);
+		//System.out.println("TEST");
 		this.buildViewFrame(lorannGame);
 	}
 
@@ -134,14 +135,17 @@ class LorannViewFrame extends JFrame implements KeyListener {
 	 *          the model
 	 */
 	private void buildViewFrame(final ILorannGame lorannGame) {
+		//System.out.println("TEST2");
 		this.setModel(lorannGame);
 		this.setTitle("Lorran 2");
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setResizable(false);
 		this.addKeyListener(this);
 		this.setContentPane(new LorannViewPanel(this));
-		this.setSize(768, 576);
+		this.setSize(648, 420);
 		this.setLocationRelativeTo(null);
+		//System.out.println("TEST3");
+		this.setVisible(true);
 	}
 	
 	private JPanel container = new JPanel();

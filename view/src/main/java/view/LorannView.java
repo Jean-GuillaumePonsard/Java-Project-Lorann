@@ -28,7 +28,7 @@ public class LorannView implements IView, Runnable {
 	 *          the model
 	 */
 	public LorannView(final ILorannGame lorannGame) {
-		this.LorannviewFrame = new LorannViewFrame(lorannGame);
+		this.LorannviewFrame = new LorannViewFrame(lorannGame, "Lorann");
 		SwingUtilities.invokeLater(this);
 		}
 	/**

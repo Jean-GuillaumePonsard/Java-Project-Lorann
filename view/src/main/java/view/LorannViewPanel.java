@@ -10,6 +10,9 @@ import java.util.Observer;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import contract.IElement;
+import contract.IMonster;
+
 /**
  * The Class ViewPanel.
  *
@@ -21,7 +24,6 @@ class LorannViewPanel extends JPanel implements Observer {
 	
 	private LorannViewFrame					LorannviewFrame;
 	private JLabel [][] JLabelMap;
-	private GridBagConstraints gbc; 
 	
 	/** The Constant serialVersionUID. */
 	
@@ -35,45 +37,14 @@ class LorannViewPanel extends JPanel implements Observer {
 	 */
 	public LorannViewPanel(final LorannViewFrame LorannviewFrame) {
 		this.setLorannViewFrame(LorannviewFrame);
-		this.setSize(this.getLorannViewFrame().getLorannGame().getD());
-		this.setPreferredSize(this.getLorannViewFrame().getLorannGame().getD());
-		LorannviewFrame.getLorannGame().getObservable().addObserver(this);
-		JLabelMap = new JLabel [this.getLorannViewFrame().getLorannGame().getLorannMap().getHeight()][this.getLorannViewFrame().getModel().getWidth()];
-		this.gbc = new GridBagConstraints();
-		this.setLayout(new GridBagLayout());	
+		//this.setSize(this.getLorannViewFrame().getLorannGame().getLorannMap().getWidth()*32, this.getLorannViewFrame().getLorannGame().getLorannMap().getHeight()*32);
+		//this.setPreferredSize(this.getLorannViewFrame().getLorannGame().getD());
+		//LorannviewFrame.getLorannGame().addObserver(this);
+		//JLabelMap = new JLabel [this.getLorannViewFrame().getLorannGame().getLorannMap().getHeight()][this.getLorannViewFrame().getLorannGame().getLorannMap().getWidth()];
 		
-		this.initLorannViewPanel();		
+		this.repaint();		
 	}
-	/** Puts elements on ViewPanel
-	 * 
-	 */
 	
-	public void initLorannViewPanel()
-	{
-		int x=0, y=0;
-		for(y=0; y<this.getLorannViewFrame().getLorannGame().getHeight(); y++)
-		{
-			for(x=0; x<this.getLorannViewFrame().getLorannGame().getWidth(); x++)
-			{
-				JLabel sprite = new JLabel();
-				sprite.setIcon(this.getLorannViewFrame().getLorannGame().getImageElement(y, x));
-				this.JLabelMap[y][x]=sprite;
-				this.getGbc().gridx = x;
-				this.getGbc().gridy = y;
-				this.getGbc().gridheight = 1;
-				this.getGbc().gridwidth = 1;
-				this.add(sprite, gbc);	
-				// Gridx-Gridy Specifies the row and column of the component ( left to right / up to down )
-			}
-		}		
-		this.getGbc().gridx = 0;
-		this.getGbc().gridy++;
-		this.getGbc().gridwidth = 5;	
-		this.getLorannViewFrame().pack();
-		// Pack make the application to be in the preferredSize
-		this.setVisible(true);
-		this.repaint();
-	}
 	/**
 	 * Gets the view frame.
 	 *
@@ -103,22 +74,10 @@ class LorannViewPanel extends JPanel implements Observer {
 	 */
 	public void update(final Observable arg0, final Object arg1) {
 		this.removeAll();
-		this.initLorannViewPanel();
 		this.repaint();
 	}
 
-	/**
-	 * Method that print-modifies components in Frame
-	 * 
-	 * @param graphics
-	 */
-	@Override
-	protected void paintComponent(final Graphics graphics) {
-		graphics.setColor(Color.BLACK);
-		graphics.fillRect(0, 0, this.getWidth(), this.getHeight());
-	//	graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-	//	graphics.drawString(this.getViewFrame().getModel().getMessage(), 10, 20);
-	}
+	
 	/** The JLabelMap
 	 * 
 	 * @return JLabelMap
@@ -137,23 +96,43 @@ class LorannViewPanel extends JPanel implements Observer {
 		JLabelMap = jLabelMap;
 	}
 
-	
-	
-/** GridBagConstraints set the location of elements
- * 
- * @return gbc
- */
-	
-	public GridBagConstraints getGbc() {
-		return gbc;
+	/**
+	 * Method that print components in Frame
+	 * 
+	 * @param graphics
+	 */
+	@Override
+	protected void paintComponent(final Graphics graphics) {
+		
+		int x = 0;
+
+		
+		graphics.setColor(Color.BLACK);
+		graphics.fillRect(0, 0, this.getWidth(), this.getHeight());
+		
+		for(IElement[] element: LorannviewFrame.getLorannGame().getLorannMap().getElements())
+		{
+			int y = 0;
+			for(IElement e:element)
+			{
+				if(e!=null) {
+					graphics.drawImage(e.getImage(), x * 32 + 1, y * 32 + 1, null);
+				}
+				y++;
+			}
+			x++;
+		}
+		
+		for(IMonster monster : LorannviewFrame.getLorannGame().getLorannMap().getMonsters())
+		{
+			graphics.drawImage(((IElement)monster).getImage(), ((IElement)monster).getX()*32, ((IElement)monster).getY()*32, null);
+		}
+		
+		IElement lorann = LorannviewFrame.getLorannGame().getLorannMap().getLorann();
+		graphics.drawImage(lorann.getImage(), lorann.getX()*32, lorann.getY()*32, null);
 	}
-/** Sets the GridBagConstraints
- * 
- * @param gbc
- */
-	public void setGbc(GridBagConstraints gbc) {
-		this.gbc = gbc;
-	} }
+	
+		}
 
 	
 /* TO DO	
