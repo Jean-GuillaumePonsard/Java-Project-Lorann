@@ -2,9 +2,13 @@ package controller;
 
 
 
+import java.util.ArrayList;
+
 import contract.ControllerOrder;
 import contract.IController;
 import contract.ILorannGame;
+import contract.ILorannMap;
+import contract.IMonster;
 import contract.IElement;
 import contract.ILorann;
 import contract.IView;
@@ -35,6 +39,7 @@ public class LorannController implements IController {
 		this.setView(view);
 		this.setModel(lorannGame);
 	}
+	
 	/**
 	 * Sets the view.
 	 *
@@ -54,45 +59,67 @@ public class LorannController implements IController {
 	private void setModel(final ILorannGame lorannGame) {
 		this.lorannGame = lorannGame;
 	}
+	
 	/**
-	 * Move Lorann
+	 * Move Element
 	 * 
+	 * @param element
+	 * 		the  mobile element who will move
 	 * @param x
+	 * 		the x position of a mobile element
 	 * @param y
+	 * 		the y position of a mobile element
 	 */
 	public void moveElement(IElement element, int x, int y){
 				
 		element.setX(element.getX()+x);
 		element.setY(element.getY()+y);
-		
-		
+			
 	}
-	/*
-	 * (non-javadoc)
+	
+	/**
+	 * Permit to know if a monster or Lorann will be not blocked by a map element
 	 * 
+	 * @param x
+	 * 		the x position of a static element on the map 		
+	 * @param y
+	 * 		the y position of a static element on the map 
 	 */
 	private boolean getBlocked(final int x, final int y){
 		return getElement(x, y).getPermeability() == Permeability.PENETRABLE;
 	}
-	/*
-	 * (non-javadoc)
-	 *
+	
+	/**
+	 *get the Elements
+	 * 
+	 *@return the Element's position
 	 */
 	private IElement getElement(final int x, final int y)
 	{
 		return lorannGame.getLorannMap().getElement(x, y);
 	}
 	
-	/*
-	 * evite au monstre de rester bloquer contre un mur et le fait suivre Lorann
-	 * 
+	/**
+	 * move monsters
+	 *  
 	 */
 	public void monsterAi(){
-		//for (Monster m : model.)
+		for(IMonster monster : lorannGame.getLorannMap().getMonsters()){
+			double random = Math.random();
+			if(random <= .2d && getBlocked(((IElement)monster).getX(), ((IElement)monster).getY()-1)){
+				moveElement((IElement)monster, 0, -1);
+			}else if(random <= .4d && getBlocked(((IElement)monster).getX(), ((IElement)monster).getY()+1)){
+				moveElement((IElement)monster, 0, +1);
+			}else if(random <= .6d && getBlocked(((IElement)monster).getX()-1, ((IElement)monster).getY())){
+				moveElement((IElement)monster, -1, 0);
+			}else if(random <= .8d && getBlocked(((IElement)monster).getX()+1, ((IElement)monster).getY())){
+				moveElement((IElement)monster, +1, 0);
+			}			
+		}
 	}
 	
 	/*
-	 * Lance le sort de Lorann
+	 * Launch Lorann's spell
 	 * 
 	 */
 	public void launchSpell(){
@@ -100,15 +127,16 @@ public class LorannController implements IController {
 	}
 	
 	/*
-	 * Fait mourir Lorann si un monstre se trouve aux même coordonées que Lorann
+	 * kill Lorann when he touched a monster or a locked door
 	 * 
 	 */
 	public void Die(){
 		
+		
 	}
 	
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Move Lorann due to a key pressed
 	 *
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
