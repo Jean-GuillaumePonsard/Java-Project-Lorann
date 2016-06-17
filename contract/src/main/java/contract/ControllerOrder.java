@@ -13,10 +13,13 @@ public enum ControllerOrder {
 	Deutsch, /** The Indonesia. */
 	Indonesia,
 	
-	UP,
-	DOWN,
-	LEFT,
-	RIGHT,
-	LAUNCHSPELL,
+	UP, /** Move UP */
+	DOWN, /** Move DOWN */
+	LEFT, /** Move LEFT */
+	RIGHT, /** Move RIGHT */
+	LAUNCHSPELL, /** Launch Spell */
+	VOID, /** Do nothing */
+	
+	
 	
 }

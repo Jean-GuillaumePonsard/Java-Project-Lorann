@@ -212,7 +212,7 @@ class LorannViewFrame extends JFrame implements KeyListener {
 					default: return ControllerOrder.LAUNCHSPELL;
 				}
 			}
-		return null;	
+		return ControllerOrder.VOID;	
 		
 	}
 /** Method for KeyActions

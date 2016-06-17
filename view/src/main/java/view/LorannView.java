@@ -1,12 +1,8 @@
 package view;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import java.io.File;
+
 import javax.swing.SwingUtilities;
 
-import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
@@ -19,7 +15,7 @@ import contract.IView;
 public class LorannView implements IView, Runnable {
 
 	/** The frame. */
-	private final ViewFrame viewFrame;
+	private final LorannViewFrame LorannviewFrame;
 
 	/**
 	 * Instantiates a new view.
@@ -28,18 +24,10 @@ public class LorannView implements IView, Runnable {
 	 *          the model
 	 */
 	public LorannView(final IModel model) {
-		this.viewFrame = new ViewFrame(model);
+		this.LorannviewFrame = new LorannViewFrame(model);
 		SwingUtilities.invokeLater(this);
 		}
 
-	/**
-	 * Launch the frame
-	 * set the frame visible
-	 * @param true
-	 */
-	public void openFrame() {
-	this.viewFrame.setVisible(true);
-		}
 
 	/**
 	 * Sets the controller.
@@ -48,7 +36,7 @@ public class LorannView implements IView, Runnable {
 	 *          the new controller
 	 */
 	public void setController(final IController controller) {
-		this.viewFrame.setController(controller);
+		this.LorannviewFrame.setController(controller);
 		}
 	/**
 	 * Close the frame
@@ -57,15 +45,25 @@ public class LorannView implements IView, Runnable {
 	 */
 	 public void closeFrame() {
 	
-	 this.viewFrame.setVisible(false);
+	 this.LorannviewFrame.setVisible(false);
 	 }
-
-	public void run() {
-		// TODO Auto-generated method stub
+	 /**
+		 * Launch the frame
+		 * set the frame visible
+		 * @param true
+		 */
+	public void runFrame() {
+	this.LorannviewFrame.setVisible(true);
 		
 	}
 
 	public void printMessage(String message) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void run() {
 		// TODO Auto-generated method stub
 		
 	} 
