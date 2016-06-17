@@ -1,12 +1,14 @@
 package model;
 
+import contract.ICrystalBubble;
+
 /**
  * The Class CrystalBubble.
  *
  * @author Jean-Guillaume Ponsard
  */
 
-public class CrystalBubble extends Loot {
+public class CrystalBubble extends Loot implements ICrystalBubble {
 
 	/**
 	 * Instantiates a new CrystalBubble.

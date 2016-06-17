@@ -26,7 +26,7 @@ public class TestLorann {
 	 */
 	@Test
 	public void testGetLorannStatement() {
-		model.Lorann lorann = new model.Lorann(0, 0, "https://game-guide.fr/wp-content/uploads/2015/08/Marvel_Heroes_Livestream_PAXPrime-21.jpg");
+		ILorann lorann = new model.Lorann(0, 0, "https://game-guide.fr/wp-content/uploads/2015/08/Marvel_Heroes_Livestream_PAXPrime-21.jpg");
 		assertEquals(LorannStatement.UP, lorann.getLorannStatement());
 	}
 
@@ -35,7 +35,7 @@ public class TestLorann {
 	 */
 	@Test
 	public void testSetLorannStatement() {
-		model.Lorann lorann = new model.Lorann(0, 0, "https://game-guide.fr/wp-content/uploads/2015/08/Marvel_Heroes_Livestream_PAXPrime-21.jpg");
+		ILorann lorann = new model.Lorann(0, 0, "https://game-guide.fr/wp-content/uploads/2015/08/Marvel_Heroes_Livestream_PAXPrime-21.jpg");
 		lorann.setLorannStatement(LorannStatement.DOWN);
 		assertEquals(LorannStatement.DOWN, lorann.getLorannStatement());
 	}

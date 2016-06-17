@@ -25,7 +25,7 @@ public class TestSpell {
 	 */
 	@Test
 	public void testGetSpellStatement() {
-		model.Spell spell = new model.Spell(0, 0, "https://image.freepik.com/photos-libre/boule-de-feu--rouge_19-98186.jpg");
+		ISpell spell = new model.Spell(0, 0, "https://image.freepik.com/photos-libre/boule-de-feu--rouge_19-98186.jpg");
 		assertEquals(SpellStatement.INPOCKET, spell.getSpellStatement());
 	}
 	/**
@@ -33,7 +33,7 @@ public class TestSpell {
 	 */
 	@Test
 	public void testSetSpellStatement() {
-		model.Spell spell = new model.Spell(0, 0, "https://image.freepik.com/photos-libre/boule-de-feu--rouge_19-98186.jpg");
+		ISpell spell = new model.Spell(0, 0, "https://image.freepik.com/photos-libre/boule-de-feu--rouge_19-98186.jpg");
 		spell.setSpellStatement(SpellStatement.LAUNCHEDDOWN);
 		assertEquals(SpellStatement.LAUNCHEDDOWN, spell.getSpellStatement());
 	}

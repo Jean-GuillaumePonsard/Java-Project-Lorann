@@ -25,7 +25,7 @@ public class TestDoor {
 	 */
 	@Test
 	public void testSetGateStatement() {
-		model.Door door = new model.Door(0, 0,"http://www.doorsonline.co/images/accessories/Wood_Door-Liner_skirting.jpg");
+		IDoor door = new model.Door(0, 0,"http://www.doorsonline.co/images/accessories/Wood_Door-Liner_skirting.jpg");
 		door.setGateStatement(GateStatement.OPEN);
 		assertEquals(GateStatement.OPEN, door.getGateStatement());
 	}
@@ -34,7 +34,7 @@ public class TestDoor {
 	 */
 	@Test
 	public void testGetGateStatement() {
-		model.Door door = new model.Door(0, 0,"http://www.doorsonline.co/images/accessories/Wood_Door-Liner_skirting.jpg");
+		IDoor door = new model.Door(0, 0,"http://www.doorsonline.co/images/accessories/Wood_Door-Liner_skirting.jpg");
 		assertEquals(GateStatement.LOCK, door.getGateStatement());
 	}
 

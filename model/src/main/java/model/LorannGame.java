@@ -3,6 +3,9 @@ package model;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import contract.ILorannGame;
+import contract.ILorannMap;
+
 /**
  * The Class LorannGame.
  *
@@ -10,10 +13,10 @@ import java.sql.SQLException;
  */
 
 
-public class LorannGame {
+public class LorannGame implements ILorannGame {
 
 	/** The Lorann Game Map**/
-	private LorannMap lorannMap;
+	private ILorannMap lorannMap;
 	
 	/** The DataBase Connection that allow to get a Resultset **/
 	private DBLorannGame dbloranngame;
@@ -28,23 +31,18 @@ public class LorannGame {
 		initLorannMap();
 	}
 
-	/**
-	 * Get LorannMap.
-	 * 
-	 * @return the Map
+	/* (non-Javadoc)
+	 * @see model.ILorannGame#getLorannMap()
 	 */
-	public LorannMap getLorannMap() {
+	public ILorannMap getLorannMap() {
 		return lorannMap;
 	}
 	
-	/**
-	 * Sets the lorannMap.
-	 *
-	 * @param lorannMap
-	 *          the new lorannMap
+	/* (non-Javadoc)
+	 * @see model.ILorannGame#setLorannMap(model.LorannMap)
 	 */
 
-	public void setLorannMap(LorannMap lorannMap) {
+	public void setLorannMap(ILorannMap lorannMap) {
 		this.lorannMap = lorannMap;
 	}
 	
@@ -55,6 +53,7 @@ public class LorannGame {
 	 * Need to be improve for map choice
 	 * 
 	 */
+	
 	public void initLorannMap()
 	{
 		lorannMap = new LorannMap(20, 12);

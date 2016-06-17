@@ -1,12 +1,16 @@
 package model;
 
+import contract.GateStatement;
+import contract.IDoor;
+import contract.Permeability;
+
 /**
  * The Class Door.
  *
  * @author Jean-Guillaume Ponsard
  */
 
-public class Door extends MotionlessElement {
+public class Door extends MotionlessElement implements IDoor {
 
 	/** The Gate Statement, if it closed or opened */
 	public GateStatement gateStatement;
@@ -27,21 +31,16 @@ public class Door extends MotionlessElement {
 	}
 	
 	
-	/**
-	 * Sets the gateStatement.
-	 *
-	 * @param GateStatement
-	 *          the new gateStatement
+	/* (non-Javadoc)
+	 * @see model.IDoor#setGateStatement(model.GateStatement)
 	 */
 	public void setGateStatement(GateStatement gateStatement)
 	{
 		this.gateStatement = gateStatement;
 	}
 	
-	/**
-	 * Gets the gateStatement.
-	 *
-	 * @return the GateStatement of the door
+	/* (non-Javadoc)
+	 * @see model.IDoor#getGateStatement()
 	 */
 	
 	public GateStatement getGateStatement()

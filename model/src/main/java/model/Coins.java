@@ -1,12 +1,14 @@
 package model;
 
+import contract.ICoins;
+
 /**
  * The Class Coins.
  *
  * @author Jean-Guillaume Ponsard
  */
 
-public class Coins extends Loot {
+public class Coins extends Loot implements ICoins {
 
 	/**
 	 * Instantiates a new coins.

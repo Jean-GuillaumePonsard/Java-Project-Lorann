@@ -1,12 +1,16 @@
 package model;
 
+import contract.ILorann;
+import contract.LorannStatement;
+import contract.Permeability;
+
 /**
  * The Class Lorann.
  *
  * @author Jean-Guillaume Ponsard
  */
 
-public class Lorann extends MotionElement {
+public class Lorann extends MotionElement implements ILorann {
 
 	/** Lorann's Statement */
 	private LorannStatement lorannStatement;
@@ -27,21 +31,16 @@ public class Lorann extends MotionElement {
 		lorannStatement = LorannStatement.UP;
 	}
 
-	/**
-	 * Gets the lorannStatement.
-	 *
-	 * @return lorannStatement
+	/* (non-Javadoc)
+	 * @see model.ILorann#getLorannStatement()
 	 */
 	
 	public LorannStatement getLorannStatement() {
 		return lorannStatement;
 	}
 
-	/**
-	 * Sets the lorannStatement.
-	 *
-	 * @param lorannStatement
-	 *          the new lorannStatement
+	/* (non-Javadoc)
+	 * @see model.ILorann#setLorannStatement(model.LorannStatement)
 	 */
 	
 	public void setLorannStatement(LorannStatement lorannStatement) {

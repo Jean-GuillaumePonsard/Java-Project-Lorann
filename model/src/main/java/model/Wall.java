@@ -1,12 +1,15 @@
 package model;
 
+import contract.IWall;
+import contract.Permeability;
+
 /**
  * The Class Wall.
  *
  * @author Jean-Guillaume Ponsard
  */
 
-public class Wall extends MotionlessElement {
+public class Wall extends MotionlessElement implements IWall {
 
 	/** 
 	 *	Instantiates a new wall.

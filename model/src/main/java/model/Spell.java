@@ -1,12 +1,16 @@
 package model;
 
+import contract.ISpell;
+import contract.Permeability;
+import contract.SpellStatement;
+
 /**
  * The Class Spell.
  *
  * @author Jean-Guillaume Ponsard
  */
 
-public class Spell extends MotionElement {
+public class Spell extends MotionElement implements ISpell {
 
 	/** The SpellStatement of the Spell */
 	private SpellStatement spellStatement;
@@ -27,10 +31,8 @@ public class Spell extends MotionElement {
 		this.spellStatement = SpellStatement.INPOCKET;
 	}
 	
-	/**
-	 * Sets the spellStatement.
-	 *
-	 * @return spellStatement
+	/* (non-Javadoc)
+	 * @see model.ISpell#getSpellStatement()
 	 */
 	
 	public SpellStatement getSpellStatement()
@@ -38,11 +40,8 @@ public class Spell extends MotionElement {
 		return this.spellStatement;
 	}
 	
-	/**
-	 * Sets the spellStatement.
-	 *
-	 * @param spellStatement
-	 *          the new spellStatement
+	/* (non-Javadoc)
+	 * @see model.ISpell#setSpellStatement(model.SpellStatement)
 	 */
 	
 	public void setSpellStatement(SpellStatement spellStatement)

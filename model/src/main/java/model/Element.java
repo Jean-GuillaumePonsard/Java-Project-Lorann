@@ -6,13 +6,16 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import contract.IElement;
+import contract.Permeability;
+
 /**
  * The Class Element.
  *
  * @author Jean-Guillaume Ponsard
  */
 
-public class Element {
+public class Element implements IElement {
 
 	/** The element's permeability */
 	private Permeability permeability;
@@ -40,53 +43,40 @@ public class Element {
 		this.permeability = permeability;
 	}
 	
-	/**
-	 * Gets the permeability.
-	 *
-	 * @return the permeability of the element
+	/* (non-Javadoc)
+	 * @see model.IElement#getPermeability()
 	 */
 	
 	public Permeability getPermeability() {
 		return permeability;
 	}
 	
-	/**
-	 * Sets the permeability.
-	 *
-	 * @param permeability
-	 *          the new permeability
+	/* (non-Javadoc)
+	 * @see model.IElement#setPermeability(model.Permeability)
 	 */
 	
 	public void setPermeability(Permeability permeability) {
 		this.permeability = permeability;
 	}
 	
-	/**
-	 * Gets the element's image.
-	 *
-	 * @return the element's image
+	/* (non-Javadoc)
+	 * @see model.IElement#getImage()
 	 */
 	
 	public Image getImage() {
 		return this.image;
 	}
 
-	/**
-	 * Sets the image.
-	 *
-	 * @param image
-	 *          the new image by image
+	/* (non-Javadoc)
+	 * @see model.IElement#setImage(java.awt.Image)
 	 */
 	
 	public void setImage(Image image) {
 		this.image = image;
 	}
 	
-	/**
-	 * Sets the image.
-	 *
-	 * @param url
-	 *          the new image's url
+	/* (non-Javadoc)
+	 * @see model.IElement#setImage(java.lang.String)
 	 */
 	
 	public void setImage(String url)
@@ -102,10 +92,8 @@ public class Element {
 	}
 
 
-	/**
-	 * Gets the element's x position.
-	 *
-	 * @return the element's x position
+	/* (non-Javadoc)
+	 * @see model.IElement#getX()
 	 */
 	
 	public int getX() {
@@ -113,32 +101,24 @@ public class Element {
 	}
 
 	
-	/**
-	 * Sets the element's x position.
-	 *
-	 * @param x
-	 *          the x position of the element
+	/* (non-Javadoc)
+	 * @see model.IElement#setX(int)
 	 */
 	
 	public void setX(int x) {
 		this.x = x;
 	}
 
-	/**
-	 * Gets the element's y position.
-	 *
-	 * @return the element's y position
+	/* (non-Javadoc)
+	 * @see model.IElement#getY()
 	 */
 
 	public int getY() {
 		return this.y;
 	}
 
-	/**
-	 * Sets the element's y position.
-	 *
-	 * @param y
-	 *          the y position of the element
+	/* (non-Javadoc)
+	 * @see model.IElement#setY(int)
 	 */
 
 	public void setY(int y) {

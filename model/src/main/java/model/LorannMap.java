@@ -2,26 +2,32 @@ package model;
 
 import java.util.ArrayList;
 
+import contract.IElement;
+import contract.ILorann;
+import contract.ILorannMap;
+import contract.IMonster;
+import contract.ISpell;
+
 /**
  * The Class LorannMap.
  *
  * @author Jean-Guillaume Ponsard
  */
 
-public class LorannMap {
+public class LorannMap implements ILorannMap {
 
 	
 	/** Table of Element that are in the map and need to be displayed. */
-	private Element elements[][];
+	private IElement elements[][];
 	
 	/** Lorann, the hero of the game. */
-	private Lorann lorann;
+	private ILorann lorann;
 	
 	/** Array List of monster */
-	private ArrayList<Monster> monsters = new ArrayList<Monster>();
+	private ArrayList<IMonster> monsters = new ArrayList<IMonster>();
 	
 	/** Lorann's spell */
-	private Spell lorannSpell;
+	private ISpell lorannSpell;
 	
 	/** widht of the map. */
 	private int widht;
@@ -39,57 +45,38 @@ public class LorannMap {
 	{
 		this.widht = widht;
 		this.height = height;
-		this.elements = new Element[this.getWidht()][this.getHeight()];	
+		this.elements = new IElement[this.getWidht()][this.getHeight()];	
 	}
 	
-	/**
-	 * Gets all elements
-	 * 
-	 * @return elements
+	/* (non-Javadoc)
+	 * @see model.ILorannMap#getElements()
 	 */
-	public Element[][] getElements() {
+	public IElement[][] getElements() {
 		return elements;
 	}
 	
-	/**
-	 * Adds elements in the table
-	 * 
-	 * need improvement to check the value of x and y
-	 * 
-	 * @param element
-	 * @param x
-	 * @param y
+	/* (non-Javadoc)
+	 * @see model.ILorannMap#addElement(model.IElement, int, int)
 	 */
 	
-	public void addElement(Element element, final int x, final int y)
+	public void addElement(IElement element, final int x, final int y)
 	{
 		this.elements[x][y] = element;
 	}
 
-	/**
-	 * Sets elements in the table. Equals to addElement
-	 * Need a lot of improvement to not looks like addElement
-	 * 
-	 * @deprecated
-	 * 
-	 * @param element
-	 * @param x
-	 * @param y
+	/* (non-Javadoc)
+	 * @see model.ILorannMap#setElement(model.IElement, int, int)
 	 */
 
-	public void setElement(Element element, int x, int y) {
+	public void setElement(IElement element, int x, int y) {
 		this.elements[x][y] = element;
 	}
 	
-	/**
-	 * Gets element by x and y positions
-	 * 
-	 * @param x
-	 * @param y
-	 * @return elements or null
+	/* (non-Javadoc)
+	 * @see model.ILorannMap#getElement(int, int)
 	 */
 	
-	public Element getElement(int x, int y)
+	public IElement getElement(int x, int y)
 	{
 		if(x < 0 || y <0 || x > this.getWidht() || y > this.getHeight())
 		{
@@ -99,83 +86,67 @@ public class LorannMap {
 		return elements[x][y];
 	}
 
-	/**
-	 * Gets widht
-	 * 
-	 * @return width
+	/* (non-Javadoc)
+	 * @see model.ILorannMap#getWidht()
 	 */
 
 	public int getWidht() {
 		return this.widht;
 	}
 
-	/**
-	 * Gets height
-	 * 
-	 * @return height
+	/* (non-Javadoc)
+	 * @see model.ILorannMap#getHeight()
 	 */
 	
 	public int getHeight() {
 		return this.height;
 	}
 	
-	/**
-	 * Gets Lorann
-	 * 
-	 * @return lorann
+	/* (non-Javadoc)
+	 * @see model.ILorannMap#getLorann()
 	 */
 	
-	public Lorann getLorann()
+	public ILorann getLorann()
 	{
 		return this.lorann;
 	}
 	
-	/**
-	 * Sets Lorann
-	 * 
-	 * @param lorann
+	/* (non-Javadoc)
+	 * @see model.ILorannMap#setLorann(model.ILorann)
 	 */
 	
-	public void setLorann(Lorann lorann)
+	public void setLorann(ILorann lorann)
 	{
 		this.lorann = lorann;
 	}
 	
-	/**
-	 * Gets all monsters
-	 * 
-	 * @return monsters
+	/* (non-Javadoc)
+	 * @see model.ILorannMap#getMonsters()
 	 */
 
-	public ArrayList<Monster> getMonsters() {
+	public ArrayList<IMonster> getMonsters() {
 		return monsters;
 	}
 
-	/**
-	 * Sets all monsters
-	 * 
-	 * @param monsters
+	/* (non-Javadoc)
+	 * @see model.ILorannMap#setMonsters(java.util.ArrayList)
 	 */
 	
-	public void setMonsters(ArrayList<Monster> monsters) {
+	public void setMonsters(ArrayList<IMonster> monsters) {
 		this.monsters = monsters;
 	}
 	
-	/**
-	 * Add a monster in ArrayList
-	 * 
-	 * @param monster
+	/* (non-Javadoc)
+	 * @see model.ILorannMap#addMonster(model.Monster)
 	 */
 
-	public void addMonster(Monster monster)
+	public void addMonster(IMonster monster)
 	{
 		monsters.add(monster);
 	}
 	
-	/**
-	 * Remove a monster by its index in the ArrayList
-	 * 
-	 * @param index
+	/* (non-Javadoc)
+	 * @see model.ILorannMap#removeMonsterByIndex(int)
 	 */
 	
 	public void removeMonsterByIndex(int index)
@@ -183,23 +154,19 @@ public class LorannMap {
 		monsters.remove(index);
 	}
 
-	/**
-	 * Gets Lorann's Spell.
-	 * 
-	 * @return lorannSpell
+	/* (non-Javadoc)
+	 * @see model.ILorannMap#getLorannSpell()
 	 */
 	
-	public Spell getLorannSpell() {
+	public ISpell getLorannSpell() {
 		return lorannSpell;
 	}
 
-	/**
-	 * Sets Lorann's Spell
-	 * 
-	 * @param lorannSpell
+	/* (non-Javadoc)
+	 * @see model.ILorannMap#setLorannSpell(model.Spell)
 	 */
 	
-	public void setLorannSpell(Spell lorannSpell) {
+	public void setLorannSpell(ISpell lorannSpell) {
 		this.lorannSpell = lorannSpell;
 	}
 	

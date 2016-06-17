@@ -1,12 +1,15 @@
 package model;
 
+import contract.IMonster;
+import contract.Permeability;
+
 /**
  * The Class Monster.
  *
  * @author Jean-Guillaume Ponsard
  */
 
-public class Monster extends MotionElement {
+public class Monster extends MotionElement implements IMonster {
 
 	/** 
 	 *	Instantiates a new monster.
