@@ -5,7 +5,10 @@ package controller;
 import java.util.ArrayList;
 
 import contract.ControllerOrder;
+import contract.ICoins;
 import contract.IController;
+import contract.ICrystalBubble;
+import contract.IDoor;
 import contract.ILorannGame;
 import contract.ILorannMap;
 import contract.ILorannView;
@@ -41,6 +44,8 @@ public class LorannController implements ILorannController {
 	public LorannController(final ILorannView view, final ILorannGame lorannGame) {
 		this.setView(view);
 		this.setModel(lorannGame);
+		Thread thread = new Thread(new Ticks(this));
+		thread.start();
 	}
 	
 	/**
@@ -109,13 +114,16 @@ public class LorannController implements ILorannController {
 	public void monsterAi(){
 		for(IMonster monster : lorannGame.getLorannMap().getMonsters()){
 			double random = Math.random();
-			if(random <= .2d && getBlocked(((IElement)monster).getX(), ((IElement)monster).getY()-1)){
+			int monsterX = ((IElement)monster).getX();
+			int monsterY = ((IElement)monster).getY();
+			
+			if(random <= .2d && getBlocked(monsterX, monsterY-1) && (lorannGame.getLorannMap().getElement(monsterX, monsterY-1) instanceof ICoins) != true && (lorannGame.getLorannMap().getElement(monsterX, monsterY-1) instanceof ICrystalBubble) != true && (lorannGame.getLorannMap().getElement(monsterX, monsterY-1) instanceof IDoor) != true){
 				moveElement((IElement)monster, 0, -1);
-			}else if(random <= .4d && getBlocked(((IElement)monster).getX(), ((IElement)monster).getY()+1)){
+			}else if(random <= .4d && getBlocked(monsterX, monsterY+1) && (lorannGame.getLorannMap().getElement(monsterX, monsterY+1) instanceof ICoins) != true && (lorannGame.getLorannMap().getElement(monsterX, monsterY+1) instanceof ICrystalBubble) != true && (lorannGame.getLorannMap().getElement(monsterX, monsterY+1) instanceof IDoor) != true){
 				moveElement((IElement)monster, 0, +1);
-			}else if(random <= .6d && getBlocked(((IElement)monster).getX()-1, ((IElement)monster).getY())){
+			}else if(random <= .6d && getBlocked(monsterX-1, monsterY) && (lorannGame.getLorannMap().getElement(monsterX-1, monsterY) instanceof ICoins) != true && (lorannGame.getLorannMap().getElement(monsterX-1, monsterY) instanceof ICrystalBubble) != true && (lorannGame.getLorannMap().getElement(monsterX-1, monsterY) instanceof IDoor) != true){
 				moveElement((IElement)monster, -1, 0);
-			}else if(random <= .8d && getBlocked(((IElement)monster).getX()+1, ((IElement)monster).getY())){
+			}else if(random <= .6d && getBlocked(monsterX+1, monsterY) && (lorannGame.getLorannMap().getElement(monsterX+1, monsterY) instanceof ICoins) != true && (lorannGame.getLorannMap().getElement(monsterX+1, monsterY) instanceof ICrystalBubble) != true && (lorannGame.getLorannMap().getElement(monsterX+1, monsterY) instanceof IDoor) != true){
 				moveElement((IElement)monster, +1, 0);
 			}			
 		}

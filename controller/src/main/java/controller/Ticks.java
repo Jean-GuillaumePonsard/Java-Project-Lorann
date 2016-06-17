@@ -26,6 +26,15 @@ public class Ticks implements Runnable  {
 	 */
 	public void run() {
 		// TODO Auto-generated method stub
-		
+		try{
+			while(true)
+			{
+				loranncontroller.monsterAi();
+				Thread.sleep(300);
+			}
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 }

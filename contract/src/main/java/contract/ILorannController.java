@@ -11,4 +11,7 @@ public interface ILorannController {
 	 */
 	void orderPerform(ControllerOrder controllerOrder);
 
+
+	void monsterAi();
+
 }
