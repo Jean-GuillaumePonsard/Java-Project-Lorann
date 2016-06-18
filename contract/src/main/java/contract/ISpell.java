@@ -19,4 +19,10 @@ public interface ISpell {
 
 	void setSpellStatement(SpellStatement spellStatement);
 
+	SpellColor getSpellColor();
+	
+	void setSpellColor(SpellColor spellColor);
+	
+	void setNextColor();
+	
 }

@@ -13,5 +13,7 @@ public interface ILorannController {
 
 
 	void monsterAi();
+	
+	void moveSpell();
 
 }

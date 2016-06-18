@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
+import contract.GateStatement;
 import contract.IElement;
 import contract.ILorann;
 import contract.ILorannMap;
@@ -168,6 +169,30 @@ public class LorannMap implements ILorannMap {
 	
 	public void setLorannSpell(IElement lorannSpell) {
 		this.lorannSpell = lorannSpell;
+	}
+	
+	public void destroyElement(final int x, final int y)
+	{
+		setElement(new Floor(x, y, "sprite/floor.png"), x, y);
+	}
+	
+	public void openDoor()
+	{
+		int x = 0;
+		for(IElement[] element: getElements())
+		{
+			int y = 0;
+			for(IElement e: element)
+			{
+				if(e instanceof Door) {
+					System.out.println("Opening Door");
+					((Door)e).setGateStatement(GateStatement.OPEN);
+					e.setImage("sprite/gate_open.png");
+				}
+				y++;
+			}
+			x++;
+		}
 	}
 
 	

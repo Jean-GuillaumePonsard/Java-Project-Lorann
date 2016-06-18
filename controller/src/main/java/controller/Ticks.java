@@ -30,6 +30,7 @@ public class Ticks implements Runnable  {
 			while(true)
 			{
 				loranncontroller.monsterAi();
+				loranncontroller.moveSpell();
 				Thread.sleep(300);
 			}
 		}catch(Exception e)

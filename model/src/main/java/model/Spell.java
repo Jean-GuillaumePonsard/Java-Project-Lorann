@@ -2,6 +2,7 @@ package model;
 
 import contract.ISpell;
 import contract.Permeability;
+import contract.SpellColor;
 import contract.SpellStatement;
 
 /**
@@ -14,6 +15,9 @@ public class Spell extends MotionElement implements ISpell {
 
 	/** The SpellStatement of the Spell */
 	private SpellStatement spellStatement;
+	
+	/** The Spell color */
+	private SpellColor spellColor;
 	
 	/** 
 	 *	Instantiates a new spell.
@@ -29,6 +33,7 @@ public class Spell extends MotionElement implements ISpell {
 		setX(x);
 		setY(y);
 		this.spellStatement = SpellStatement.INPOCKET;
+		this.setSpellColor(SpellColor.GREEN);
 	}
 	
 	/* (non-Javadoc)
@@ -47,5 +52,36 @@ public class Spell extends MotionElement implements ISpell {
 	public void setSpellStatement(SpellStatement spellStatement)
 	{
 		this.spellStatement = spellStatement;
+	}
+
+	public SpellColor getSpellColor() {
+		return this.spellColor;
+	}
+
+	public void setSpellColor(SpellColor spellColor) {
+		this.spellColor = spellColor;
+	}
+	
+	public void setNextColor()
+	{
+		switch(spellColor)
+		{
+		case BLUE:
+			setSpellColor(SpellColor.PINK);
+			break;
+		case GREEN:
+			setSpellColor(SpellColor.BLUE);
+			break;
+		case PINK:
+			setSpellColor(SpellColor.RED);
+			break;
+		case RED:
+			setSpellColor(SpellColor.YELLOW);
+			break;
+		case YELLOW:
+			setSpellColor(SpellColor.GREEN);
+			break;
+		
+		}
 	}
 }

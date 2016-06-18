@@ -18,7 +18,7 @@ public class Coins extends Loot implements ICoins {
 	 * @param url
 	 */
 	public Coins(int x, int y, String url) {
-		super(x, y, url);
+		super(x, y, url, 500);
 		// TODO Auto-generated constructor stub
 	}
 

@@ -18,7 +18,7 @@ public class CrystalBubble extends Loot implements ICrystalBubble {
 	 * @param url
 	 */
 	public CrystalBubble(int x, int y, String url) {
-		super(x, y, url);
+		super(x, y, url, 1000);
 		// TODO Auto-generated constructor stub
 	}
 

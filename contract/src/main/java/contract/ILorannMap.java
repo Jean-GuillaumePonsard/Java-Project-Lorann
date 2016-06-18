@@ -125,5 +125,9 @@ public interface ILorannMap {
 	 */
 
 	void setLorannSpell(IElement lorannSpell);
+	
+	void destroyElement(final int x, final int y);
+	
+	void openDoor();
 
 }

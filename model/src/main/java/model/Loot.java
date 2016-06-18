@@ -1,5 +1,6 @@
 package model;
 
+import contract.ILoot;
 import contract.Permeability;
 
 /**
@@ -8,8 +9,11 @@ import contract.Permeability;
  * @author Jean-Guillaume Ponsard
  */
 
-public class Loot extends MotionlessElement {
+public class Loot extends MotionlessElement implements ILoot {
 
+	/** Points given when picks loot */
+	private int pointsGiven;
+	
 	/** 
 	 *	Instantiates a new Loot
 	 * 
@@ -18,10 +22,16 @@ public class Loot extends MotionlessElement {
 	 * @param url
 	 */
 	
-	public Loot(int x, int y, String url)
+	public Loot(int x, int y, String url, int pointsGiven)
 	{
 		super(url, Permeability.PENETRABLE);
 		setX(x);
 		setY(y);
+		this.pointsGiven = pointsGiven;
+	}
+	
+	public int getPointsGiven()
+	{
+		return this.pointsGiven;
 	}
 }

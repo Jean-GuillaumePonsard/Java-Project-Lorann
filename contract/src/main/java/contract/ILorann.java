@@ -18,5 +18,9 @@ public interface ILorann {
 	 */
 
 	void setLorannStatement(LorannStatement lorannStatement);
+	
+	int getScore();
+	
+	void addScore(int score);
 
 }

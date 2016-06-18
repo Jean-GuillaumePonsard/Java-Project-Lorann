@@ -117,6 +117,28 @@ class LorannViewPanel extends JPanel implements Observer {
 		IElement spell = LorannviewFrame.getLorannGame().getLorannMap().getLorannSpell();
 		if(((ISpell)spell).getSpellStatement() != SpellStatement.INPOCKET)
 		{
+			switch(((ISpell)spell).getSpellColor())
+			{
+			case BLUE:
+				spell.setImage("sprite/fireball_2.png");
+				break;
+			case GREEN:
+				spell.setImage("sprite/fireball_1.png");
+				break;
+			case PINK:
+				spell.setImage("sprite/fireball_3.png");
+				break;
+			case RED:
+				spell.setImage("sprite/fireball_4.png");
+				break;
+			case YELLOW:
+				spell.setImage("sprite/fireball_5.png");
+				break;
+			default:
+				spell.setImage("sprite/fireball_1.png");
+				break;
+	
+			}
 			graphics.drawImage(spell.getImage(), spell.getX()*32, spell.getY()*32, null);
 		}
 		

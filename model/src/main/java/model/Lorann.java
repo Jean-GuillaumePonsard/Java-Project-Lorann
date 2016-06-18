@@ -15,6 +15,9 @@ public class Lorann extends MotionElement implements ILorann {
 	/** Lorann's Statement */
 	private LorannStatement lorannStatement;
 	
+	/** Lorann's score */
+	private int score = 0;
+	
 	/** 
 	 *	Instantiates a new Lorann.
 	 * 
@@ -29,6 +32,7 @@ public class Lorann extends MotionElement implements ILorann {
 		setX(x);
 		setY(y);
 		lorannStatement = LorannStatement.UP;
+		this.score = 0;
 	}
 
 	/* (non-Javadoc)
@@ -45,6 +49,14 @@ public class Lorann extends MotionElement implements ILorann {
 	
 	public void setLorannStatement(LorannStatement lorannStatement) {
 		this.lorannStatement = lorannStatement;
+	}
+
+	public int getScore() {
+		return score;
+	}
+
+	public void addScore(int score) {
+		this.score += score;
 	}
 	
 }
