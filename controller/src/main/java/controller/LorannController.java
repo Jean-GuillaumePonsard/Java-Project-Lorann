@@ -127,43 +127,30 @@ public class LorannController implements ILorannController {
 			checkColisionMonsterWithLorann((IElement)monster);
 			if(checkColisionMonsterWithSpell((IElement)monster) == true)
 			{
-				ArrayList<IMonster> monsters = lorannGame.getLorannMap().getMonsters();
-				IElement spell = lorannGame.getLorannMap().getLorannSpell();
-				
-				for(int index = 0; index < monsters.size(); index++)
-				{
-					IElement monster1 = (IElement) monsters.get(index);
-					if((monster1).getX() == lorannGame.getLorannMap().getLorannSpell().getX() && (monster1).getY() == lorannGame.getLorannMap().getLorannSpell().getY())
-					{
-						System.out.println("Collision Detected between the spell and a monster");
-						lorannGame.getLorannMap().removeMonsterByIndex(index);
-						callChange();
-						((ISpell) spell).setSpellStatement(SpellStatement.INPOCKET);
-						callChange();
-						return;
-					}
+				killMonster();
+				return;
+			}else {
+			
+				if(random <= .2d && getBlocked(monsterX, monsterY-1) && checkImpassableElements(monsterX, monsterY-1) && checkIfMonsterToPosition(monsterX, monsterY-1) == false){
+					
+					moveElement((IElement)monster, 0, -1);
+					checkColisionMonsterWithLorann((IElement)monster);
+					
+				}else if(random <= .4d && getBlocked(monsterX, monsterY+1) && checkImpassableElements(monsterX, monsterY+1) && checkIfMonsterToPosition(monsterX, monsterY+1) == false){
+
+					moveElement((IElement)monster, 0, +1);
+					checkColisionMonsterWithLorann((IElement)monster);
+				}else if(random <= .6d && getBlocked(monsterX-1, monsterY) && checkImpassableElements(monsterX-1, monsterY) && checkIfMonsterToPosition(monsterX-1, monsterY) == false){
+
+					moveElement((IElement)monster, -1, 0);
+					checkColisionMonsterWithLorann((IElement)monster);
+				}else if(random <= .8d && getBlocked(monsterX+1, monsterY) && checkImpassableElements(monsterX+1, monsterY) && checkIfMonsterToPosition(monsterX+1, monsterY) == false){
+
+					moveElement((IElement)monster, +1, 0);
+					checkColisionMonsterWithLorann((IElement)monster);
 				}
 			}
 			
-			
-			if(random <= .2d && getBlocked(monsterX, monsterY-1) && checkImpassableElements(monsterX, monsterY-1) && checkIfMonsterToPosition(monsterX, monsterY-1) == false){
-				
-				moveElement((IElement)monster, 0, -1);
-				checkColisionMonsterWithLorann((IElement)monster);
-				
-			}else if(random <= .4d && getBlocked(monsterX, monsterY+1) && checkImpassableElements(monsterX, monsterY+1) && checkIfMonsterToPosition(monsterX, monsterY+1) == false){
-
-				moveElement((IElement)monster, 0, +1);
-				checkColisionMonsterWithLorann((IElement)monster);
-			}else if(random <= .6d && getBlocked(monsterX-1, monsterY) && checkImpassableElements(monsterX-1, monsterY) && checkIfMonsterToPosition(monsterX-1, monsterY) == false){
-
-				moveElement((IElement)monster, -1, 0);
-				checkColisionMonsterWithLorann((IElement)monster);
-			}else if(random <= .6d && getBlocked(monsterX+1, monsterY) && checkImpassableElements(monsterX+1, monsterY) && checkIfMonsterToPosition(monsterX+1, monsterY) == false){
-
-				moveElement((IElement)monster, +1, 0);
-				checkColisionMonsterWithLorann((IElement)monster);
-			}
 		}
 	}
 	
@@ -191,8 +178,57 @@ public class LorannController implements ILorannController {
 	 * Launch Lorann's spell
 	 * 
 	 */
-	public void launchSpell(){
-		
+	public void launchSpell(IElement spell, IElement lorann)
+	{
+		if(((ISpell) spell).getSpellStatement() == SpellStatement.INPOCKET)
+		{
+			if(((ILorann) lorann).getLorannStatement() == LorannStatement.UP)
+			{
+				if(getBlocked(lorann.getX(), lorann.getY()-1) && checkImpassableElements(lorann.getX(), lorann.getY()-1))
+				{
+					((ISpell) spell).setSpellStatement(SpellStatement.LAUNCHEDUP);
+					spell.setX(lorann.getX());
+					spell.setY(lorann.getY()-1);
+					callChange();
+					//moveSpell();
+				}
+										
+			}else if(((ILorann) lorann).getLorannStatement() == LorannStatement.DOWN)
+			{
+				if(getBlocked(lorann.getX(), lorann.getY()+1) && checkImpassableElements(lorann.getX(), lorann.getY()+1))
+				{
+					((ISpell) spell).setSpellStatement(SpellStatement.LAUNCHEDDOWN);
+					spell.setX(lorann.getX());
+					spell.setY(lorann.getY()+1);
+					callChange();
+					//moveSpell();
+				}
+
+			}else if(((ILorann) lorann).getLorannStatement() == LorannStatement.LEFT)
+			{
+				if(getBlocked(lorann.getX()-1, lorann.getY()) && checkImpassableElements(lorann.getX()-1, lorann.getY()))
+				{
+					((ISpell) spell).setSpellStatement(SpellStatement.LAUNCHEDLEFT);
+					spell.setX(lorann.getX()-1);
+					spell.setY(lorann.getY());
+					callChange();
+					//moveSpell();
+				}
+					
+			}else if(((ILorann) lorann).getLorannStatement() == LorannStatement.RIGHT)
+			{
+				if(getBlocked(lorann.getX()+1, lorann.getY()) && checkImpassableElements(lorann.getX()+1, lorann.getY()))
+				{
+					((ISpell) spell).setSpellStatement(SpellStatement.LAUNCHEDRIGHT);
+					spell.setX(lorann.getX()+1);
+					spell.setY(lorann.getY());
+					callChange();
+					//moveSpell();
+				}
+			}
+			
+		}else{System.out.println("Unable to launch Spell");}
+		//this.view.printMessage("Space");
 	}
 	
 	/*
@@ -240,9 +276,7 @@ public class LorannController implements ILorannController {
 					}
 					callChange();
 					moveElement(lorann, 0, -1);
-					checkColisionLorannWithLoot();
-					checkColisionLorannWithDoor();
-					checkColisionLorannWithMonster();
+					checkColisionLorann();
 					
 				}	
 				break;
@@ -260,9 +294,7 @@ public class LorannController implements ILorannController {
 					}
 					callChange();
 					moveElement(lorann, 0, +1);
-					checkColisionLorannWithLoot();
-					checkColisionLorannWithDoor();
-					checkColisionLorannWithMonster();
+					checkColisionLorann();
 					
 				}	
 				break;
@@ -280,9 +312,7 @@ public class LorannController implements ILorannController {
 					}
 					callChange();
 					moveElement(lorann, -1, 0);
-					checkColisionLorannWithLoot();
-					checkColisionLorannWithDoor();
-					checkColisionLorannWithMonster();
+					checkColisionLorann();
 				}	
 				break;
 				
@@ -299,68 +329,20 @@ public class LorannController implements ILorannController {
 					}
 					callChange();
 					moveElement(lorann, +1, 0);
-					checkColisionLorannWithLoot();
-					checkColisionLorannWithDoor();
-					checkColisionLorannWithMonster();
+					checkColisionLorann();
 				}				
 				break;
 				
 			case LAUNCHSPELL:
+				launchSpell(spell, lorann);
 				
-				if(((ISpell) spell).getSpellStatement() == SpellStatement.INPOCKET)
-				{
-					if(((ILorann) lorann).getLorannStatement() == LorannStatement.UP)
-					{
-						if(getBlocked(lorann.getX(), lorann.getY()-1) && checkImpassableElements(lorann.getX(), lorann.getY()-1))
-						{
-							((ISpell) spell).setSpellStatement(SpellStatement.LAUNCHEDUP);
-							spell.setX(lorann.getX());
-							spell.setY(lorann.getY()-1);
-							callChange();
-							//moveSpell();
-						}
-												
-					}else if(((ILorann) lorann).getLorannStatement() == LorannStatement.DOWN)
-					{
-						if(getBlocked(lorann.getX(), lorann.getY()+1) && checkImpassableElements(lorann.getX(), lorann.getY()+1))
-						{
-							((ISpell) spell).setSpellStatement(SpellStatement.LAUNCHEDDOWN);
-							spell.setX(lorann.getX());
-							spell.setY(lorann.getY()+1);
-							callChange();
-							//moveSpell();
-						}
-
-					}else if(((ILorann) lorann).getLorannStatement() == LorannStatement.LEFT)
-					{
-						if(getBlocked(lorann.getX()-1, lorann.getY()) && checkImpassableElements(lorann.getX()-1, lorann.getY()))
-						{
-							((ISpell) spell).setSpellStatement(SpellStatement.LAUNCHEDLEFT);
-							spell.setX(lorann.getX()-1);
-							spell.setY(lorann.getY());
-							callChange();
-							//moveSpell();
-						}
-							
-					}else if(((ILorann) lorann).getLorannStatement() == LorannStatement.RIGHT)
-					{
-						if(getBlocked(lorann.getX()+1, lorann.getY()) && checkImpassableElements(lorann.getX()+1, lorann.getY()))
-						{
-							((ISpell) spell).setSpellStatement(SpellStatement.LAUNCHEDRIGHT);
-							spell.setX(lorann.getX()+1);
-							spell.setY(lorann.getY());
-							callChange();
-							//moveSpell();
-						}
-					}
-					
-				}else{System.out.println("Unable to launch Spell");}
-				//this.view.printMessage("Space");
 				break;
 			default:
 				break;		
 		}
 	}
+	
+	
 	public void moveSpell() {
 		//First Step: Checking if spell is launched
 		IElement spell = lorannGame.getLorannMap().getLorannSpell();
@@ -374,21 +356,8 @@ public class LorannController implements ILorannController {
 		((ISpell) spell).setNextColor();
 		
 		
-		//Third Step: Checking for monster
-		ArrayList<IMonster> monsters = lorannGame.getLorannMap().getMonsters();
-		
-		for(int index = 0; index < monsters.size(); index++)
-		{
-			IElement monster = (IElement) monsters.get(index);
-			if((monster).getX() == lorannGame.getLorannMap().getLorannSpell().getX() && (monster).getY() == lorannGame.getLorannMap().getLorannSpell().getY())
-			{
-				System.out.println("Collision Detected between a monster");
-				lorannGame.getLorannMap().removeMonsterByIndex(index);
-				((ISpell) spell).setSpellStatement(SpellStatement.INPOCKET);
-				callChange();
-				return;
-			}
-		}
+		//Third Step: Checking for monster and kill those who has to die
+		killMonster();
 		
 		//Forth Step: Checking for Lorann
 		
@@ -403,8 +372,6 @@ public class LorannController implements ILorannController {
 		//Fifth Step: Moving spell: checking if spell has to go in the opposite direction and then move spell
 		switch(((ISpell) spell).getSpellStatement())
 		{
-		//case INPOCKET:
-			//break;
 		case LAUNCHEDDOWN:
 			if(getBlocked(spell.getX(), spell.getY()+1) && checkImpassableElements(spell.getX(), spell.getY()+1))
 			{
@@ -443,9 +410,9 @@ public class LorannController implements ILorannController {
 		}
 		
 
-		callChange();
+	callChange();
 		
-	}
+}
 	
 	public void checkColisionLorannWithLoot()
 	{
@@ -499,6 +466,13 @@ public class LorannController implements ILorannController {
 		}	
 	}
 	
+	public void checkColisionLorann()
+	{
+		checkColisionLorannWithLoot();
+		checkColisionLorannWithDoor();
+		checkColisionLorannWithMonster();
+	}
+	
 	public void checkColisionMonsterWithLorann(IElement monster)
 	{
 		IElement lorann = lorannGame.getLorannMap().getLorann();
@@ -535,6 +509,26 @@ public class LorannController implements ILorannController {
 		return false;
 	}
 	
+	public void killMonster()
+	{
+		ArrayList<IMonster> monsters = lorannGame.getLorannMap().getMonsters();
+		IElement spell = lorannGame.getLorannMap().getLorannSpell();
+		
+		for(int index = 0; index < monsters.size(); index++)
+		{
+			IElement monster = (IElement) monsters.get(index);
+			if((monster).getX() == lorannGame.getLorannMap().getLorannSpell().getX() && (monster).getY() == lorannGame.getLorannMap().getLorannSpell().getY())
+			{
+				System.out.println("Collision Detected between the spell and a monster");
+				lorannGame.getLorannMap().removeMonsterByIndex(index);
+				callChange();
+				((ISpell) spell).setSpellStatement(SpellStatement.INPOCKET);
+				callChange();
+				return;
+			}
+		}
+	}
+	
 	/**
 	 * Prints a message.
 	 *
@@ -543,16 +537,6 @@ public class LorannController implements ILorannController {
 	 */
 	public void printMessage(final String message) {
 		JOptionPane.showMessageDialog(null, message);
-	}
-	
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see contract.IController#control()
-	 */
-	public void control() {
-		//this.view.printMessage("Appuyer sur les touches 'Z', 'UP', 'S', 'DOWN', 'Q', 'LEFT', 'RIGHT' ou 'D', pour afficher la direction choisit.");
 	}
 	
 	public void callChange()
