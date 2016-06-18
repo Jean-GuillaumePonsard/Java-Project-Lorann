@@ -5,7 +5,7 @@ import java.util.Observable;
 public interface ILorannGame {
 
 	/**
-	 * Get LorannMap.
+	 * Gets the LorannMap.
 	 * 
 	 * @return the Map
 	 */
@@ -21,12 +21,17 @@ public interface ILorannGame {
 	void setLorannMap(ILorannMap lorannMap);
 	
 	/**
-	 * Allow to notifyObservers
+	 * Allows to notifyObservers
 	 * 
 	 */
 	
 	void changeLorannGame();
 
-
+	/**
+	 * Gets the Observable.
+	 * 
+	 * @return the Observable
+	 */
+	
 	Observable getObservable();
 }

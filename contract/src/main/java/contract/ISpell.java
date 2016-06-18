@@ -19,9 +19,26 @@ public interface ISpell {
 
 	void setSpellStatement(SpellStatement spellStatement);
 
+	/**
+	 * Gets the spellColor
+	 * 
+	 * @return SpellColor
+	 */
 	SpellColor getSpellColor();
 	
+	/**
+	 * Sets spellColor
+	 * 
+	 * @param spellColor
+	 */			
+	
 	void setSpellColor(SpellColor spellColor);
+	
+	/**
+	 * Sets nextColor
+	 * 
+	 * 
+	 */		
 	
 	void setNextColor();
 	

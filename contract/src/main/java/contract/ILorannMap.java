@@ -95,7 +95,7 @@ public interface ILorannMap {
 	void setMonsters(ArrayList<IMonster> monsters);
 
 	/**
-	 * Add a monster in ArrayList
+	 * Adds a monster in ArrayList
 	 * 
 	 * @param monster
 	 */
@@ -103,7 +103,7 @@ public interface ILorannMap {
 	void addMonster(IMonster monster);
 
 	/**
-	 * Remove a monster by its index in the ArrayList
+	 * Removes a monster by its index in the ArrayList
 	 * 
 	 * @param index
 	 */
@@ -126,7 +126,19 @@ public interface ILorannMap {
 
 	void setLorannSpell(IElement lorannSpell);
 	
+	
+	/** Destroys the Element
+	 * 
+	 * @param x
+	 * @param y
+	 */
+	
+	
 	void destroyElement(final int x, final int y);
+	
+	/** Opens the door
+	 * 
+	 */
 	
 	void openDoor();
 
