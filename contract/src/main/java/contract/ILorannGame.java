@@ -21,7 +21,7 @@ public interface ILorannGame {
 	void setLorannMap(ILorannMap lorannMap);
 	
 	/**
-	 * Allows to notifyObservers
+	 * Allows to notify Observers that changes have been made
 	 * 
 	 */
 	

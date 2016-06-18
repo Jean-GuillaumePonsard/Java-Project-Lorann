@@ -54,14 +54,26 @@ public class Spell extends MotionElement implements ISpell {
 		this.spellStatement = spellStatement;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see contract.ISpell#getSpellColor()
+	 */
 	public SpellColor getSpellColor() {
 		return this.spellColor;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see contract.ISpell#setSpellColor(contract.SpellColor)
+	 */
 	public void setSpellColor(SpellColor spellColor) {
 		this.spellColor = spellColor;
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see contract.ISpell#setNextColor()
+	 */
 	public void setNextColor()
 	{
 		switch(spellColor)

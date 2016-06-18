@@ -30,6 +30,7 @@ import contract.SpellStatement;
 /**
 * The Class LorannController.
 * 
+* @author 
 */
 public class LorannController implements ILorannController {
 
@@ -163,6 +164,13 @@ public class LorannController implements ILorannController {
 			}
 		}
 	}
+	/**
+	 * Check if there is elements that are not allowed to cross
+	 * 
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	
 	public boolean checkImpassableElements(final int x, final int y)
 	{
@@ -184,9 +192,11 @@ public class LorannController implements ILorannController {
 		return true;
 	}
 	
-	/*
-	 * Launch Lorann's spell
+	/**
+	 * Launchs Lorann's spell
 	 * 
+	 * @param spell
+	 * @param lorann
 	 */
 	public void launchSpell(IElement spell, IElement lorann)
 	{
@@ -241,9 +251,9 @@ public class LorannController implements ILorannController {
 		//this.view.printMessage("Space");
 	}
 	
-	/*
-	 * kill Lorann when he touched a monster or a locked door
+	/**
 	 * 
+	 * Kills Lorann when he touched a monster or a locked door so display game over
 	 */
 	public void die()
 	{
@@ -252,12 +262,23 @@ public class LorannController implements ILorannController {
 		exit(0);
 	}
 	
+	/**
+	 * Displays Win message
+	 * 
+	 */
+	
 	public void win()
 	{
 		IElement lorann = lorannGame.getLorannMap().getLorann();
 		printMessage("YOU WIN, you scored :"+((ILorann)lorann).getScore()+"points");
 		exit(0);
 	}
+	
+	/**
+	 * Terminates process
+	 * 
+	 * @param code
+	 */
 	
 	public void exit(int code)
 	{
@@ -352,7 +373,10 @@ public class LorannController implements ILorannController {
 		}
 	}
 	
-	
+	/**
+	 * Moves the spell
+	 * 
+	 */
 	public void moveSpell() {
 		//First Step: Checking if spell is launched
 		IElement spell = lorannGame.getLorannMap().getLorannSpell();
@@ -423,7 +447,10 @@ public class LorannController implements ILorannController {
 	callChange();
 		
 }
-	
+	/**
+	 * Checks collision between lorann and a loot
+	 * 
+	 */
 	public void checkColisionLorannWithLoot()
 	{
 		IElement lorann = lorannGame.getLorannMap().getLorann();
@@ -441,6 +468,12 @@ public class LorannController implements ILorannController {
 			lorannGame.getLorannMap().openDoor();
 		}
 	}
+	
+	
+	/**
+	 * Checks collision between lorann and a door
+	 * 
+	 */
 	
 	public void checkColisionLorannWithDoor()
 	{
@@ -462,6 +495,11 @@ public class LorannController implements ILorannController {
 				
 	}
 	
+	/**
+	 * Checks collision between lorann and a monster
+	 * 
+	 */
+	
 	public void checkColisionLorannWithMonster()
 	{		
 		IElement lorann = lorannGame.getLorannMap().getLorann();
@@ -476,12 +514,22 @@ public class LorannController implements ILorannController {
 		}	
 	}
 	
+	/**
+	 * Checks every collision with lorann
+	 * 
+	 */
+	
 	public void checkColisionLorann()
 	{
 		checkColisionLorannWithLoot();
 		checkColisionLorannWithDoor();
 		checkColisionLorannWithMonster();
 	}
+	
+	/**
+	 * Checks collision between a monster and lorann
+	 * 
+	 */
 	
 	public void checkColisionMonsterWithLorann(IElement monster)
 	{
@@ -492,6 +540,11 @@ public class LorannController implements ILorannController {
 			die();
 		}
 	}
+	
+	/**
+	 * Checks collision between a monster and a spell
+	 * 
+	 */
 	
 	public boolean checkColisionMonsterWithSpell(IElement monster)
 	{
@@ -506,6 +559,11 @@ public class LorannController implements ILorannController {
 		return false;
 	}
 	
+	/**
+	 * Checks if monster is to a position
+	 * 
+	 */
+	
 	public boolean checkIfMonsterToPosition(final int x, final int y)
 	{
 		for(IMonster monster : lorannGame.getLorannMap().getMonsters())
@@ -518,6 +576,11 @@ public class LorannController implements ILorannController {
 		}		
 		return false;
 	}
+	
+	/**
+	 * Kills a monster when it is supposed to die
+	 * 
+	 */
 	
 	public void killMonster()
 	{
@@ -548,6 +611,11 @@ public class LorannController implements ILorannController {
 	public void printMessage(final String message) {
 		JOptionPane.showMessageDialog(null, message);
 	}
+	
+	/**
+	 * Ask model to update and notify observers
+	 * 
+	 */
 	
 	public void callChange()
 	{

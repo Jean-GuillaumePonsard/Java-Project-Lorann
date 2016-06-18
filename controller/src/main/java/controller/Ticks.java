@@ -5,7 +5,10 @@ import contract.ILorannController;
 //TODO: Auto-generated Javadoc
 /**
 * The Class Controller.
+* 
+* @author 
 */
+
 public class Ticks implements Runnable  {
 
 	/** the LorannController. */

@@ -51,9 +51,18 @@ public class Lorann extends MotionElement implements ILorann {
 		this.lorannStatement = lorannStatement;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see contract.ILorann#getScore()
+	 */
 	public int getScore() {
 		return score;
 	}
+	
+	/*
+	 * (non-Javadoc)
+	 * @see contract.ILorann#addScore(int)
+	 */
 
 	public void addScore(int score) {
 		this.score += score;

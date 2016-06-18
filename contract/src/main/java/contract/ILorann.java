@@ -22,16 +22,19 @@ public interface ILorann {
 	
 	/** Gets the score
 	 * 
+	 * @return score
 	 * 
+	 * Lorann's score
 	 */
 	
 	
 	int getScore();
 	
 	
-	/** Adds the score
+	/** Adds points to Lorann's score
 	 * 
 	 * @param score
+	 * 	The points to add
 	 */
 	
 	

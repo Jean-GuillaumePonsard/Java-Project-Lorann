@@ -25,6 +25,9 @@ public class LorannGame extends Observable implements ILorannGame {
 	
 	/**
 	 * Instantiates a new LorannGame.
+	 * 
+	 * @param idLevel
+	 * 		The level choosen
 	 */
 	public LorannGame(int idLevel)
 	{
@@ -126,6 +129,11 @@ public class LorannGame extends Observable implements ILorannGame {
 		}
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see contract.ILorannGame#changeLorannGame()
+	 */
+	
 	public void changeLorannGame()
 	{
 		setChanged();
@@ -135,7 +143,7 @@ public class LorannGame extends Observable implements ILorannGame {
 	/*
 	 * (non-Javadoc)
 	 *
-	 * @see contract.IModel#getObservable()
+	 * @see contract.ILorannGame#getObservable()
 	 */
 	public Observable getObservable() {
 		return this;

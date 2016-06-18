@@ -30,6 +30,11 @@ public class Loot extends MotionlessElement implements ILoot {
 		this.pointsGiven = pointsGiven;
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see contract.ILoot#getPointsGiven()
+	 */
+	
 	public int getPointsGiven()
 	{
 		return this.pointsGiven;

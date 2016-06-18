@@ -171,10 +171,18 @@ public class LorannMap implements ILorannMap {
 		this.lorannSpell = lorannSpell;
 	}
 	
+	/* (non-Javadoc)
+	 * @see model.ILorannMap#destroyElement(int, int)
+	 */
+	
 	public void destroyElement(final int x, final int y)
 	{
 		setElement(new Floor(x, y, "sprite/floor.png"), x, y);
 	}
+	
+	/* (non-Javadoc)
+	 * @see model.ILorannMap#openDoor()
+	 */
 	
 	public void openDoor()
 	{

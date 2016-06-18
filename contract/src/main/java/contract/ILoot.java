@@ -2,9 +2,12 @@ package contract;
 
 public interface ILoot {
 
-	/** Gets the points Given
+	/**
+	 * Gets points that are given when you pick this loot
 	 * 
-	 * @return PointsGiven
+	 * @return pointsGiven
+	 * 
 	 */
+	
 	int getPointsGiven();
 }
