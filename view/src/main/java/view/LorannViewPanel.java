@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -11,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import contract.IElement;
+import contract.ILorann;
 import contract.IMonster;
 import contract.ISpell;
 import contract.SpellStatement;
@@ -29,6 +31,9 @@ class LorannViewPanel extends JPanel implements Observer {
 	/** The Constant serialVersionUID. */
 	
 	private static final long	serialVersionUID	= -998294702363713521L;
+	
+	/** The font */
+	private Font font;
 
 	/**
 	 * Instantiates a new view panel.
@@ -42,7 +47,7 @@ class LorannViewPanel extends JPanel implements Observer {
 		//this.setPreferredSize(this.getLorannViewFrame().getLorannGame().getD());
 		LorannviewFrame.getLorannGame().getObservable().addObserver(this);
 		//JLabelMap = new JLabel [this.getLorannViewFrame().getLorannGame().getLorannMap().getHeight()][this.getLorannViewFrame().getLorannGame().getLorannMap().getWidth()];
-		
+		this.font = new Font("Courrier", Font.BOLD, 20);
 		this.repaint();		
 	}
 	
@@ -151,17 +156,13 @@ class LorannViewPanel extends JPanel implements Observer {
 		IElement lorann = LorannviewFrame.getLorannGame().getLorannMap().getLorann();
 		graphics.drawImage(lorann.getImage(), lorann.getX()*32, lorann.getY()*32, null);
 		
+		//Display Score
+		
+		graphics.setFont(font);
+		graphics.setColor(Color.CYAN);
+		String playerScore = "SCORE :"+((ILorann)lorann).getScore();
+		graphics.drawString(playerScore, 10, 400);
 		
 	}
 	
-		}
-
-	
-/* TO DO	
-if(this.gameOver == 0)
-{
-	this.gameOver = 1;	
-	dispose()
-	this.viewFrame.ScoreDisplay();
-		}
-*/
+}

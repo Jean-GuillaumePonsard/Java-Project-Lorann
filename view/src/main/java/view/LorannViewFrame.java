@@ -141,7 +141,7 @@ class LorannViewFrame extends JFrame implements KeyListener {
 		this.setResizable(false);
 		this.addKeyListener(this);
 		this.setContentPane(new LorannViewPanel(this));
-		this.setSize(648, 420);
+		this.setSize(648, 420+20);
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}
