@@ -14,7 +14,7 @@ public abstract class LorannMain {
 	 */
 	
 public static void main(final String[] args) {
-	final LorannGame lorannGame = new LorannGame();
+	final LorannGame lorannGame = new LorannGame(1);
 	final LorannView lorannView = new LorannView(lorannGame);
 	final LorannController lorannController = new LorannController(lorannView, lorannGame);
 	lorannView.setController(lorannController);

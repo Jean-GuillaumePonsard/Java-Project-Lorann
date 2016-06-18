@@ -26,10 +26,10 @@ public class LorannGame extends Observable implements ILorannGame {
 	/**
 	 * Instantiates a new LorannGame.
 	 */
-	public LorannGame()
+	public LorannGame(int idLevel)
 	{
 		dbloranngame = new DBLorannGame();
-		initLorannMap();
+		initLorannMap(idLevel);
 	}
 
 	/* (non-Javadoc)
@@ -55,13 +55,17 @@ public class LorannGame extends Observable implements ILorannGame {
 	 * 
 	 */
 	
-	public void initLorannMap()
+	public void initLorannMap(int idLevel)
 	{
+		if(idLevel > 5 || idLevel <1)
+		{
+			idLevel = 1;
+		}
 		lorannMap = new LorannMap(20, 12);
 		
 		try {
 			
-			ResultSet result = dbloranngame.procedure("call ElementByMap(?)", 3);
+			ResultSet result = dbloranngame.procedure("call ElementByMap(?)", idLevel);
 			while(result.next())
 			{
 				int idElement = result.getInt("idElement");

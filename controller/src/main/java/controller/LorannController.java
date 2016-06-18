@@ -130,22 +130,8 @@ public class LorannController implements ILorannController {
 			checkColisionMonsterWithLorann((IElement)monster);
 			if(checkColisionMonsterWithSpell((IElement)monster) == true)
 			{
-				ArrayList<IMonster> monsters = lorannGame.getLorannMap().getMonsters();
-				IElement spell = lorannGame.getLorannMap().getLorannSpell();
-				
-				for(int index = 0; index < monsters.size(); index++)
-				{
-					IElement monster1 = (IElement) monsters.get(index);
-					if((monster1).getX() == lorannGame.getLorannMap().getLorannSpell().getX() && (monster1).getY() == lorannGame.getLorannMap().getLorannSpell().getY())
-					{
-						System.out.println("Collision Detected between the spell and a monster");
-						lorannGame.getLorannMap().removeMonsterByIndex(index);
-						callChange();
-						((ISpell) spell).setSpellStatement(SpellStatement.INPOCKET);
-						callChange();
-						return;
-					}
-				}
+				killMonster();
+				return;
 			}
 			
 			if(random <= .4d){
