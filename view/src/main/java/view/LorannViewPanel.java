@@ -93,6 +93,8 @@ class LorannViewPanel extends JPanel implements Observer {
 		graphics.setColor(Color.BLACK);
 		graphics.fillRect(0, 0, this.getWidth(), this.getHeight());
 		
+		//Draw elements
+		
 		for(IElement[] element: LorannviewFrame.getLorannGame().getLorannMap().getElements())
 		{
 			int y = 0;
@@ -106,13 +108,15 @@ class LorannViewPanel extends JPanel implements Observer {
 			x++;
 		}
 		
+		//Draw monsters
+		
 		for(IMonster monster : LorannviewFrame.getLorannGame().getLorannMap().getMonsters())
 		{
 			graphics.drawImage(((IElement)monster).getImage(), ((IElement)monster).getX()*32, ((IElement)monster).getY()*32, null);
 		}
 		
-		IElement lorann = LorannviewFrame.getLorannGame().getLorannMap().getLorann();
-		graphics.drawImage(lorann.getImage(), lorann.getX()*32, lorann.getY()*32, null);
+		
+		//Draw Lorann's spell if launched
 		
 		IElement spell = LorannviewFrame.getLorannGame().getLorannMap().getLorannSpell();
 		if(((ISpell)spell).getSpellStatement() != SpellStatement.INPOCKET)
@@ -141,6 +145,11 @@ class LorannViewPanel extends JPanel implements Observer {
 			}
 			graphics.drawImage(spell.getImage(), spell.getX()*32, spell.getY()*32, null);
 		}
+		
+		//Draw Lorann
+		
+		IElement lorann = LorannviewFrame.getLorannGame().getLorannMap().getLorann();
+		graphics.drawImage(lorann.getImage(), lorann.getX()*32, lorann.getY()*32, null);
 		
 		
 	}

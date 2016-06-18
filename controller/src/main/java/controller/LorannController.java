@@ -124,18 +124,45 @@ public class LorannController implements ILorannController {
 			int monsterX = ((IElement)monster).getX();
 			int monsterY = ((IElement)monster).getY();
 			
-			if(random <= .2d && getBlocked(monsterX, monsterY-1) && checkImpassableElements(monsterX, monsterY-1)){
-				checkColisionMonsterWithLorann((IElement)monster);
+			checkColisionMonsterWithLorann((IElement)monster);
+			if(checkColisionMonsterWithSpell((IElement)monster) == true)
+			{
+				ArrayList<IMonster> monsters = lorannGame.getLorannMap().getMonsters();
+				IElement spell = lorannGame.getLorannMap().getLorannSpell();
+				
+				for(int index = 0; index < monsters.size(); index++)
+				{
+					IElement monster1 = (IElement) monsters.get(index);
+					if((monster1).getX() == lorannGame.getLorannMap().getLorannSpell().getX() && (monster1).getY() == lorannGame.getLorannMap().getLorannSpell().getY())
+					{
+						System.out.println("Collision Detected between the spell and a monster");
+						lorannGame.getLorannMap().removeMonsterByIndex(index);
+						callChange();
+						((ISpell) spell).setSpellStatement(SpellStatement.INPOCKET);
+						callChange();
+						return;
+					}
+				}
+			}
+			
+			
+			if(random <= .2d && getBlocked(monsterX, monsterY-1) && checkImpassableElements(monsterX, monsterY-1) && checkIfMonsterToPosition(monsterX, monsterY-1) == false){
+				
 				moveElement((IElement)monster, 0, -1);
-			}else if(random <= .4d && getBlocked(monsterX, monsterY+1) && checkImpassableElements(monsterX, monsterY+1)){
 				checkColisionMonsterWithLorann((IElement)monster);
+				
+			}else if(random <= .4d && getBlocked(monsterX, monsterY+1) && checkImpassableElements(monsterX, monsterY+1) && checkIfMonsterToPosition(monsterX, monsterY+1) == false){
+
 				moveElement((IElement)monster, 0, +1);
-			}else if(random <= .6d && getBlocked(monsterX-1, monsterY) && checkImpassableElements(monsterX-1, monsterY)){
 				checkColisionMonsterWithLorann((IElement)monster);
+			}else if(random <= .6d && getBlocked(monsterX-1, monsterY) && checkImpassableElements(monsterX-1, monsterY) && checkIfMonsterToPosition(monsterX-1, monsterY) == false){
+
 				moveElement((IElement)monster, -1, 0);
-			}else if(random <= .6d && getBlocked(monsterX+1, monsterY) && checkImpassableElements(monsterX+1, monsterY)){
 				checkColisionMonsterWithLorann((IElement)monster);
+			}else if(random <= .6d && getBlocked(monsterX+1, monsterY) && checkImpassableElements(monsterX+1, monsterY) && checkIfMonsterToPosition(monsterX+1, monsterY) == false){
+
 				moveElement((IElement)monster, +1, 0);
+				checkColisionMonsterWithLorann((IElement)monster);
 			}
 		}
 	}
@@ -211,6 +238,7 @@ public class LorannController implements ILorannController {
 					{
 						((ISpell)spell).setSpellStatement(SpellStatement.INPOCKET);
 					}
+					callChange();
 					moveElement(lorann, 0, -1);
 					checkColisionLorannWithLoot();
 					checkColisionLorannWithDoor();
@@ -230,6 +258,7 @@ public class LorannController implements ILorannController {
 					{
 						((ISpell)spell).setSpellStatement(SpellStatement.INPOCKET);
 					}
+					callChange();
 					moveElement(lorann, 0, +1);
 					checkColisionLorannWithLoot();
 					checkColisionLorannWithDoor();
@@ -249,6 +278,7 @@ public class LorannController implements ILorannController {
 					{
 						((ISpell)spell).setSpellStatement(SpellStatement.INPOCKET);
 					}
+					callChange();
 					moveElement(lorann, -1, 0);
 					checkColisionLorannWithLoot();
 					checkColisionLorannWithDoor();
@@ -267,6 +297,7 @@ public class LorannController implements ILorannController {
 					{
 						((ISpell)spell).setSpellStatement(SpellStatement.INPOCKET);
 					}
+					callChange();
 					moveElement(lorann, +1, 0);
 					checkColisionLorannWithLoot();
 					checkColisionLorannWithDoor();
@@ -476,6 +507,32 @@ public class LorannController implements ILorannController {
 			callChange();
 			die();
 		}
+	}
+	
+	public boolean checkColisionMonsterWithSpell(IElement monster)
+	{
+		IElement spell = lorannGame.getLorannMap().getLorannSpell();
+		if(((ISpell)spell).getSpellStatement() != SpellStatement.INPOCKET)
+		{
+			if(monster.getX() == spell.getX() && monster.getY() == spell.getY())
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean checkIfMonsterToPosition(final int x, final int y)
+	{
+		for(IMonster monster : lorannGame.getLorannMap().getMonsters())
+		{
+			if(((IElement)monster).getX() == x && ((IElement)monster).getY() == y)
+			{
+				System.out.println("Monster near monster, impossible move of monster");
+				return true;
+			}
+		}		
+		return false;
 	}
 	
 	/**

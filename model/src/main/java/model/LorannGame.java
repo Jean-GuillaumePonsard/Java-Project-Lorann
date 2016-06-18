@@ -61,7 +61,7 @@ public class LorannGame extends Observable implements ILorannGame {
 		
 		try {
 			
-			ResultSet result = dbloranngame.procedure("call ElementByMap(?)", 1);
+			ResultSet result = dbloranngame.procedure("call ElementByMap(?)", 3);
 			while(result.next())
 			{
 				int idElement = result.getInt("idElement");
