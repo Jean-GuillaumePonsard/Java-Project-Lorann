@@ -125,18 +125,18 @@ public class LorannController implements ILorannController {
 			int monsterY = ((IElement)monster).getY();
 			
 			if(random <= .2d && getBlocked(monsterX, monsterY-1) && checkImpassableElements(monsterX, monsterY-1)){
-				
+				checkColisionMonsterWithLorann((IElement)monster);
 				moveElement((IElement)monster, 0, -1);
 			}else if(random <= .4d && getBlocked(monsterX, monsterY+1) && checkImpassableElements(monsterX, monsterY+1)){
-				
+				checkColisionMonsterWithLorann((IElement)monster);
 				moveElement((IElement)monster, 0, +1);
 			}else if(random <= .6d && getBlocked(monsterX-1, monsterY) && checkImpassableElements(monsterX-1, monsterY)){
-				
+				checkColisionMonsterWithLorann((IElement)monster);
 				moveElement((IElement)monster, -1, 0);
 			}else if(random <= .6d && getBlocked(monsterX+1, monsterY) && checkImpassableElements(monsterX+1, monsterY)){
-				
+				checkColisionMonsterWithLorann((IElement)monster);
 				moveElement((IElement)monster, +1, 0);
-			}			
+			}
 		}
 	}
 	
@@ -214,6 +214,8 @@ public class LorannController implements ILorannController {
 					moveElement(lorann, 0, -1);
 					checkColisionLorannWithLoot();
 					checkColisionLorannWithDoor();
+					checkColisionLorannWithMonster();
+					
 				}	
 				break;
 				
@@ -231,6 +233,7 @@ public class LorannController implements ILorannController {
 					moveElement(lorann, 0, +1);
 					checkColisionLorannWithLoot();
 					checkColisionLorannWithDoor();
+					checkColisionLorannWithMonster();
 					
 				}	
 				break;
@@ -249,6 +252,7 @@ public class LorannController implements ILorannController {
 					moveElement(lorann, -1, 0);
 					checkColisionLorannWithLoot();
 					checkColisionLorannWithDoor();
+					checkColisionLorannWithMonster();
 				}	
 				break;
 				
@@ -266,6 +270,7 @@ public class LorannController implements ILorannController {
 					moveElement(lorann, +1, 0);
 					checkColisionLorannWithLoot();
 					checkColisionLorannWithDoor();
+					checkColisionLorannWithMonster();
 				}				
 				break;
 				
@@ -447,6 +452,30 @@ public class LorannController implements ILorannController {
 			}
 		}
 				
+	}
+	
+	public void checkColisionLorannWithMonster()
+	{		
+		IElement lorann = lorannGame.getLorannMap().getLorann();
+		for(IMonster monster : lorannGame.getLorannMap().getMonsters())
+		{
+			if(((IElement)monster).getX() == lorann.getX() && ((IElement)monster).getY() == lorann.getY())
+			{
+				System.out.println("Collision Detected between Lorann and a monster");
+				callChange();
+				die();
+			}
+		}	
+	}
+	
+	public void checkColisionMonsterWithLorann(IElement monster)
+	{
+		IElement lorann = lorannGame.getLorannMap().getLorann();
+		if(monster.getX() == lorann.getX() && monster.getY() == lorann.getY())
+		{
+			callChange();
+			die();
+		}
 	}
 	
 	/**
