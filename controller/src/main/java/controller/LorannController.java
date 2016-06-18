@@ -123,34 +123,58 @@ public class LorannController implements ILorannController {
 			double random = Math.random();
 			int monsterX = ((IElement)monster).getX();
 			int monsterY = ((IElement)monster).getY();
+			IElement target = lorannGame.getLorannMap().getLorann();
+			int targetX = ((IElement)target).getX();
+			int targetY = ((IElement)target).getY();
 			
 			checkColisionMonsterWithLorann((IElement)monster);
 			if(checkColisionMonsterWithSpell((IElement)monster) == true)
 			{
-				killMonster();
-				return;
-			}else {
+				ArrayList<IMonster> monsters = lorannGame.getLorannMap().getMonsters();
+				IElement spell = lorannGame.getLorannMap().getLorannSpell();
+				
+				for(int index = 0; index < monsters.size(); index++)
+				{
+					IElement monster1 = (IElement) monsters.get(index);
+					if((monster1).getX() == lorannGame.getLorannMap().getLorannSpell().getX() && (monster1).getY() == lorannGame.getLorannMap().getLorannSpell().getY())
+					{
+						System.out.println("Collision Detected between the spell and a monster");
+						lorannGame.getLorannMap().removeMonsterByIndex(index);
+						callChange();
+						((ISpell) spell).setSpellStatement(SpellStatement.INPOCKET);
+						callChange();
+						return;
+					}
+				}
+			}
 			
-				if(random <= .2d && getBlocked(monsterX, monsterY-1) && checkImpassableElements(monsterX, monsterY-1) && checkIfMonsterToPosition(monsterX, monsterY-1) == false){
-					
+			if(random <= .4d){
+			
+				if(monsterY > targetY && getBlocked(monsterX, monsterY-1) && checkImpassableElements(monsterX, monsterY-1) && checkIfMonsterToPosition(monsterX, monsterY-1) == false){
+				
 					moveElement((IElement)monster, 0, -1);
 					checkColisionMonsterWithLorann((IElement)monster);
-					
-				}else if(random <= .4d && getBlocked(monsterX, monsterY+1) && checkImpassableElements(monsterX, monsterY+1) && checkIfMonsterToPosition(monsterX, monsterY+1) == false){
+				
+				}else if(monsterY < targetY && getBlocked(monsterX, monsterY+1) && checkImpassableElements(monsterX, monsterY+1) && checkIfMonsterToPosition(monsterX, monsterY+1) == false){
 
 					moveElement((IElement)monster, 0, +1);
 					checkColisionMonsterWithLorann((IElement)monster);
-				}else if(random <= .6d && getBlocked(monsterX-1, monsterY) && checkImpassableElements(monsterX-1, monsterY) && checkIfMonsterToPosition(monsterX-1, monsterY) == false){
+				}
+			}
+			else if(random <= .8d){
+				
+			
+				if(monsterX > targetX && getBlocked(monsterX-1, monsterY) && checkImpassableElements(monsterX-1, monsterY) && checkIfMonsterToPosition(monsterX-1, monsterY) == false){
 
 					moveElement((IElement)monster, -1, 0);
 					checkColisionMonsterWithLorann((IElement)monster);
-				}else if(random <= .8d && getBlocked(monsterX+1, monsterY) && checkImpassableElements(monsterX+1, monsterY) && checkIfMonsterToPosition(monsterX+1, monsterY) == false){
+					
+				}else if(monsterX < targetX && getBlocked(monsterX+1, monsterY) && checkImpassableElements(monsterX+1, monsterY) && checkIfMonsterToPosition(monsterX+1, monsterY) == false){
 
 					moveElement((IElement)monster, +1, 0);
 					checkColisionMonsterWithLorann((IElement)monster);
 				}
 			}
-			
 		}
 	}
 	
