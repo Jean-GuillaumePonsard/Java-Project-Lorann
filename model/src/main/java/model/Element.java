@@ -3,6 +3,7 @@ package model;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
+import java.util.Observable;
 
 import javax.imageio.ImageIO;
 
@@ -15,7 +16,7 @@ import contract.Permeability;
  * @author Jean-Guillaume Ponsard
  */
 
-public class Element implements IElement {
+public class Element extends Observable implements IElement {
 
 	/** The element's permeability */
 	private Permeability permeability;
@@ -57,6 +58,7 @@ public class Element implements IElement {
 	
 	public void setPermeability(Permeability permeability) {
 		this.permeability = permeability;
+		modelchanged();
 	}
 	
 	/* (non-Javadoc)
@@ -73,6 +75,7 @@ public class Element implements IElement {
 	
 	public void setImage(Image image) {
 		this.image = image;
+		modelchanged();
 	}
 	
 	/* (non-Javadoc)
@@ -85,6 +88,7 @@ public class Element implements IElement {
 		try{
 			
 			this.image = ImageIO.read(new File("C:/Users/Jean-Guillaume P/Documents/Exia/Projet Java/Java/Java-Project-Lorann/model/src/main/resources/"+url));
+			modelchanged();
 			
 		}catch(IOException e){
 			e.printStackTrace();
@@ -107,6 +111,7 @@ public class Element implements IElement {
 	
 	public void setX(int x) {
 		this.x = x;
+		modelchanged();
 	}
 
 	/* (non-Javadoc)
@@ -123,6 +128,18 @@ public class Element implements IElement {
 
 	public void setY(int y) {
 		this.y = y;
+		modelchanged();
+	}
+	
+	public void modelchanged()
+	{
+		setChanged();
+		notifyObservers();
+	}
+	
+	public Observable getObservable()
+	{
+		return this;
 	}
 	
 	

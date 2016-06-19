@@ -49,6 +49,7 @@ public class Lorann extends MotionElement implements ILorann {
 	
 	public void setLorannStatement(LorannStatement lorannStatement) {
 		this.lorannStatement = lorannStatement;
+		modelchanged();
 	}
 
 	/*
@@ -66,6 +67,7 @@ public class Lorann extends MotionElement implements ILorann {
 
 	public void addScore(int score) {
 		this.score += score;
+		modelchanged();
 	}
 	
 }

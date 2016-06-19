@@ -136,8 +136,8 @@ public class LorannGame extends Observable implements ILorannGame {
 	
 	public void changeLorannGame()
 	{
-		setChanged();
-		notifyObservers();
+		//setChanged();
+		//notifyObservers();
 	}
 	
 	/*
@@ -145,7 +145,8 @@ public class LorannGame extends Observable implements ILorannGame {
 	 *
 	 * @see contract.ILorannGame#getObservable()
 	 */
-	public Observable getObservable() {
+	public Observable getObservable() 
+	{
 		return this;
 	}
 

@@ -39,5 +39,7 @@ public interface ILorann {
 	
 	
 	void addScore(int score);
+	
+
 
 }

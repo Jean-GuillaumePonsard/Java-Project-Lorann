@@ -46,6 +46,10 @@ class LorannViewPanel extends JPanel implements Observer {
 		//this.setSize(this.getLorannViewFrame().getLorannGame().getLorannMap().getWidth()*32, this.getLorannViewFrame().getLorannGame().getLorannMap().getHeight()*32);
 		//this.setPreferredSize(this.getLorannViewFrame().getLorannGame().getD());
 		LorannviewFrame.getLorannGame().getObservable().addObserver(this);
+		LorannviewFrame.getLorannGame().getLorannMap().getObservable().addObserver(this);
+		LorannviewFrame.getLorannGame().getLorannMap().getLorann().getObservable().addObserver(this);
+		LorannviewFrame.getLorannGame().getLorannMap().getLorannSpell().getObservable().addObserver(this);
+		//LorannviewFrame.getLorannGame().getLorannMap()
 		//JLabelMap = new JLabel [this.getLorannViewFrame().getLorannGame().getLorannMap().getHeight()][this.getLorannViewFrame().getLorannGame().getLorannMap().getWidth()];
 		this.font = new Font("Courrier", Font.BOLD, 20);
 		this.repaint();		

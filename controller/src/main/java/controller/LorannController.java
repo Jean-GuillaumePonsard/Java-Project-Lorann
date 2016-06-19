@@ -87,8 +87,7 @@ public class LorannController implements ILorannController {
 	 */
 	public void moveElement(IElement element, int x, int y){
 				
-		element.setX(element.getX()+x);
-		element.setY(element.getY()+y);
+		lorannGame.getLorannMap().moveElement(element, x, y);
 		callChange();
 	}
 	
@@ -105,7 +104,7 @@ public class LorannController implements ILorannController {
 	}
 	
 	/**
-	 *get the Elements
+	 * Gets the Elements
 	 * 
 	 *@return the Element's position
 	 */
@@ -115,7 +114,7 @@ public class LorannController implements ILorannController {
 	}
 	
 	/**
-	 * move monsters
+	 * Moves monsters
 	 *  
 	 */
 	public void monsterAi(){
@@ -200,15 +199,19 @@ public class LorannController implements ILorannController {
 	 */
 	public void launchSpell(IElement spell, IElement lorann)
 	{
+		System.out.println("Spell launched");
 		if(((ISpell) spell).getSpellStatement() == SpellStatement.INPOCKET)
 		{
+			int spellX = lorann.getX()-spell.getX();
+			int spellY = lorann.getY()-spell.getY();
 			if(((ILorann) lorann).getLorannStatement() == LorannStatement.UP)
 			{
 				if(getBlocked(lorann.getX(), lorann.getY()-1) && checkImpassableElements(lorann.getX(), lorann.getY()-1))
 				{
 					((ISpell) spell).setSpellStatement(SpellStatement.LAUNCHEDUP);
-					spell.setX(lorann.getX());
-					spell.setY(lorann.getY()-1);
+					moveElement(spell, spellX, spellY-1);
+					//spell.setX(lorann.getX());
+					//spell.setY(lorann.getY()-1);
 					callChange();
 					//moveSpell();
 				}
@@ -218,8 +221,9 @@ public class LorannController implements ILorannController {
 				if(getBlocked(lorann.getX(), lorann.getY()+1) && checkImpassableElements(lorann.getX(), lorann.getY()+1))
 				{
 					((ISpell) spell).setSpellStatement(SpellStatement.LAUNCHEDDOWN);
-					spell.setX(lorann.getX());
-					spell.setY(lorann.getY()+1);
+					moveElement(spell, spellX, spellY+1);
+					//spell.setX(lorann.getX());
+					//spell.setY(lorann.getY()+1);
 					callChange();
 					//moveSpell();
 				}
@@ -229,8 +233,9 @@ public class LorannController implements ILorannController {
 				if(getBlocked(lorann.getX()-1, lorann.getY()) && checkImpassableElements(lorann.getX()-1, lorann.getY()))
 				{
 					((ISpell) spell).setSpellStatement(SpellStatement.LAUNCHEDLEFT);
-					spell.setX(lorann.getX()-1);
-					spell.setY(lorann.getY());
+					moveElement(spell, spellX-1, spellY);
+					//spell.setX(lorann.getX()-1);
+					//spell.setY(lorann.getY());
 					callChange();
 					//moveSpell();
 				}
@@ -240,8 +245,9 @@ public class LorannController implements ILorannController {
 				if(getBlocked(lorann.getX()+1, lorann.getY()) && checkImpassableElements(lorann.getX()+1, lorann.getY()))
 				{
 					((ISpell) spell).setSpellStatement(SpellStatement.LAUNCHEDRIGHT);
-					spell.setX(lorann.getX()+1);
-					spell.setY(lorann.getY());
+					moveElement(spell, spellX+1, spellY);
+					//spell.setX(lorann.getX()+1);
+					//spell.setY(lorann.getY());
 					callChange();
 					//moveSpell();
 				}
@@ -324,7 +330,7 @@ public class LorannController implements ILorannController {
 						((ISpell)spell).setSpellStatement(SpellStatement.INPOCKET);
 					}
 					callChange();
-					moveElement(lorann, 0, +1);
+					moveElement(lorann, 0, 1);
 					checkColisionLorann();
 					
 				}	
@@ -380,6 +386,7 @@ public class LorannController implements ILorannController {
 	public void moveSpell() {
 		//First Step: Checking if spell is launched
 		IElement spell = lorannGame.getLorannMap().getLorannSpell();
+		
 		if(((ISpell) spell).getSpellStatement() == SpellStatement.INPOCKET)
 		{
 			return;
@@ -392,6 +399,7 @@ public class LorannController implements ILorannController {
 		
 		//Third Step: Checking for monster and kill those who has to die
 		killMonster();
+		
 		
 		//Forth Step: Checking for Lorann
 		
@@ -409,7 +417,8 @@ public class LorannController implements ILorannController {
 		case LAUNCHEDDOWN:
 			if(getBlocked(spell.getX(), spell.getY()+1) && checkImpassableElements(spell.getX(), spell.getY()+1))
 			{
-				spell.setY(spell.getY()+1);
+				moveElement(spell, 0, 1);
+				//spell.setY(spell.getY()+1);
 			}else{
 				((ISpell) spell).setSpellStatement(SpellStatement.LAUNCHEDUP);
 			}
@@ -417,7 +426,8 @@ public class LorannController implements ILorannController {
 		case LAUNCHEDLEFT:
 			if(getBlocked(spell.getX()-1, spell.getY()) && checkImpassableElements(spell.getX()-1, spell.getY()))
 			{
-				spell.setX(spell.getX()-1);
+				moveElement(spell, -1, 0);
+				//spell.setX(spell.getX()-1);
 			}else{
 				((ISpell) spell).setSpellStatement(SpellStatement.LAUNCHEDRIGHT);
 			}
@@ -425,15 +435,18 @@ public class LorannController implements ILorannController {
 		case LAUNCHEDRIGHT:
 			if(getBlocked(spell.getX()+1, spell.getY()) && checkImpassableElements(spell.getX()+1, spell.getY()))
 			{
-				spell.setX(spell.getX()+1);
+				moveElement(spell, 1, 0);
+				//spell.setX(spell.getX()+1);
 			}else{
 				((ISpell) spell).setSpellStatement(SpellStatement.LAUNCHEDLEFT);
 			}
 			break;
 		case LAUNCHEDUP:
+			System.out.println("Spell X: "+spell.getX()+" Y: "+spell.getY());
 			if(getBlocked(spell.getX(), spell.getY()-1) && checkImpassableElements(spell.getX(), spell.getY()-1))
 			{
-				spell.setY(spell.getY()-1);
+				moveElement(spell, 0, -1);
+				//spell.setY(spell.getY()-1);
 			}else{
 				((ISpell) spell).setSpellStatement(SpellStatement.LAUNCHEDDOWN);
 			}

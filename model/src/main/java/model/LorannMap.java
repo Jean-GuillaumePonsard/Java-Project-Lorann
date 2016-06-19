@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 import contract.GateStatement;
 import contract.IElement;
@@ -15,7 +16,7 @@ import contract.ISpell;
  * @author Jean-Guillaume Ponsard
  */
 
-public class LorannMap implements ILorannMap {
+public class LorannMap extends Observable implements ILorannMap {
 
 	
 	/** Table of Element that are in the map and need to be displayed. */
@@ -63,6 +64,7 @@ public class LorannMap implements ILorannMap {
 	public void addElement(IElement element, final int x, final int y)
 	{
 		this.elements[x][y] = element;
+		modelchanged();
 	}
 
 	/* (non-Javadoc)
@@ -71,6 +73,7 @@ public class LorannMap implements ILorannMap {
 
 	public void setElement(IElement element, int x, int y) {
 		this.elements[x][y] = element;
+		modelchanged();
 	}
 	
 	/* (non-Javadoc)
@@ -119,6 +122,7 @@ public class LorannMap implements ILorannMap {
 	public void setLorann(IElement lorann)
 	{
 		this.lorann = lorann;
+		modelchanged();
 	}
 	
 	/* (non-Javadoc)
@@ -135,6 +139,7 @@ public class LorannMap implements ILorannMap {
 	
 	public void setMonsters(ArrayList<IMonster> monsters) {
 		this.monsters = monsters;
+		modelchanged();
 	}
 	
 	/* (non-Javadoc)
@@ -144,6 +149,7 @@ public class LorannMap implements ILorannMap {
 	public void addMonster(IMonster monster)
 	{
 		monsters.add(monster);
+		modelchanged();
 	}
 	
 	/* (non-Javadoc)
@@ -153,6 +159,7 @@ public class LorannMap implements ILorannMap {
 	public void removeMonsterByIndex(int index)
 	{
 		monsters.remove(index);
+		modelchanged();
 	}
 
 	/* (non-Javadoc)
@@ -169,6 +176,7 @@ public class LorannMap implements ILorannMap {
 	
 	public void setLorannSpell(IElement lorannSpell) {
 		this.lorannSpell = lorannSpell;
+		modelchanged();
 	}
 	
 	/* (non-Javadoc)
@@ -201,6 +209,25 @@ public class LorannMap implements ILorannMap {
 			}
 			x++;
 		}
+	}
+	
+	public void modelchanged()
+	{
+		setChanged();
+		notifyObservers();
+	}
+	
+	public Observable getObservable()
+	{
+		return this;
+	}
+	
+	
+	public void moveElement(IElement element, final int x, final int y)
+	{
+		element.setX(element.getX()+x);
+		element.setY(element.getY()+y);
+		modelchanged();
 	}
 
 	

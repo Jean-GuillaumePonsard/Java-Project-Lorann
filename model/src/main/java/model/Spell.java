@@ -52,6 +52,7 @@ public class Spell extends MotionElement implements ISpell {
 	public void setSpellStatement(SpellStatement spellStatement)
 	{
 		this.spellStatement = spellStatement;
+		modelchanged();
 	}
 
 	/*
@@ -68,6 +69,7 @@ public class Spell extends MotionElement implements ISpell {
 	 */
 	public void setSpellColor(SpellColor spellColor) {
 		this.spellColor = spellColor;
+		modelchanged();
 	}
 	
 	/*
@@ -95,5 +97,6 @@ public class Spell extends MotionElement implements ISpell {
 			break;
 		
 		}
+		modelchanged();
 	}
 }

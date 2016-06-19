@@ -1,6 +1,7 @@
 package contract;
 
 import java.awt.Image;
+import java.util.Observable;
 
 public interface IElement {
 
@@ -80,5 +81,7 @@ public interface IElement {
 	 */
 
 	void setY(int y);
+	
+	Observable getObservable();
 
 }

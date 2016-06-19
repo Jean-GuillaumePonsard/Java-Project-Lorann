@@ -37,6 +37,7 @@ public class Door extends MotionlessElement implements IDoor {
 	public void setGateStatement(GateStatement gateStatement)
 	{
 		this.gateStatement = gateStatement;
+		modelchanged();
 	}
 	
 	/* (non-Javadoc)

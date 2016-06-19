@@ -1,6 +1,7 @@
 package contract;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 public interface ILorannMap {
 
@@ -141,5 +142,11 @@ public interface ILorannMap {
 	 */
 	
 	void openDoor();
+	
+	void moveElement(IElement element, final int x, final int y);
+	
+	void modelchanged();
+	
+	Observable getObservable();
 
 }
