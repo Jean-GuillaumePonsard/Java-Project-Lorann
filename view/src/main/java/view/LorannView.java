@@ -35,7 +35,7 @@ public class LorannView implements Runnable, ILorannView {
 	/**
 	 * Method to perform Order when a key is pressed
 	 *
-	 * @param keyCode, keyCode2
+	 * @param keyCode
 	 *          the key code
 	 */
 	
@@ -83,10 +83,6 @@ public class LorannView implements Runnable, ILorannView {
 	public void run() {
 		// TODO Auto-generated method stub
 		this.LorannviewFrame.setVisible(true);
-	}
-	public void setController(IController controller) {
-		// TODO Auto-generated method stub
-		
 	}
 
 

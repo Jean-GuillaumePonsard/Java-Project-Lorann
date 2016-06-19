@@ -166,7 +166,7 @@ class LorannViewFrame extends JFrame implements KeyListener {
 		// TODO Auto-generated method stub
 		
 	}
-			}
+}
 
 
     

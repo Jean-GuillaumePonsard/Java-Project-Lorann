@@ -3,12 +3,12 @@ package view;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+//import java.awt.GridBagConstraints;
+//import java.awt.GridBagLayout;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.swing.JLabel;
+//import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import contract.IElement;
@@ -26,7 +26,7 @@ class LorannViewPanel extends JPanel implements Observer {
 
 	/** The view frame. */
 	
-	private LorannViewFrame					LorannviewFrame;
+	private LorannViewFrame					lorannViewFrame;
 	
 	/** The Constant serialVersionUID. */
 	
@@ -54,22 +54,22 @@ class LorannViewPanel extends JPanel implements Observer {
 	}
 	
 	/**
-	 * Gets the view frame.
+	 * Gets the Lorann View frame.
 	 *
-	 * @return the view frame
+	 * @return the lorann view frame
 	 */
 	private LorannViewFrame getLorannViewFrame() {
-		return this.LorannviewFrame;
+		return this.lorannViewFrame;
 	}
 
 	/**
-	 * Sets the view frame.
+	 * Sets the Lorann view frame.
 	 *
 	 * @param viewFrame
-	 *          the new view frame
+	 *          the new lorann view frame
 	 */
-	private void setLorannViewFrame(final LorannViewFrame LorannviewFrame) {
-		this.LorannviewFrame = LorannviewFrame;
+	private void setLorannViewFrame(final LorannViewFrame lorannViewFrame) {
+		this.lorannViewFrame = lorannViewFrame;
 	}
 
 	/**
@@ -102,7 +102,7 @@ class LorannViewPanel extends JPanel implements Observer {
 		
 		//Draw elements
 		
-		for(IElement[] element: LorannviewFrame.getLorannGame().getLorannMap().getElements())
+		for(IElement[] element: lorannViewFrame.getLorannGame().getLorannMap().getElements())
 		{
 			int y = 0;
 			for(IElement e:element)
@@ -117,7 +117,7 @@ class LorannViewPanel extends JPanel implements Observer {
 		
 		//Draw monsters
 		
-		for(IMonster monster : LorannviewFrame.getLorannGame().getLorannMap().getMonsters())
+		for(IMonster monster : lorannViewFrame.getLorannGame().getLorannMap().getMonsters())
 		{
 			graphics.drawImage(((IElement)monster).getImage(), ((IElement)monster).getX()*32, ((IElement)monster).getY()*32, null);
 		}
@@ -125,7 +125,7 @@ class LorannViewPanel extends JPanel implements Observer {
 		
 		//Draw Lorann's spell if launched
 		
-		IElement spell = LorannviewFrame.getLorannGame().getLorannMap().getLorannSpell();
+		IElement spell = lorannViewFrame.getLorannGame().getLorannMap().getLorannSpell();
 		if(((ISpell)spell).getSpellStatement() != SpellStatement.INPOCKET)
 		{
 			switch(((ISpell)spell).getSpellColor())
@@ -155,7 +155,7 @@ class LorannViewPanel extends JPanel implements Observer {
 		
 		//Draw Lorann
 		
-		IElement lorann = LorannviewFrame.getLorannGame().getLorannMap().getLorann();
+		IElement lorann = lorannViewFrame.getLorannGame().getLorannMap().getLorann();
 		graphics.drawImage(lorann.getImage(), lorann.getX()*32, lorann.getY()*32, null);
 		
 		//Display Score

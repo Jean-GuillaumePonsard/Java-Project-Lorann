@@ -30,10 +30,10 @@ public class DBLorannGame {
 	 * @param id
 	 * @return null or the resultset
 	 */
-	public ResultSet procedure(String sqlprocedure, int id)
+	public ResultSet procedure(String sqlProcedure, int id)
 	{
 		try {
-			final CallableStatement call = this.connection.getConnection().prepareCall(sqlprocedure);
+			final CallableStatement call = this.connection.getConnection().prepareCall(sqlProcedure);
 			call.setInt(1, id);
 			call.execute();
 			return call.getResultSet();

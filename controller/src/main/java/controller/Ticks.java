@@ -12,14 +12,14 @@ import contract.ILorannController;
 public class Ticks implements Runnable  {
 
 	/** the LorannController. */
-	private ILorannController loranncontroller;
+	private ILorannController lorannController;
 	
 	/*
 	 * (non-javadoc)
 	 * 
 	 */
-	public Ticks(ILorannController loranncontroller){
-		this.loranncontroller = loranncontroller;
+	public Ticks(ILorannController lorannController){
+		this.lorannController = lorannController;
 	}
 
 	/*
@@ -32,8 +32,8 @@ public class Ticks implements Runnable  {
 		try{
 			while(true)
 			{
-				loranncontroller.monsterAi();
-				loranncontroller.moveSpell();
+				lorannController.monsterAi();
+				lorannController.moveSpell();
 				Thread.sleep(300);
 			}
 		}catch(Exception e)
