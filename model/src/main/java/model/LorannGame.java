@@ -48,6 +48,7 @@ public class LorannGame extends Observable implements ILorannGame {
 
 	public void setLorannMap(ILorannMap lorannMap) {
 		this.lorannMap = lorannMap;
+		changeLorannGame();
 	}
 	
 	
@@ -136,8 +137,8 @@ public class LorannGame extends Observable implements ILorannGame {
 	
 	public void changeLorannGame()
 	{
-		//setChanged();
-		//notifyObservers();
+		setChanged();
+		notifyObservers();
 	}
 	
 	/*

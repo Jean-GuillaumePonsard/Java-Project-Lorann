@@ -30,7 +30,7 @@ public class LorannView implements Runnable, ILorannView {
 	 */
 	public LorannView(final ILorannGame lorannGame) {
 		this.LorannviewFrame = new LorannViewFrame(lorannGame, "Lorann");
-		//SwingUtilities.invokeLater(this);
+		
 		}
 	/**
 	 * Method to perform Order when a key is pressed

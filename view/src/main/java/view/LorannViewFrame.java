@@ -145,23 +145,6 @@ class LorannViewFrame extends JFrame implements KeyListener {
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}
-	
-	private JPanel container = new JPanel();
-
-	/**
-	 * Displays the score
-	 *
-	 * 
-	 */
-	
-	public void ScoreDisplay() {
-		this.setTitle("Score Lorann2");
-		this.setSize(648, 420);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    this.setLocationRelativeTo(null);
-	    container.setBackground(Color.white);
-	    container.setLayout(new BorderLayout());
-	}	
 		
 	
 /** Method for KeyActions
