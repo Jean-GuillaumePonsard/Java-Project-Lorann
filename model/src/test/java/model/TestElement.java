@@ -2,6 +2,10 @@ package model;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import contract.IElement;
@@ -10,13 +14,41 @@ import contract.Permeability;
 /**
  * The Class TestElement.
  *
- * @author Adrien Thevenet alias chaospreader
+ * @author Adrien Thevenet
  */
 public class TestElement {
 
 	/**
+	 * @throws java.lang.Exception
+	 */
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+	}
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+	}
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@After
+	public void tearDown() throws Exception {
+	}
+	
+	/**
 	 * test method for {@link model.Element#Element(String, Permeability)}
-	 * whit a random image url taken on the Internet
+	 * whit an image of exia
 	 * 
 	 */
 	@Test

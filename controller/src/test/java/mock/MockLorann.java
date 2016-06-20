@@ -9,9 +9,11 @@ public class MockLorann implements ILorann {
 
 	int xPosition;
 	int yPosition;
+	private int score = 0;
 	
 	public MockLorann(int x, int y)
 	{
+		Permeability lorann = Permeability.PENETRABLE;
 		xPosition = x;
 		yPosition = y;
 	}
@@ -41,13 +43,13 @@ public class MockLorann implements ILorann {
 	}
 
 	public int getScore() {
-		// TODO Auto-generated method stub
-		return 0;
+		return score;
 	}
 
 	public void addScore(int score) {
-		// TODO Auto-generated method stub
+		this.score += score;
 		
 	}
+
 
 }

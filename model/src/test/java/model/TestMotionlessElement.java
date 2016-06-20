@@ -9,11 +9,13 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- * The Class TestCrytalBublle.
- *
+ * Test Class TestMotionlesElement
+ * 
  * @author Adrien Thevenet
+ *
  */
-public class TestCrystalBubble {
+public class TestMotionlessElement {
+
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -41,14 +43,13 @@ public class TestCrystalBubble {
 	@After
 	public void tearDown() throws Exception {
 	}
-	
 	/**
-	 * test method for {@link model.CrystalBubble#CrystalBubble(int, int, String)}
+	 * test method for {@link model.MotionlessElement#MotionlessElement(String, contract.Permeability)
 	 * whit an image of exia
 	 */
 	@Test
-	public void testCrystalBubble() {
-		assertNotNull(new model.CrystalBubble(0, 0,"exia.png"));
+	public void testMotionlessElement() {
+		fail("Not yet implemented");
 	}
 
 }

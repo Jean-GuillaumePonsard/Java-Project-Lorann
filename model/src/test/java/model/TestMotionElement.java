@@ -8,12 +8,15 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import contract.Permeability;
 /**
- * The Class TestCrytalBublle.
- *
+ * The Class TestMotionElement.
+ * 
  * @author Adrien Thevenet
+ *
  */
-public class TestCrystalBubble {
+public class TestMotionElement {
+
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -41,14 +44,14 @@ public class TestCrystalBubble {
 	@After
 	public void tearDown() throws Exception {
 	}
-	
+
 	/**
-	 * test method for {@link model.CrystalBubble#CrystalBubble(int, int, String)}
+	 * test method for {@link model.MotionElement#MotionElement(String, Permeability)}
 	 * whit an image of exia
 	 */
 	@Test
-	public void testCrystalBubble() {
-		assertNotNull(new model.CrystalBubble(0, 0,"exia.png"));
+	public void testMotionElement() {
+		assertNotNull(new model.MotionElement("exia.png", Permeability.PENETRABLE));
 	}
 
 }
