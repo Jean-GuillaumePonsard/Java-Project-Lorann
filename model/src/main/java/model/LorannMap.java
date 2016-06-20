@@ -207,7 +207,7 @@ public class LorannMap extends Observable implements ILorannMap {
 			for(IElement e: element)
 			{
 				if(e instanceof Door) {
-					System.out.println("Opening Door");
+					
 					((Door)e).setGateStatement(GateStatement.OPEN);
 					e.setImage("sprite/gate_open.png");
 				}
