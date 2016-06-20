@@ -6,11 +6,9 @@ import java.awt.event.KeyEvent;
 import javax.swing.SwingUtilities;
 
 import contract.ControllerOrder;
-import contract.IController;
 import contract.ILorannController;
 import contract.ILorannGame;
 import contract.ILorannView;
-import contract.IView;
 
 /**
  * The Class View.

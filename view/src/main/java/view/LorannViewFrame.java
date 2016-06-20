@@ -11,7 +11,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 
-import contract.IController;
 import contract.ILorannController;
 import contract.ILorannGame;
 
