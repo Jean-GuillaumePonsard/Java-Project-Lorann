@@ -89,10 +89,9 @@ public class TestElement {
         	assertEquals(Permeability.PENETRABLE, element.getPermeability());
         }
 	}
-	/*
+	/**
 	 * test method for {@link model.Element#getImage()}
 	 * 
-	 * to review
 	 */
 	@Test
 	public void testGetImage() {
@@ -100,10 +99,9 @@ public class TestElement {
 		assertNotNull(element.getImage());
 		}
 	
-	/*
+	/**
 	 * test method for {@link model.Element#setImage(String)}
 	 * 
-	 * to review
 	 */
 	@Test
 	public void testSetImage() {
