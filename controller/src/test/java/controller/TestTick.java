@@ -8,6 +8,13 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+/**
+ * Test Class TestTicks
+ * 
+ * @author Adrien Thevenet
+ * @version 16.06.2016
+ *
+ */
 public class TestTick {
 	
 	/**
@@ -38,14 +45,22 @@ public class TestTick {
 	public void tearDown() throws Exception {
 	}
 
+	/**
+	 * test method for {@link controller.Ticks#Ticks(contract.ILorannController)}
+	 */
 	@Test
 	public void testTicks() {
-		fail("Not yet implemented");
+		LorannController i = null;
+		assertNotNull(new Ticks(i));
 	}
-
+	/**
+	 * test method for {@link controller.Ticks#run()}
+	 */
 	@Test
 	public void testRun() {
-		fail("Not yet implemented");
+		LorannController i = null;
+		Ticks t = new Ticks(i);
+		t.run();
 	}
 
 }

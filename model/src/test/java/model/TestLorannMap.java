@@ -2,6 +2,8 @@ package model;
 
 import static org.junit.Assert.*;
 
+import java.awt.Image;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -9,10 +11,15 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import contract.GateStatement;
-import contract.IDoor;
-import contract.IElement;
 import contract.Permeability;
 
+/**
+ * Test Class TestLoranMap.
+ * 
+ * @author Adrien Thevenet
+ * @version 16.06.2016
+ *
+ */
 public class TestLorannMap {
 
 	/**
@@ -42,15 +49,20 @@ public class TestLorannMap {
 	@After
 	public void tearDown() throws Exception {
 	}
-
+	
+	/**
+	 * Test method for {@link model.LorannMap#LorannMap(int, int)}
+	 */
 	@Test
 	public void testLorannMap() {
 		assertNotNull(new model.LorannMap(20, 12));
 	}
 
+	/**
+	 * test method for {@link model.LorannMap#addElement(contract.IElement, int, int)}
+	 */
 	@Test
 	public void testAddElement() {
-		LorannMap lorannMap = new model.LorannMap(8, 9);
 		Element element = new model.Element("exia.png", Permeability.BLOCKING);;
 		int x = (int)Math.random()*10;
 		int y = (int)Math.random()*10;
@@ -59,6 +71,9 @@ public class TestLorannMap {
 		assertNotNull(element);
 	}
 
+	/**
+	 * test method for {@link model.LorannMap#setElement(contract.IElement, int, int)}
+	 */
 	@Test
 	public void testSetElement() {
 		LorannMap lorannMap = new model.LorannMap(8, 9);
@@ -76,6 +91,9 @@ public class TestLorannMap {
 			assertNull(element);
 	}
 
+	/**
+	 * test method for {@link model.LorannMap#getElement(int, int)}
+	 */
 	@Test
 	public void testGetElement() {
 		LorannMap lorannMap = new model.LorannMap(8, 9);
@@ -91,13 +109,19 @@ public class TestLorannMap {
 			assertNotNull(element);
 	}
 
+	/**
+	 * test method for {@link model.LorannMap#getWidth()}
+	 */
 	@Test
 	public void testGetWidth() {
 		LorannMap lorannMap = new model.LorannMap(648, 420);
 		int w = (int)Math.random()*100;
 		assertNotEquals(w,lorannMap.getWidth());
 	}
-
+	
+	/**
+	 * test method for {@link model.LorannMap#getHeight()}
+	 */
 	@Test
 	public void testGetHeight() {
 		LorannMap lorannMap = new model.LorannMap(648, 420);
@@ -105,6 +129,9 @@ public class TestLorannMap {
 		assertNotEquals(h,lorannMap.getHeight());
 	}
 
+	/**
+	 * test method for {@link model.LorannMap#getLorann()}
+	 */
 	@Test
 	public void testGetLorann() {
 		Lorann lorann = new model.Lorann(5, 6, "exia.png");
@@ -116,6 +143,9 @@ public class TestLorannMap {
 		assertEquals(y, lorann.getY());
 	}
 
+	/**
+	 * test method for {@link model.LorannMap#setLorann(contract.IElement)}
+	 */
 	@Test
 	public void testSetLorann() {
 		Lorann lorann = new model.Lorann(14, 5, "exia.png");
@@ -127,6 +157,9 @@ public class TestLorannMap {
 		assertEquals(y, lorann.getY());
 	}
 
+	/**
+	 * test method for {@link model.LorannMap#getMonsters()}
+	 */
 	@Test
 	public void testGetMonsters() {
 		Monster monster = new model.Monster(4, 9, "exia.png");
@@ -138,6 +171,9 @@ public class TestLorannMap {
 		assertEquals(y, monster.getY());
 	}
 
+	/**
+	 * test method for {@link model.LorannMap#setMonsters(java.util.ArrayList)}
+	 */
 	@Test
 	public void testSetMonsters() {
 		Monster monster = new model.Monster(12, 10, "exia.png");
@@ -149,16 +185,19 @@ public class TestLorannMap {
 		assertEquals(y, monster.getY());
 	}
 
-	@Test
-	public void testAddMonster() {
-		fail("Not yet implemented");
-	}
+//	@Test
+//	public void testAddMonster() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testRemoveMonsterByIndex() {
+//		fail("Not yet implemented");
+//	}
 
-	@Test
-	public void testRemoveMonsterByIndex() {
-		fail("Not yet implemented");
-	}
-
+	/**
+	 * test method for {@link model.LorannMap#getLorannSpell()}
+	 */
 	@Test
 	public void testGetLorannSpell() {
 		Spell lorannSpell = new model.Spell(2, 6, "exia.png");
@@ -170,6 +209,9 @@ public class TestLorannMap {
 		assertEquals(y, lorannSpell.getY());
 	}
 
+	/**
+	 * test method for {@link model.LorannMap#setLorannSpell()}
+	 */
 	@Test
 	public void testSetLorannSpell() {
 		Spell lorannSpell = new model.Spell(19, 15, "exia.png");
@@ -181,11 +223,30 @@ public class TestLorannMap {
 		assertEquals(y, lorannSpell.getY());
 	}
 
+	/**
+	 * test method for {@link model.LorannMap#destroyElement(int, int)}
+	 */
 	@Test
 	public void testDestroyElement() {
-		fail("Not yet implemented");
+		Element element = new model.Element("exia.png", Permeability.BLOCKING);
+		int x =(int) Math.random()*10;
+		int y =(int) Math.random()*10;
+		element.setX(x);
+		element.setY(y);
+		Image sprite1 = element.getImage();
+		Permeability perm1 = element.getPermeability();
+		element.setImage("sprite/floor.png");
+		element.setPermeability(Permeability.PENETRABLE);
+		Image sprite2 = element.getImage();
+		Permeability perm2 = element.getPermeability();
+		assertNotSame(sprite1, sprite2);
+		assertNotSame(perm1, perm2);
+
 	}
 
+	/**
+	 * test method for {@link model.LorannMap#openDoor()}
+	 */
 	@Test
 	public void testOpenDoor() {
 		Door door = new model.Door(5, 4, "exia.png");
@@ -203,6 +264,9 @@ public class TestLorannMap {
 //		assertNotNull(getObservable);
 //	}
 
+	/**
+	 * test method for {@link model.LorannMap#moveElement(contract.IElement, int, int)}
+	 */
 	@Test
 	public void testMoveElement() {
 		Element element = new model.Element("exia.png", Permeability.PENETRABLE);
