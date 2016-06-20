@@ -3,12 +3,9 @@ package view;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-//import java.awt.GridBagConstraints;
-//import java.awt.GridBagLayout;
 import java.util.Observable;
 import java.util.Observer;
 
-//import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import contract.IElement;

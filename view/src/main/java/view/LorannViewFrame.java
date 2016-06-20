@@ -1,14 +1,13 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
+
 import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+
 
 
 import contract.ILorannController;
