@@ -28,7 +28,7 @@ public class LorannGame extends Observable implements ILorannGame {
 	 * Instantiates a new LorannGame.
 	 * 
 	 * @param idLevel
-	 * 		The level choosen
+	 * 		The level chosen
 	 */
 	public LorannGame(int idLevel)
 	{
@@ -56,7 +56,8 @@ public class LorannGame extends Observable implements ILorannGame {
 	/**
 	 * Initialization of lorannMap
 	 * 
-	 * Need to be improve for map choice
+	 * @param idLevel
+	 * 	The level chosen
 	 * 
 	 */
 	

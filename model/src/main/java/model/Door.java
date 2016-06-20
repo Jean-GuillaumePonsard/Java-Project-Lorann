@@ -20,8 +20,11 @@ public class Door extends MotionlessElement implements IDoor {
 	 * Instantiates a new door.
 	 *  
 	 * @param x
+	 * The x position of the door
 	 * @param y
+	 * 	The y position of the door
 	 * @param url
+	 * 	The path of the image
 	 */
 	public Door(int x, int y, String url)
 	{

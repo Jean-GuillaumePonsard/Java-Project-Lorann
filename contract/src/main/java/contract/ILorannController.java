@@ -14,7 +14,8 @@ public interface ILorannController {
 	/**
 	 * Moves Lorann due to a key pressed
 	 *
-	 * @see contract.IController#orderPerform(contract.ControllerOrder)
+	 * @param controllerOrder
+	 * 	The order that the user performed
 	 */
 	void orderPerform(ControllerOrder controllerOrder);
 	

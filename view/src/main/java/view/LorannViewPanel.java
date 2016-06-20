@@ -36,8 +36,8 @@ class LorannViewPanel extends JPanel implements Observer {
 	/**
 	 * Instantiates a new view panel.
 	 *
-	 * @param LorannviewFrame
-	 *          the view frame
+	 * @param lorannViewFrame
+	 *          the lorann view frame
 	 */
 	public LorannViewPanel(final LorannViewFrame lorannViewFrame) {
 		this.setLorannViewFrame(lorannViewFrame);
@@ -63,7 +63,7 @@ class LorannViewPanel extends JPanel implements Observer {
 	/**
 	 * Sets the Lorann view frame.
 	 *
-	 * @param viewFrame
+	 * @param lorannViewFrame
 	 *          the new lorann view frame
 	 */
 	private void setLorannViewFrame(final LorannViewFrame lorannViewFrame) {
@@ -73,7 +73,7 @@ class LorannViewPanel extends JPanel implements Observer {
 	/**
 	 * Method that change the Observed 
 	 * 
-	 * @param Observable
+	 * @param arg0
 	 * The observable object
 	 * 
 	 * @param arg1
@@ -89,6 +89,7 @@ class LorannViewPanel extends JPanel implements Observer {
 	 * Method that print components in Frame
 	 * 
 	 * @param graphics
+	 * 	The graphic object that can be printed on screen
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {

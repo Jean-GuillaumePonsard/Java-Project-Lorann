@@ -12,7 +12,7 @@ public interface IDoor {
 	/**
 	 * Sets the gateStatement.
 	 *
-	 * @param GateStatement
+	 * @param gateStatement
 	 *          the new gateStatement
 	 */
 	void setGateStatement(GateStatement gateStatement);

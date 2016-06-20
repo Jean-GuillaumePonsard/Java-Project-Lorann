@@ -24,8 +24,8 @@ public class LorannView implements Runnable, ILorannView {
 	/**
 	 * Instantiates a new view.
 	 *
-	 * @param model
-	 *          the model
+	 * @param lorannGame
+	 *          the lorannGame, our model
 	 */
 	public LorannView(final ILorannGame lorannGame) {
 		this.lorannViewFrame = new LorannViewFrame(lorannGame, "Lorann");
@@ -36,6 +36,8 @@ public class LorannView implements Runnable, ILorannView {
 	 *
 	 * @param keyCode
 	 *          the key code
+	 * 
+	 * @return the controllerOrder
 	 */
 	
 	

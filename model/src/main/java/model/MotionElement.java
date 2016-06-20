@@ -15,7 +15,9 @@ public class MotionElement extends Element {
 	 *	Instantiates a new mobileElement.
 	 *
 	 * @param url
+	 * 	The path of the image
 	 * @param permeability
+	 * 	The permeability of the motion element
 	 */
 	
 	public MotionElement(String url, Permeability permeability)

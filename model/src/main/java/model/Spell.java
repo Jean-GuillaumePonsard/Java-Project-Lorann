@@ -24,8 +24,11 @@ public class Spell extends MotionElement implements ISpell {
 	 *	Instantiates a new spell.
 	 * 
 	 * @param x
+	 * 	The x position of the spell
 	 * @param y
+	 * 	The y position of the spell
 	 * @param url
+	 * 	The path of the image
 	 */
 	
 	public Spell(int x, int y, String url)

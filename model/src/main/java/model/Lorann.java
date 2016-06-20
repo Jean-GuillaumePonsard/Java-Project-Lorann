@@ -23,8 +23,11 @@ public class Lorann extends MotionElement implements ILorann {
 	 *	Instantiates a new Lorann.
 	 * 
 	 * @param x
+	 * 	The x position of lorann
 	 * @param y
+	 * 	The y position of lorann
 	 * @param url
+	 * 	The path of the image
 	 */
 	
 	public Lorann(int x, int y, String url)

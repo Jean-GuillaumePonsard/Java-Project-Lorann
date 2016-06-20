@@ -27,8 +27,10 @@ public class DBLorannGame {
 	/**
 	 *  Executes the procedure and return the ResultSet
 	 * 
-	 * @param sqlprocedure
+	 * @param sqlProcedure
+	 * 	The name of the procedure that needs to be used
 	 * @param id
+	 * 	The id of the map
 	 * @return null or the resultset
 	 */
 	public ResultSet procedure(String sqlProcedure, int id)

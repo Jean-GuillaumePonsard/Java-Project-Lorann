@@ -16,8 +16,11 @@ public class Monster extends MotionElement implements IMonster {
 	 *	Instantiates a new monster.
 	 * 
 	 * @param x
+	 * 	The x position of the monster
 	 * @param y
+	 * 	The y position of the monster
 	 * @param url
+	 * 	The path of the image
 	 */
 	
 	public Monster(int x, int y, String url)

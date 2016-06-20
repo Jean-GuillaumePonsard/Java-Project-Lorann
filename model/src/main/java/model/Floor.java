@@ -16,8 +16,11 @@ public class Floor extends MotionlessElement implements IFloor {
 	 *	Instantiates a new Floor.
 	 * 
 	 * @param x
+	 * 	The x position of the floor
 	 * @param y
+	 * 	The y position of the floor
 	 * @param url
+	 * 	The path of the image
 	 */
 	
 	public Floor(int x, int y, String url)

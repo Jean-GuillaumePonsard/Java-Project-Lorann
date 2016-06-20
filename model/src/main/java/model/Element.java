@@ -35,7 +35,9 @@ public class Element extends Observable implements IElement {
 	 *	Instantiates a new Element 
 	 *
 	 *	@param url
+	 *		The path of the image
 	 *	@param permeability
+	 *		The permeability of the element
 	 */
 	
 	public Element(String url, Permeability permeability)

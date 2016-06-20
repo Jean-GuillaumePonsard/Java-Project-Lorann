@@ -19,8 +19,13 @@ public class Loot extends MotionlessElement implements ILoot {
 	 *	Instantiates a new Loot
 	 * 
 	 * @param x
+	 * 	The x position of the loot
 	 * @param y
+	 * 	The y position of the loot
 	 * @param url
+	 * 	The path of the image
+	 * @param pointsGiven
+	 * 	The amount of points given when catching the loot
 	 */
 	
 	public Loot(int x, int y, String url, int pointsGiven)

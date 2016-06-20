@@ -98,6 +98,9 @@ public class LorannController implements ILorannController {
 	 * 		the x position of a static element on the map 		
 	 * @param y
 	 * 		the y position of a static element on the map 
+	 * 
+	 * 	@return boolean
+	 * 	If the permeability of the element is PENETRABLE then it returns true otherwise it returns false
 	 */
 	private boolean getBlocked(final int x, final int y){
 		return getElement(x, y).getPermeability() == Permeability.PENETRABLE;
@@ -105,6 +108,11 @@ public class LorannController implements ILorannController {
 	
 	/**
 	 * Gets the Elements
+	 * 
+	 * @param x
+	 * 	The x position of the element that needs to be found
+	 * @param y
+	 * 	The y position of the element that needs to be found
 	 * 
 	 *@return the Element's position
 	 */
@@ -169,7 +177,9 @@ public class LorannController implements ILorannController {
 	 * Check if there is elements that are not allowed to cross
 	 * 
 	 * @param x
+	 * 	The x position of the element that needs to be checked
 	 * @param y
+	 * 	The y position of the element that needs to be checked
 	 * @return boolean. It depends on if the element can be crossed by the spell or a monster: 
 	 * 	true = the element can be crossed
 	 * 	false = the element can't be crossed
@@ -199,7 +209,9 @@ public class LorannController implements ILorannController {
 	 * Launchs Lorann's spell
 	 * 
 	 * @param spell
+	 * 	Lorann's spell
 	 * @param lorann
+	 * 	Our hero, lorann
 	 */
 	public void launchSpell(IElement spell, IElement lorann)
 	{
@@ -276,6 +288,7 @@ public class LorannController implements ILorannController {
 	 * Terminates process, exit game
 	 * 
 	 * @param code
+	 * 	The exit that that will says if the process close with an anormal status or not
 	 */
 	
 	public void exit(int code)
@@ -532,6 +545,8 @@ public class LorannController implements ILorannController {
 	/**
 	 * Checks collision between a monster and lorann
 	 * 
+	 *  @param monster
+	 *  	The monster that will check if it's in collision with lorann
 	 */
 	
 	public void checkColisionMonsterWithLorann(IElement monster)
@@ -547,6 +562,11 @@ public class LorannController implements ILorannController {
 	/**
 	 * Checks collision between a monster and a spell
 	 * 
+	 *  @param monster
+	 *  	The monster that will check if it's in collision with lorann's spell
+	 * 
+	 *  @return boolean
+	 *  	It's true if the monster and the spell are in the same position
 	 */
 	
 	public boolean checkColisionMonsterWithSpell(IElement monster)
@@ -564,6 +584,14 @@ public class LorannController implements ILorannController {
 	
 	/**
 	 * Checks if monster is to a position
+	 * 
+	 *  @param x
+	 *  	The x position that you want to check if there is a monster
+	 *  @param y
+	 *  	The y position that you want to check if there is a monster
+	 *  
+	 *  @return boolean
+	 *  	It's true when the monster is at the position
 	 * 
 	 */
 	

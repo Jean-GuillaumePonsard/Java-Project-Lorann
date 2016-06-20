@@ -37,6 +37,7 @@ public interface ISpell {
 	 * Sets spellColor
 	 * 
 	 * @param spellColor
+	 * 	The new color of the spell
 	 */			
 	
 	void setSpellColor(SpellColor spellColor);

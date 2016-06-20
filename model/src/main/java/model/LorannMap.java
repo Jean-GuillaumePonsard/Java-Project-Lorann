@@ -40,7 +40,9 @@ public class LorannMap extends Observable implements ILorannMap {
 	 * Instantiates a new LorannMap
 	 * 
 	 * @param width
+	 * 	The width of the map
 	 * @param height
+	 * 	The height of the map
 	 */
 	public LorannMap(int width, int height)
 	{

@@ -36,8 +36,8 @@ class LorannViewFrame extends JFrame implements KeyListener {
 	/**
 	 * Instantiates a new view frame.
 	 *
-	 * @param model
-	 *          the model
+	 * @param lorannGame
+	 *          the lorannGame, our model
 	 * @throws HeadlessException
 	 *           the headless exception
 	 */
@@ -48,8 +48,8 @@ class LorannViewFrame extends JFrame implements KeyListener {
 	/**
 	 * Instantiates a new view frame.
 	 *
-	 * @param model
-	 *          the model
+	 * @param lorannGame
+	 *          the lorannGame, our model
 	 * @param gc
 	 *          the gc
 	 */
@@ -61,8 +61,8 @@ class LorannViewFrame extends JFrame implements KeyListener {
 	/**
 	 * Instantiates a new view frame.
 	 *
-	 * @param model
-	 *          the model
+	 * @param lorannGame
+	 *          the lorannGame, our model
 	 * @param title
 	 *          the title
 	 * @throws HeadlessException
@@ -76,8 +76,8 @@ class LorannViewFrame extends JFrame implements KeyListener {
 	/**
 	 * Instantiates a new view frame.
 	 *
-	 * @param model
-	 *          the model
+	 * @param lorannGame
+	 *          the lorannGame, our model
 	 * @param title
 	 *          the title
 	 * @param gc
@@ -119,8 +119,8 @@ class LorannViewFrame extends JFrame implements KeyListener {
 	/**
 	 * Sets the model.
 	 *
-	 * @param model
-	 *          the new model
+	 * @param lorannGame
+	 *          the new lorannGame, our model
 	 */
 	private void setModel(final ILorannGame lorannGame) {
 		this.lorranGame = lorannGame;
@@ -129,8 +129,8 @@ class LorannViewFrame extends JFrame implements KeyListener {
 	/**
 	 * Builds the view frame.
 	 *
-	 * @param model
-	 *          the model
+	 * @param lorannGame
+	 *          the lorannGame, our model
 	 */
 	private void buildViewFrame(final ILorannGame lorannGame) {
 		this.setModel(lorannGame);
@@ -148,7 +148,8 @@ class LorannViewFrame extends JFrame implements KeyListener {
 /** Method for KeyActions
  * 
  * 
- * @param Keyevent
+ * @param e
+ * 	The Key Event
  */
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
