@@ -8,6 +8,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import contract.Permeability;
+
 /**
  * Test Class TestMotionlesElement
  * 
@@ -49,7 +51,7 @@ public class TestMotionlessElement {
 	 */
 	@Test
 	public void testMotionlessElement() {
-		fail("Not yet implemented");
+		assertNotNull(new model.MotionlessElement("exia.png", Permeability.PENETRABLE));
 	}
 
 }
