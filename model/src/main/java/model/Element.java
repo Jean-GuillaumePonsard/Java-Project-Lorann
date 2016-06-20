@@ -87,7 +87,7 @@ public class Element extends Observable implements IElement {
 		//Another method to set the Sprite of an object
 		try{
 			
-			this.image = ImageIO.read(new File("C:/Users/Jean-Guillaume P/Documents/Exia/Projet Java/Java/Java-Project-Lorann/model/src/main/resources/"+url));
+			this.image = ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(url));
 			modelchanged();
 			
 		}catch(IOException e){
