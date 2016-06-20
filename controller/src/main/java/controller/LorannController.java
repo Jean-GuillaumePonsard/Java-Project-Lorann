@@ -413,6 +413,7 @@ public class LorannController implements ILorannController {
 				
 			}else{
 				((ISpell) spell).setSpellStatement(SpellStatement.LAUNCHEDUP);
+				moveElement(spell, 0, -1);
 			}
 			break;
 		case LAUNCHEDLEFT:
@@ -422,6 +423,7 @@ public class LorannController implements ILorannController {
 				
 			}else{
 				((ISpell) spell).setSpellStatement(SpellStatement.LAUNCHEDRIGHT);
+				moveElement(spell, 1, 0);
 			}
 			break;
 		case LAUNCHEDRIGHT:
@@ -431,6 +433,7 @@ public class LorannController implements ILorannController {
 				
 			}else{
 				((ISpell) spell).setSpellStatement(SpellStatement.LAUNCHEDLEFT);
+				moveElement(spell, -1, 0);
 			}
 			break;
 		case LAUNCHEDUP:
@@ -441,6 +444,7 @@ public class LorannController implements ILorannController {
 				
 			}else{
 				((ISpell) spell).setSpellStatement(SpellStatement.LAUNCHEDDOWN);
+				moveElement(spell, 0, 1);
 			}
 			break;
 		default:
