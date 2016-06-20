@@ -45,8 +45,8 @@ public class TestLoot {
 	}
 	
 	/**
-	 * test method for {@link model.Loot#Loot(int, int, String)}
-	 * with an image od exia
+	 * test method for {@link model.Loot#Loot(int, int, String, int)}
+	 * with an image of exia
 	 */
 	@Test
 	public void testLoot() {

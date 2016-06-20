@@ -46,7 +46,8 @@ public class TestMotionlessElement {
 	public void tearDown() throws Exception {
 	}
 	/**
-	 * test method for {@link model.MotionlessElement#MotionlessElement(String, contract.Permeability)
+	 * 
+	 * test method for {@link model.MotionlessElement#MotionlessElement(String, contract.Permeability)}
 	 * whit an image of exia
 	 */
 	@Test

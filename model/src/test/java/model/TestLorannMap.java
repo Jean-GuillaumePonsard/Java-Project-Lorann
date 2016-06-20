@@ -210,7 +210,7 @@ public class TestLorannMap {
 	}
 
 	/**
-	 * test method for {@link model.LorannMap#setLorannSpell()}
+	 * test method for {@link model.LorannMap#setLorannSpell(contract.IElement)}
 	 */
 	@Test
 	public void testSetLorannSpell() {
