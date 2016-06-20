@@ -7,6 +7,7 @@ import contract.Permeability;
  * The Class Loot.
  *
  * @author Jean-Guillaume Ponsard
+ * @version 16.06.2016
  */
 
 public class Loot extends MotionlessElement implements ILoot {

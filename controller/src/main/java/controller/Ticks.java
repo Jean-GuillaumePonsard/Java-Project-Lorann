@@ -2,11 +2,11 @@ package controller;
 
 import contract.ILorannController;
 
-//TODO: Auto-generated Javadoc
 /**
-* The Class Controller.
+* The Class Ticks.
 * 
-* @author 
+* @author Adrien Thevenet
+* @version 16.06.2016
 */
 
 public class Ticks implements Runnable  {

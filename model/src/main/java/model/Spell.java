@@ -9,6 +9,7 @@ import contract.SpellStatement;
  * The Class Spell.
  *
  * @author Jean-Guillaume Ponsard
+ * @version 16.06.2016
  */
 
 public class Spell extends MotionElement implements ISpell {
@@ -52,7 +53,7 @@ public class Spell extends MotionElement implements ISpell {
 	public void setSpellStatement(SpellStatement spellStatement)
 	{
 		this.spellStatement = spellStatement;
-		modelchanged();
+		modelChanged();
 	}
 
 	/*
@@ -69,7 +70,7 @@ public class Spell extends MotionElement implements ISpell {
 	 */
 	public void setSpellColor(SpellColor spellColor) {
 		this.spellColor = spellColor;
-		modelchanged();
+		modelChanged();
 	}
 	
 	/*
@@ -97,6 +98,6 @@ public class Spell extends MotionElement implements ISpell {
 			break;
 		
 		}
-		modelchanged();
+		modelChanged();
 	}
 }

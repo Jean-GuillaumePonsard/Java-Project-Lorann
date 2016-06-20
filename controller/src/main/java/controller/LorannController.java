@@ -24,12 +24,14 @@ import contract.LorannStatement;
 import contract.Permeability;
 import contract.SpellStatement;
 
-//TODO: Auto-generated Javadoc
+
 /**
 * The Class LorannController.
 * 
-* @author 
+* @author Adrien Thevenet, Jean-Guillaume Ponsard
+* @version 16.06.2016
 */
+
 public class LorannController implements ILorannController {
 
 	/** The view. */
@@ -43,7 +45,7 @@ public class LorannController implements ILorannController {
 	 *
 	 * @param view
 	 *          the view
-	 * @param model
+	 * @param lorannGame
 	 *          the model
 	 */
 	public LorannController(final ILorannView view, final ILorannGame lorannGame) {
@@ -66,7 +68,7 @@ public class LorannController implements ILorannController {
 	/**
 	 * Sets the model.
 	 *
-	 * @param model
+	 * @param lorannGame
 	 *          the new model
 	 */
 	private void setModel(final ILorannGame lorannGame) {
@@ -90,7 +92,7 @@ public class LorannController implements ILorannController {
 	}
 	
 	/**
-	 * Permit to know if a monster or Lorann will be not blocked by a map element
+	 * Allows to know if a monster or Lorann is blocked by a map element
 	 * 
 	 * @param x
 	 * 		the x position of a static element on the map 		
@@ -161,12 +163,16 @@ public class LorannController implements ILorannController {
 			}
 		}
 	}
+	
+	
 	/**
 	 * Check if there is elements that are not allowed to cross
 	 * 
 	 * @param x
 	 * @param y
-	 * @return
+	 * @return boolean. It depends on if the element can be crossed by the spell or a monster: 
+	 * 	true = the element can be crossed
+	 * 	false = the element can't be crossed
 	 */
 	
 	public boolean checkImpassableElements(final int x, final int y)
@@ -174,15 +180,15 @@ public class LorannController implements ILorannController {
 		IElement element = lorannGame.getLorannMap().getElement(x, y);
 		if(element instanceof ICoins)
 		{
-			System.out.println("Element encounter coins");
+			
 			return false;
 		}else if(element instanceof ICrystalBubble)
 		{
-			System.out.println("Element encounter crystalBubble");
+			
 			return false;
 		}else if (element instanceof IDoor)
 		{
-			System.out.println("Element encounter door");
+			
 			return false;
 		}
 		
@@ -197,7 +203,7 @@ public class LorannController implements ILorannController {
 	 */
 	public void launchSpell(IElement spell, IElement lorann)
 	{
-		System.out.println("Spell launched");
+		
 		if(((ISpell) spell).getSpellStatement() == SpellStatement.INPOCKET)
 		{
 			int spellX = lorann.getX()-spell.getX();
@@ -239,7 +245,7 @@ public class LorannController implements ILorannController {
 				}
 			}
 			
-		}else{System.out.println("Unable to launch Spell");}
+		}
 		
 	}
 	
@@ -267,7 +273,7 @@ public class LorannController implements ILorannController {
 	}
 	
 	/**
-	 * Terminates process
+	 * Terminates process, exit game
 	 * 
 	 * @param code
 	 */
@@ -292,7 +298,7 @@ public class LorannController implements ILorannController {
 				
 				if(getBlocked(lorann.getX(), lorann.getY()-1))
 				{
-					System.out.println("Move possible ^");
+					
 					if(((ISpell)spell).getSpellStatement() == SpellStatement.LAUNCHEDDOWN && spell.getY() == lorann.getY() && spell.getX() == lorann.getX())
 					{
 						((ISpell)spell).setSpellStatement(SpellStatement.INPOCKET);
@@ -310,7 +316,7 @@ public class LorannController implements ILorannController {
 				lorann.setImage("sprite/lorann_b.png");
 				if(getBlocked(lorann.getX(), lorann.getY()+1))
 				{
-					System.out.println("Move possible  v");
+					
 					if(((ISpell)spell).getSpellStatement() == SpellStatement.LAUNCHEDUP && spell.getY() == lorann.getY() && spell.getX() == lorann.getX())
 					{
 						((ISpell)spell).setSpellStatement(SpellStatement.INPOCKET);
@@ -328,7 +334,7 @@ public class LorannController implements ILorannController {
 				lorann.setImage("sprite/lorann_l.png");
 				if(getBlocked(lorann.getX()-1, lorann.getY()))
 				{
-					System.out.println("Move possible <-");
+					
 					if(((ISpell)spell).getSpellStatement() == SpellStatement.LAUNCHEDRIGHT && spell.getX() == lorann.getX() && spell.getY() == lorann.getY())
 					{
 						((ISpell)spell).setSpellStatement(SpellStatement.INPOCKET);
@@ -345,7 +351,7 @@ public class LorannController implements ILorannController {
 				lorann.setImage("sprite/lorann_r.png");
 				if(getBlocked(lorann.getX()+1, lorann.getY()))
 				{
-					System.out.println("Move possible ->");
+					
 					if(((ISpell)spell).getSpellStatement() == SpellStatement.LAUNCHEDLEFT && spell.getX() == lorann.getX() && spell.getY() == lorann.getY())
 					{
 						((ISpell)spell).setSpellStatement(SpellStatement.INPOCKET);
@@ -391,7 +397,7 @@ public class LorannController implements ILorannController {
 		
 		if(lorannGame.getLorannMap().getLorann().getX() == lorannGame.getLorannMap().getLorannSpell().getX() && lorannGame.getLorannMap().getLorann().getY() == lorannGame.getLorannMap().getLorannSpell().getY())
 		{
-			System.out.println("Collision Dectected between spell and lorann");
+			
 			((ISpell) spell).setSpellStatement(SpellStatement.INPOCKET);
 			
 			return;
@@ -428,7 +434,7 @@ public class LorannController implements ILorannController {
 			}
 			break;
 		case LAUNCHEDUP:
-			System.out.println("Spell X: "+spell.getX()+" Y: "+spell.getY());
+			
 			if(getBlocked(spell.getX(), spell.getY()-1) && checkImpassableElements(spell.getX(), spell.getY()-1))
 			{
 				moveElement(spell, 0, -1);
@@ -454,9 +460,9 @@ public class LorannController implements ILorannController {
 		IElement element = lorannGame.getLorannMap().getElement(lorann.getX(), lorann.getY());
 		if( element instanceof ILoot)
 		{
-			System.out.println("Picked coin");
+			
 			((ILorann)lorann).addScore(((ILoot)element).getPointsGiven());
-			System.out.println("NEW SCORE : "+((ILorann)lorann).getScore());
+			
 			lorannGame.getLorannMap().destroyElement(lorann.getX(), lorann.getY());
 			
 		}
@@ -481,11 +487,11 @@ public class LorannController implements ILorannController {
 		{
 			if(((IDoor) element).getGateStatement() == GateStatement.LOCK)
 			{
-				System.out.println("You Died");
+				
 				die();
 			}else if(((IDoor) element).getGateStatement() == GateStatement.OPEN)
 			{
-				System.out.println("You Won");
+				
 				win();
 			}
 		}
@@ -504,7 +510,7 @@ public class LorannController implements ILorannController {
 		{
 			if(((IElement)monster).getX() == lorann.getX() && ((IElement)monster).getY() == lorann.getY())
 			{
-				System.out.println("Collision Detected between Lorann and a monster");
+				
 				
 				die();
 			}
@@ -567,7 +573,7 @@ public class LorannController implements ILorannController {
 		{
 			if(((IElement)monster).getX() == x && ((IElement)monster).getY() == y)
 			{
-				System.out.println("Monster near monster, impossible move of monster");
+				
 				return true;
 			}
 		}		
@@ -589,7 +595,7 @@ public class LorannController implements ILorannController {
 			IElement monster = (IElement) monsters.get(index);
 			if((monster).getX() == lorannGame.getLorannMap().getLorannSpell().getX() && (monster).getY() == lorannGame.getLorannMap().getLorannSpell().getY())
 			{
-				System.out.println("Collision Detected between the spell and a monster");
+				
 				lorannGame.getLorannMap().removeMonsterByIndex(index);
 				
 				((ISpell) spell).setSpellStatement(SpellStatement.INPOCKET);

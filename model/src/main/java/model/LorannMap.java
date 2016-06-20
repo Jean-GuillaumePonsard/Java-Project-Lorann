@@ -5,15 +5,14 @@ import java.util.Observable;
 
 import contract.GateStatement;
 import contract.IElement;
-import contract.ILorann;
 import contract.ILorannMap;
 import contract.IMonster;
-import contract.ISpell;
 
 /**
  * The Class LorannMap.
  *
  * @author Jean-Guillaume Ponsard
+ * @version 16.06.2016
  */
 
 public class LorannMap extends Observable implements ILorannMap {
@@ -63,8 +62,12 @@ public class LorannMap extends Observable implements ILorannMap {
 	
 	public void addElement(IElement element, final int x, final int y)
 	{
-		this.elements[x][y] = element;
-		modelchanged();
+		if(this.elements[x][y] == null && x >= 0 && x < this.width && y < this.height && y >= 0)
+		{
+			this.elements[x][y] = element;
+			modelChanged();
+		}
+
 	}
 
 	/* (non-Javadoc)
@@ -72,8 +75,11 @@ public class LorannMap extends Observable implements ILorannMap {
 	 */
 
 	public void setElement(IElement element, int x, int y) {
-		this.elements[x][y] = element;
-		modelchanged();
+		if(x >= 0 && x < this.width && y < this.height && y >= 0)
+		{
+			this.elements[x][y] = element;
+			modelChanged();
+		}
 	}
 	
 	/* (non-Javadoc)
@@ -122,7 +128,7 @@ public class LorannMap extends Observable implements ILorannMap {
 	public void setLorann(IElement lorann)
 	{
 		this.lorann = lorann;
-		modelchanged();
+		modelChanged();
 	}
 	
 	/* (non-Javadoc)
@@ -139,7 +145,7 @@ public class LorannMap extends Observable implements ILorannMap {
 	
 	public void setMonsters(ArrayList<IMonster> monsters) {
 		this.monsters = monsters;
-		modelchanged();
+		modelChanged();
 	}
 	
 	/* (non-Javadoc)
@@ -149,7 +155,7 @@ public class LorannMap extends Observable implements ILorannMap {
 	public void addMonster(IMonster monster)
 	{
 		monsters.add(monster);
-		modelchanged();
+		modelChanged();
 	}
 	
 	/* (non-Javadoc)
@@ -159,7 +165,7 @@ public class LorannMap extends Observable implements ILorannMap {
 	public void removeMonsterByIndex(int index)
 	{
 		monsters.remove(index);
-		modelchanged();
+		modelChanged();
 	}
 
 	/* (non-Javadoc)
@@ -176,7 +182,7 @@ public class LorannMap extends Observable implements ILorannMap {
 	
 	public void setLorannSpell(IElement lorannSpell) {
 		this.lorannSpell = lorannSpell;
-		modelchanged();
+		modelChanged();
 	}
 	
 	/* (non-Javadoc)
@@ -211,23 +217,37 @@ public class LorannMap extends Observable implements ILorannMap {
 		}
 	}
 	
-	public void modelchanged()
+	/**
+	 * Notify observers that the model changed
+	 * 
+	 */
+
+	public void modelChanged()
 	{
 		setChanged();
 		notifyObservers();
 	}
+	
+	/*
+	 * (non-Javadoc)
+	 * @see contract.ILorannMap#getObservable()
+	 */
 	
 	public Observable getObservable()
 	{
 		return this;
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see contract.ILorannMap#moveElement(contract.IElement, int, int)
+	 */
 	
 	public void moveElement(IElement element, final int x, final int y)
 	{
 		element.setX(element.getX()+x);
 		element.setY(element.getY()+y);
-		modelchanged();
+		modelChanged();
 	}
 
 	

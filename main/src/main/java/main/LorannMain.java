@@ -4,6 +4,14 @@ import controller.LorannController;
 import model.LorannGame;
 import view.LorannView;
 
+/**
+ * The LorannMain Class
+ * 
+ * @author Jean-Guillaume Ponsard
+ * @version 16.06.2016
+ *
+ */
+
 public abstract class LorannMain {
 
 	/**

@@ -9,6 +9,7 @@ import java.sql.SQLException;
  *  The Class DBLorannGame
  * 
  * @author Jean-Guillaume Ponsard
+ * @version 16.06.2016
  */
 
 public class DBLorannGame {

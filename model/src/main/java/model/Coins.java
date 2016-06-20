@@ -6,6 +6,7 @@ import contract.ICoins;
  * The Class Coins.
  *
  * @author Jean-Guillaume Ponsard
+ * @version 16.06.2016
  */
 
 public class Coins extends Loot implements ICoins {

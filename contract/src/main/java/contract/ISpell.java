@@ -1,5 +1,12 @@
 package contract;
 
+/**
+ * The interface ISpell
+ * 
+ * @author Jean-Guillaume Ponsard
+ * @version 16.06.2016
+ */
+
 public interface ISpell {
 
 	/**
@@ -35,7 +42,7 @@ public interface ISpell {
 	void setSpellColor(SpellColor spellColor);
 	
 	/**
-	 * Sets nextColor
+	 * Sets nextColor. Change color of the spell
 	 * 
 	 * 
 	 */		

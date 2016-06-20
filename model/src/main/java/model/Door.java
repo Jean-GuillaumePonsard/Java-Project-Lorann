@@ -8,6 +8,7 @@ import contract.Permeability;
  * The Class Door.
  *
  * @author Jean-Guillaume Ponsard
+ * @version 16.06.2016
  */
 
 public class Door extends MotionlessElement implements IDoor {
@@ -37,7 +38,7 @@ public class Door extends MotionlessElement implements IDoor {
 	public void setGateStatement(GateStatement gateStatement)
 	{
 		this.gateStatement = gateStatement;
-		modelchanged();
+		modelChanged();
 	}
 	
 	/* (non-Javadoc)

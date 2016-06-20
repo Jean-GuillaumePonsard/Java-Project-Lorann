@@ -11,6 +11,7 @@ import contract.ILorannMap;
  * The Class LorannGame.
  *
  * @author Jean-Guillaume Ponsard
+ * @version 16.06.2016
  */
 
 
@@ -20,7 +21,7 @@ public class LorannGame extends Observable implements ILorannGame {
 	private ILorannMap lorannMap;
 	
 	/** The DataBase Connection that allow to get a Resultset **/
-	private DBLorannGame dbloranngame;
+	private DBLorannGame dbLorannGame;
 	
 	
 	/**
@@ -31,7 +32,7 @@ public class LorannGame extends Observable implements ILorannGame {
 	 */
 	public LorannGame(int idLevel)
 	{
-		dbloranngame = new DBLorannGame();
+		dbLorannGame = new DBLorannGame();
 		initLorannMap(idLevel);
 	}
 
@@ -69,7 +70,7 @@ public class LorannGame extends Observable implements ILorannGame {
 		
 		try {
 			
-			ResultSet result = dbloranngame.procedure("call ElementByMap(?)", idLevel);
+			ResultSet result = dbLorannGame.procedure("call ElementByMap(?)", idLevel);
 			while(result.next())
 			{
 				int idElement = result.getInt("idElement");

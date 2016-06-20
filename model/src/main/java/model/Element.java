@@ -1,7 +1,6 @@
 package model;
 
 import java.awt.Image;
-import java.io.File;
 import java.io.IOException;
 import java.util.Observable;
 
@@ -14,6 +13,7 @@ import contract.Permeability;
  * The Class Element.
  *
  * @author Jean-Guillaume Ponsard
+ * @version 16.06.2016
  */
 
 public class Element extends Observable implements IElement {
@@ -58,7 +58,7 @@ public class Element extends Observable implements IElement {
 	
 	public void setPermeability(Permeability permeability) {
 		this.permeability = permeability;
-		modelchanged();
+		modelChanged();
 	}
 	
 	/* (non-Javadoc)
@@ -75,7 +75,7 @@ public class Element extends Observable implements IElement {
 	
 	public void setImage(Image image) {
 		this.image = image;
-		modelchanged();
+		modelChanged();
 	}
 	
 	/* (non-Javadoc)
@@ -88,7 +88,7 @@ public class Element extends Observable implements IElement {
 		try{
 			
 			this.image = ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(url));
-			modelchanged();
+			modelChanged();
 			
 		}catch(IOException e){
 			e.printStackTrace();
@@ -111,7 +111,7 @@ public class Element extends Observable implements IElement {
 	
 	public void setX(int x) {
 		this.x = x;
-		modelchanged();
+		modelChanged();
 	}
 
 	/* (non-Javadoc)
@@ -128,14 +128,23 @@ public class Element extends Observable implements IElement {
 
 	public void setY(int y) {
 		this.y = y;
-		modelchanged();
+		modelChanged();
 	}
 	
-	public void modelchanged()
+	/**
+	 * Notify Observers that the model changed
+	 * 
+	 */
+	
+	public void modelChanged()
 	{
 		setChanged();
 		notifyObservers();
 	}
+	/*
+	 * (non-Javadoc)
+	 * @see contract.IElement#getObservable()
+	 */
 	
 	public Observable getObservable()
 	{

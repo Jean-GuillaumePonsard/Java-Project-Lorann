@@ -3,6 +3,13 @@ package contract;
 import java.awt.Image;
 import java.util.Observable;
 
+/**
+ * The interface IElement
+ * 
+ * @author Jean-Guillaume Ponsard
+ * @version 16.06.2016
+ */
+
 public interface IElement {
 
 	/**
@@ -81,6 +88,12 @@ public interface IElement {
 	 */
 
 	void setY(int y);
+	
+	/**
+	 * Gets the observable
+	 * 
+	 * @return Observable
+	 */
 	
 	Observable getObservable();
 

@@ -18,6 +18,7 @@ import contract.SpellStatement;
  * The Class ViewPanel.
  *
  * @author Franz Alliod
+ * @version 16.06.2016
  */
 class LorannViewPanel extends JPanel implements Observer {
 
@@ -38,13 +39,13 @@ class LorannViewPanel extends JPanel implements Observer {
 	 * @param LorannviewFrame
 	 *          the view frame
 	 */
-	public LorannViewPanel(final LorannViewFrame LorannviewFrame) {
-		this.setLorannViewFrame(LorannviewFrame);
+	public LorannViewPanel(final LorannViewFrame lorannViewFrame) {
+		this.setLorannViewFrame(lorannViewFrame);
 		
-		LorannviewFrame.getLorannGame().getObservable().addObserver(this);
-		LorannviewFrame.getLorannGame().getLorannMap().getObservable().addObserver(this);
-		LorannviewFrame.getLorannGame().getLorannMap().getLorann().getObservable().addObserver(this);
-		LorannviewFrame.getLorannGame().getLorannMap().getLorannSpell().getObservable().addObserver(this);
+		lorannViewFrame.getLorannGame().getObservable().addObserver(this);
+		lorannViewFrame.getLorannGame().getLorannMap().getObservable().addObserver(this);
+		lorannViewFrame.getLorannGame().getLorannMap().getLorann().getObservable().addObserver(this);
+		lorannViewFrame.getLorannGame().getLorannMap().getLorannSpell().getObservable().addObserver(this);
 		
 		this.font = new Font("Courrier", Font.BOLD, 20);
 		this.repaint();		
@@ -74,6 +75,7 @@ class LorannViewPanel extends JPanel implements Observer {
 	 * 
 	 * @param Observable
 	 * The observable object
+	 * 
 	 * @param arg1
 	 * an Object
 	 */

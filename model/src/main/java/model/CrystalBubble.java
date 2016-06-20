@@ -6,6 +6,7 @@ import contract.ICrystalBubble;
  * The Class CrystalBubble.
  *
  * @author Jean-Guillaume Ponsard
+ * @version 16.06.2016
  */
 
 public class CrystalBubble extends Loot implements ICrystalBubble {

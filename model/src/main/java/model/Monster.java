@@ -7,6 +7,7 @@ import contract.Permeability;
  * The Class Monster.
  *
  * @author Jean-Guillaume Ponsard
+ * @version 16.06.2016
  */
 
 public class Monster extends MotionElement implements IMonster {

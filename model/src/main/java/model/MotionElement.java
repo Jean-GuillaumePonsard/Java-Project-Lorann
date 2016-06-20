@@ -6,6 +6,7 @@ import contract.Permeability;
  * The Class MotionElement.
  *
  * @author Jean-Guillaume Ponsard
+ * @version 16.06.2016
  */
 
 public class MotionElement extends Element {

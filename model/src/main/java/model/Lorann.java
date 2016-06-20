@@ -8,6 +8,7 @@ import contract.Permeability;
  * The Class Lorann.
  *
  * @author Jean-Guillaume Ponsard
+ * @version 16.06.2016
  */
 
 public class Lorann extends MotionElement implements ILorann {
@@ -49,7 +50,7 @@ public class Lorann extends MotionElement implements ILorann {
 	
 	public void setLorannStatement(LorannStatement lorannStatement) {
 		this.lorannStatement = lorannStatement;
-		modelchanged();
+		modelChanged();
 	}
 
 	/*
@@ -67,7 +68,7 @@ public class Lorann extends MotionElement implements ILorann {
 
 	public void addScore(int score) {
 		this.score += score;
-		modelchanged();
+		modelChanged();
 	}
 	
 }

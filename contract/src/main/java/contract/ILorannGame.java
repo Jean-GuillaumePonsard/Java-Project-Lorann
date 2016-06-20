@@ -2,6 +2,13 @@ package contract;
 
 import java.util.Observable;
 
+/**
+ * The interface ILorannGame
+ * 
+ * @author Jean-Guillaume Ponsard
+ * @version 16.06.2016
+ */
+
 public interface ILorannGame {
 
 	/**

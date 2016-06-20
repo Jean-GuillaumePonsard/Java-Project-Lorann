@@ -14,11 +14,12 @@ import contract.ILorannView;
  * The Class View.
  *
  * @author Franz Alliod
+ * @version 16.06.2016
  */
 public class LorannView implements Runnable, ILorannView {
 
 	/** The frame. */
-	private final LorannViewFrame LorannviewFrame;
+	private final LorannViewFrame lorannViewFrame;
 
 	/**
 	 * Instantiates a new view.
@@ -27,7 +28,7 @@ public class LorannView implements Runnable, ILorannView {
 	 *          the model
 	 */
 	public LorannView(final ILorannGame lorannGame) {
-		this.LorannviewFrame = new LorannViewFrame(lorannGame, "Lorann");
+		this.lorannViewFrame = new LorannViewFrame(lorannGame, "Lorann");
 		
 		}
 	/**
@@ -71,16 +72,17 @@ public class LorannView implements Runnable, ILorannView {
 	 *          the new controller
 	 */
 	public void setController(final ILorannController controller) {
-		this.LorannviewFrame.setController(controller);
+		this.lorannViewFrame.setController(controller);
 		}
+	
 	/**
-	 * Close the frame
-	 * @dispose
-	 * destroy JFrame object
+	 * Open the Frame
+	 * 
+	 * It sets the frame visible
 	 */
 	public void run() {
 		// TODO Auto-generated method stub
-		this.LorannviewFrame.setVisible(true);
+		this.lorannViewFrame.setVisible(true);
 	}
 
 

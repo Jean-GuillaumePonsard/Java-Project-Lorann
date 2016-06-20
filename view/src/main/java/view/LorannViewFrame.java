@@ -17,13 +17,13 @@ import contract.ILorannGame;
  * The Class ViewFrame.
  *
  * @author Franz Alliod
+ * @version 16.06.2016
  */
 class LorannViewFrame extends JFrame implements KeyListener {
 
 	/** The model. */
 	
 	private ILorannGame						lorranGame;
-	// private Timer timer = new Timer(1000,this); to do ?
 
 	/** The controller. */
 	
