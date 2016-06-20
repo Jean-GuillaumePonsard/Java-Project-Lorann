@@ -18,7 +18,7 @@ import contract.ILorannMap;
 public class LorannGame extends Observable implements ILorannGame {
 
 	/** The Lorann Game Map**/
-	private ILorannMap lorannMap;
+	public ILorannMap lorannMap;
 	
 	/** The DataBase Connection that allow to get a Resultset **/
 	private DBLorannGame dbLorannGame;
