@@ -17,7 +17,7 @@ public class TestLoot {
 	 */
 	@Test
 	public void testLoot() {
-		assertNotNull(new model.Loot(0, 0, "https://www.alderac.com/loveletter/files/2014/05/Loot.jpg", 0));
+		assertNotNull(new model.Loot(0, 0, "exia.png", 0));
 		}
 
 }

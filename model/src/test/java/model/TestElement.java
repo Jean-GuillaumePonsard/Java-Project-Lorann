@@ -21,7 +21,7 @@ public class TestElement {
 	 */
 	@Test
 	public void testElement() {
-		assertNotNull(new model.Element("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", Permeability.PENETRABLE));
+		assertNotNull(new model.Element("exia.png", Permeability.PENETRABLE));
 	}
 /**
  * test method for {@link model.Element#getPermeability()}
@@ -30,11 +30,11 @@ public class TestElement {
 	public void testGetPermeability() {
        double rand = Math.random();
         if (rand < 0.5){
-        	IElement element = new model.Element("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", Permeability.PENETRABLE);
+        	IElement element = new model.Element("exia.png", Permeability.PENETRABLE);
         	assertEquals(Permeability.PENETRABLE, element.getPermeability());
         }
         else{
-        	IElement element = new model.Element("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", Permeability.BLOCKING);
+        	IElement element = new model.Element("exia.png", Permeability.BLOCKING);
         	assertEquals(Permeability.BLOCKING, element.getPermeability());
         }
 	}
@@ -46,12 +46,12 @@ public class TestElement {
 	public void testSetPermeability() {
 		double rand = Math.random();
         if (rand < 0.5){
-        	IElement element = new model.Element("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", Permeability.PENETRABLE);
+        	IElement element = new model.Element("exia.png", Permeability.PENETRABLE);
         	element.setPermeability(Permeability.BLOCKING);
         	assertEquals(Permeability.BLOCKING, element.getPermeability());
         }
         else{
-        	IElement element = new model.Element("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", Permeability.BLOCKING);
+        	IElement element = new model.Element("exia.png", Permeability.BLOCKING);
         	element.setPermeability(Permeability.PENETRABLE);
         	assertEquals(Permeability.PENETRABLE, element.getPermeability());
         }
@@ -84,7 +84,7 @@ public class TestElement {
 	 */
 	@Test
 	public void testGetX() {
-        IElement element = new model.Element("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", Permeability.BLOCKING);
+        IElement element = new model.Element("exia.png", Permeability.BLOCKING);
         int x = (int)(Math.random()*10);
         element.setX(x);
         assertEquals(x, element.getX());
@@ -95,7 +95,7 @@ public class TestElement {
 	 */
 	@Test
 	public void testSetX() {
-        IElement element = new model.Element("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", Permeability.BLOCKING);
+        IElement element = new model.Element("exia.png", Permeability.BLOCKING);
         int x = (int)(Math.random()*10);
         element.setX(x);
         assertEquals(x, element.getX());
@@ -106,7 +106,7 @@ public class TestElement {
 	 */
 	@Test
 	public void testGetY() {
-		  IElement element = new model.Element("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", Permeability.BLOCKING);
+		  IElement element = new model.Element("exia.png", Permeability.BLOCKING);
 	        int y = (int)(Math.random()*10);
 	        element.setY(y);
 	        assertEquals(y, element.getY());
@@ -117,7 +117,7 @@ public class TestElement {
 	 */
 	@Test
 	public void testSetY() {
-		IElement element = new model.Element("http://i21.servimg.com/u/f21/15/31/14/80/ludort11.png", Permeability.BLOCKING);
+		IElement element = new model.Element("exia.png", Permeability.BLOCKING);
         int y = (int)(Math.random()*10);
         element.setY(y);
         assertEquals(y, element.getY());

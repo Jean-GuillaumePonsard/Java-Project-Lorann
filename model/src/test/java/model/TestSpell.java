@@ -20,7 +20,7 @@ public class TestSpell {
 	 */
 	@Test
 	public void testSpell() {
-		assertNotNull(new model.Spell(0, 0, "https://image.freepik.com/photos-libre/boule-de-feu--rouge_19-98186.jpg"));
+		assertNotNull(new model.Spell(0, 0, "exia.png"));
 	}
 
 	/**
@@ -28,7 +28,7 @@ public class TestSpell {
 	 */
 	@Test
 	public void testGetSpellStatement() {
-		ISpell spell = new model.Spell(0, 0, "https://image.freepik.com/photos-libre/boule-de-feu--rouge_19-98186.jpg");
+		ISpell spell = new model.Spell(0, 0, "exia.png");
 		assertEquals(SpellStatement.INPOCKET, spell.getSpellStatement());
 	}
 	/**
@@ -36,7 +36,7 @@ public class TestSpell {
 	 */
 	@Test
 	public void testSetSpellStatement() {
-		ISpell spell = new model.Spell(0, 0, "https://image.freepik.com/photos-libre/boule-de-feu--rouge_19-98186.jpg");
+		ISpell spell = new model.Spell(0, 0, "exia.png");
 		spell.setSpellStatement(SpellStatement.LAUNCHEDDOWN);
 		assertEquals(SpellStatement.LAUNCHEDDOWN, spell.getSpellStatement());
 	}

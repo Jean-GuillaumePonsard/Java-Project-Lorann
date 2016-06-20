@@ -21,7 +21,7 @@ public class TestLorann {
 	 */
 	@Test
 	public void testLorann() {
-		assertNotNull(new model.Lorann(0, 0, "https://game-guide.fr/wp-content/uploads/2015/08/Marvel_Heroes_Livestream_PAXPrime-21.jpg"));	
+		assertNotNull(new model.Lorann(0, 0, "exia.png"));	
 	}
 
 	/**
@@ -29,7 +29,7 @@ public class TestLorann {
 	 */
 	@Test
 	public void testGetLorannStatement() {
-		ILorann lorann = new model.Lorann(0, 0, "https://game-guide.fr/wp-content/uploads/2015/08/Marvel_Heroes_Livestream_PAXPrime-21.jpg");
+		ILorann lorann = new model.Lorann(0, 0, "exia.png");
 		assertEquals(LorannStatement.UP, lorann.getLorannStatement());
 	}
 
@@ -38,7 +38,7 @@ public class TestLorann {
 	 */
 	@Test
 	public void testSetLorannStatement() {
-		ILorann lorann = new model.Lorann(0, 0, "https://game-guide.fr/wp-content/uploads/2015/08/Marvel_Heroes_Livestream_PAXPrime-21.jpg");
+		ILorann lorann = new model.Lorann(0, 0, "exia.png");
 		lorann.setLorannStatement(LorannStatement.DOWN);
 		assertEquals(LorannStatement.DOWN, lorann.getLorannStatement());
 	}

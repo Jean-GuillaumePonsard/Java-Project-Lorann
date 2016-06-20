@@ -20,7 +20,7 @@ public class TestDoor {
 	 */
 	@Test
 	public void testDoor() {
-		assertNotNull(new model.Wall(0, 0,"http://www.doorsonline.co/images/accessories/Wood_Door-Liner_skirting.jpg"));
+		assertNotNull(new model.Wall(0, 0,"exia.png"));
 	}
 
 	/**
@@ -28,7 +28,7 @@ public class TestDoor {
 	 */
 	@Test
 	public void testSetGateStatement() {
-		IDoor door = new model.Door(0, 0,"http://www.doorsonline.co/images/accessories/Wood_Door-Liner_skirting.jpg");
+		IDoor door = new model.Door(0, 0,"exia.png");
 		door.setGateStatement(GateStatement.OPEN);
 		assertEquals(GateStatement.OPEN, door.getGateStatement());
 	}
@@ -37,7 +37,7 @@ public class TestDoor {
 	 */
 	@Test
 	public void testGetGateStatement() {
-		IDoor door = new model.Door(0, 0,"http://www.doorsonline.co/images/accessories/Wood_Door-Liner_skirting.jpg");
+		IDoor door = new model.Door(0, 0,"exia.png");
 		assertEquals(GateStatement.LOCK, door.getGateStatement());
 	}
 
