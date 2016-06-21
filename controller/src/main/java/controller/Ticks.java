@@ -30,7 +30,7 @@ public class Ticks implements Runnable  {
 	public void run() {
 		// TODO Auto-generated method stub
 		try{
-			while(true)
+			while(true && lorannController != null)
 			{
 				lorannController.monsterAi();
 				lorannController.moveSpell();

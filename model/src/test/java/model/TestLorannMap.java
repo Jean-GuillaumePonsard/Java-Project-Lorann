@@ -185,15 +185,6 @@ public class TestLorannMap {
 		assertEquals(y, monster.getY());
 	}
 
-//	@Test
-//	public void testAddMonster() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testRemoveMonsterByIndex() {
-//		fail("Not yet implemented");
-//	}
 
 	/**
 	 * test method for {@link model.LorannMap#getLorannSpell()}
@@ -258,11 +249,6 @@ public class TestLorannMap {
 		assertNotSame(door1, door2);
 		}				
 
-
-//	@Test
-//	public void testGetObservable() {
-//		assertNotNull(getObservable);
-//	}
 
 	/**
 	 * test method for {@link model.LorannMap#moveElement(contract.IElement, int, int)}
