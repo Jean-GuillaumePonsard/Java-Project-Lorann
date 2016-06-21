@@ -280,7 +280,7 @@ public class LorannController implements ILorannController {
 	public void win()
 	{
 		IElement lorann = lorannGame.getLorannMap().getLorann();
-		printMessage("YOU WIN, you scored :"+((ILorann)lorann).getScore()+"points");
+		printMessage("YOU WON, you scored :"+((ILorann)lorann).getScore()+"points");
 		exit(0);
 	}
 	
