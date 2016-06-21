@@ -12,6 +12,7 @@ import org.junit.Test;
  * The Class TestWall.
  *
  * @author Adrien Thevenet 
+ * @version 16.06.2016
  */
 public class TestWall {
 

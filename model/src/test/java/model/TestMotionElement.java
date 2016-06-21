@@ -13,7 +13,7 @@ import contract.Permeability;
  * The Class TestMotionElement.
  * 
  * @author Adrien Thevenet
- *
+ *@version 16.06.2016
  */
 public class TestMotionElement {
 

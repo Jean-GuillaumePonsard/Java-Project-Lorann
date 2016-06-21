@@ -11,7 +11,8 @@ import org.junit.Test;
 /**
  * The Class TestMonster.
  *
- * @author Adrien Thevenet alias chaospreader
+ * @author Adrien Thevenet
+ * @version 16.06.2016
  */
 public class TestMonster {
 

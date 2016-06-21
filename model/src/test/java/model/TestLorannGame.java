@@ -11,6 +11,12 @@ import org.junit.Test;
 import contract.ILorannMap;
 import model.LorannGame;
 
+/**
+ * Test Class LorannGame
+ * 
+ * @author Adrien Thevenet
+ * @version 16.06.2016
+ */
 public class TestLorannGame {
 
 	/**

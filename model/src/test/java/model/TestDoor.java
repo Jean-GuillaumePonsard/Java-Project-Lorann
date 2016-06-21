@@ -15,6 +15,7 @@ import contract.IDoor;
  * The Class TestDoor.
  *
  * @author Adrien Thevenet
+ * @version 16.06.2016
  */
 public class TestDoor {
 	/**

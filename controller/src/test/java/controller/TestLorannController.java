@@ -15,7 +15,12 @@ import mock.MockLorann;
 import mock.MockMonster;
 import mock.MockSpell;
 import mock.MockWall;
-
+/**
+ * Test Class LorannController
+ * 
+ * @author Adrien Thevenet
+ *@version 16.06.2016
+ */
 public class TestLorannController {
 	
 	

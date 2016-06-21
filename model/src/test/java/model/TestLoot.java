@@ -12,7 +12,7 @@ import org.junit.Test;
  * The class TestLoot
  * 
  * @author Adrien Thevenet
- *
+ *@version 16.06.2016
  */
 public class TestLoot {
 
